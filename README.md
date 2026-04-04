@@ -5,10 +5,12 @@ Draft skill repo for a writing skill that combines two jobs that are usually spl
 - remove AI-sounding prose and abstraction-heavy phrasing
 - produce documents that are readable on their own, with enough context and clear structure
 
-The current draft merges ideas from:
+The current draft merges two source lines:
 
-- `humanize`
-- `human-readable-doc-composer`
+- external anti-slop reference work from `stop-slop`
+- existing internal document-composition ideas from `human-readable-doc-composer`
+
+`humanize` is treated here as the user's own adjacent skill, not as an external source to borrow from blindly. It is a nearby internal precedent, not the reference baseline for this draft.
 
 ## Goal
 
