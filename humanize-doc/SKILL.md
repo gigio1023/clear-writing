@@ -1,5 +1,5 @@
 ---
-name: deslop-doc-writer
+name: humanize-doc
 description: >
   Rewrite drafts, notes, and documents so they read like competent human writing rather than
   AI output. Use when the user asks to humanize prose, deslop text, rewrite for readability,
@@ -9,7 +9,7 @@ description: >
   fact-checking, or grammar-only edits.
 ---
 
-# Deslop Doc Writer
+# Humanize Doc
 
 ## Quick Start
 

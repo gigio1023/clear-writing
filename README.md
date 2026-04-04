@@ -1,4 +1,4 @@
-# deslop-doc-writer
+# humanize-doc
 
 [English](README.md) | [한국어](README.ko.md)
 
@@ -18,7 +18,7 @@ The current draft merges two source lines:
 
 This repo is currently private.
 
-- `npx skills add` works if you have GitHub access to `gigio1023/deslop-doc-writer`
+- `npx skills add` works if you have GitHub access to `gigio1023/humanize-doc`
 - it will not show up in public `skills.sh` search or leaderboard while it stays private
 
 ### npx skills
@@ -26,15 +26,15 @@ This repo is currently private.
 Direct install by repo:
 
 ```bash
-npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer
+npx skills add gigio1023/humanize-doc --skill humanize-doc
 ```
 
 Useful variants:
 
 ```bash
-npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer --agent codex
-npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer --agent claude-code
-npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer -g
+npx skills add gigio1023/humanize-doc --skill humanize-doc --agent codex
+npx skills add gigio1023/humanize-doc --skill humanize-doc --agent claude-code
+npx skills add gigio1023/humanize-doc --skill humanize-doc -g
 ```
 
 Notes:
@@ -48,46 +48,46 @@ Notes:
 <details>
 <summary>Claude Code</summary>
 
-Copy the skill folder into `~/.claude/skills/deslop-doc-writer`:
+Copy the skill folder into `~/.claude/skills/humanize-doc`:
 
 ```bash
 mkdir -p ~/.claude/skills && \
-git clone https://github.com/gigio1023/deslop-doc-writer.git /tmp/deslop-doc-writer && \
-cp -r /tmp/deslop-doc-writer/deslop-doc-writer ~/.claude/skills/ && \
-rm -rf /tmp/deslop-doc-writer
+git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+cp -r /tmp/humanize-doc/humanize-doc ~/.claude/skills/ && \
+rm -rf /tmp/humanize-doc
 ```
 </details>
 
 <details>
 <summary>Codex CLI</summary>
 
-Copy the skill folder into `~/.codex/skills/deslop-doc-writer`:
+Copy the skill folder into `~/.codex/skills/humanize-doc`:
 
 ```bash
 mkdir -p ~/.codex/skills && \
-git clone https://github.com/gigio1023/deslop-doc-writer.git /tmp/deslop-doc-writer && \
-cp -r /tmp/deslop-doc-writer/deslop-doc-writer ~/.codex/skills/ && \
-rm -rf /tmp/deslop-doc-writer
+git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+cp -r /tmp/humanize-doc/humanize-doc ~/.codex/skills/ && \
+rm -rf /tmp/humanize-doc
 ```
 </details>
 
 <details>
 <summary>Other agents</summary>
 
-For agents that follow the shared `.agents/skills` convention, copy the skill into `~/.agents/skills/deslop-doc-writer`:
+For agents that follow the shared `.agents/skills` convention, copy the skill into `~/.agents/skills/humanize-doc`:
 
 ```bash
 mkdir -p ~/.agents/skills && \
-git clone https://github.com/gigio1023/deslop-doc-writer.git /tmp/deslop-doc-writer && \
-cp -r /tmp/deslop-doc-writer/deslop-doc-writer ~/.agents/skills/ && \
-rm -rf /tmp/deslop-doc-writer
+git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+cp -r /tmp/humanize-doc/humanize-doc ~/.agents/skills/ && \
+rm -rf /tmp/humanize-doc
 ```
 </details>
 
 Manual rule of thumb:
 
-- copy `deslop-doc-writer/`
-- keep the folder name as `deslop-doc-writer`
+- copy `humanize-doc/`
+- keep the folder name as `humanize-doc`
 - put it under your agent's skills directory
 
 ## Goal
@@ -105,7 +105,7 @@ The working assumption is that these are usually the same problem from two angle
 ## Repo layout
 
 ```text
-deslop-doc-writer/
+humanize-doc/
   SKILL.md
   references/
     anti-slop-patterns.md
@@ -131,6 +131,6 @@ docs/
 
 ## Next draft questions
 
-- Should this remain one skill or split into `deslop` + `doc-compose` later?
+- Should this remain one skill or split into `humanize` + `doc-compose` later?
 - How much repo-specific terminology policy should live in the skill vs references?
 - Should short-form outputs like DM/email use a narrower sub-workflow?

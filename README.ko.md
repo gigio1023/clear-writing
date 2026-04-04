@@ -1,4 +1,4 @@
-# deslop-doc-writer
+# humanize-doc
 
 [English](README.md) | [한국어](README.ko.md)
 
@@ -15,7 +15,7 @@ AI 티가 나는 문장과 추상적인 표현을 줄이면서, 읽는 사람이
 
 이 repo는 현재 private 입니다.
 
-- `gigio1023/deslop-doc-writer`에 접근 권한이 있으면 `npx skills add`로 설치할 수 있습니다
+- `gigio1023/humanize-doc`에 접근 권한이 있으면 `npx skills add`로 설치할 수 있습니다
 - private 상태에서는 public `skills.sh` 검색이나 leaderboard 노출을 기대하면 안 됩니다
 
 ### npx skills
@@ -23,15 +23,15 @@ AI 티가 나는 문장과 추상적인 표현을 줄이면서, 읽는 사람이
 repo를 직접 지정해서 설치:
 
 ```bash
-npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer
+npx skills add gigio1023/humanize-doc --skill humanize-doc
 ```
 
 자주 쓰는 변형:
 
 ```bash
-npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer --agent codex
-npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer --agent claude-code
-npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer -g
+npx skills add gigio1023/humanize-doc --skill humanize-doc --agent codex
+npx skills add gigio1023/humanize-doc --skill humanize-doc --agent claude-code
+npx skills add gigio1023/humanize-doc --skill humanize-doc -g
 ```
 
 메모:
@@ -45,46 +45,46 @@ npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer -g
 <details>
 <summary>Claude Code</summary>
 
-`deslop-doc-writer` 폴더를 `~/.claude/skills/deslop-doc-writer` 아래로 복사합니다:
+`humanize-doc` 폴더를 `~/.claude/skills/humanize-doc` 아래로 복사합니다:
 
 ```bash
 mkdir -p ~/.claude/skills && \
-git clone https://github.com/gigio1023/deslop-doc-writer.git /tmp/deslop-doc-writer && \
-cp -r /tmp/deslop-doc-writer/deslop-doc-writer ~/.claude/skills/ && \
-rm -rf /tmp/deslop-doc-writer
+git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+cp -r /tmp/humanize-doc/humanize-doc ~/.claude/skills/ && \
+rm -rf /tmp/humanize-doc
 ```
 </details>
 
 <details>
 <summary>Codex CLI</summary>
 
-`deslop-doc-writer` 폴더를 `~/.codex/skills/deslop-doc-writer` 아래로 복사합니다:
+`humanize-doc` 폴더를 `~/.codex/skills/humanize-doc` 아래로 복사합니다:
 
 ```bash
 mkdir -p ~/.codex/skills && \
-git clone https://github.com/gigio1023/deslop-doc-writer.git /tmp/deslop-doc-writer && \
-cp -r /tmp/deslop-doc-writer/deslop-doc-writer ~/.codex/skills/ && \
-rm -rf /tmp/deslop-doc-writer
+git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+cp -r /tmp/humanize-doc/humanize-doc ~/.codex/skills/ && \
+rm -rf /tmp/humanize-doc
 ```
 </details>
 
 <details>
 <summary>Other agents</summary>
 
-공용 `.agents/skills` 규약을 따르는 agent는 `~/.agents/skills/deslop-doc-writer` 아래로 복사합니다:
+공용 `.agents/skills` 규약을 따르는 agent는 `~/.agents/skills/humanize-doc` 아래로 복사합니다:
 
 ```bash
 mkdir -p ~/.agents/skills && \
-git clone https://github.com/gigio1023/deslop-doc-writer.git /tmp/deslop-doc-writer && \
-cp -r /tmp/deslop-doc-writer/deslop-doc-writer ~/.agents/skills/ && \
-rm -rf /tmp/deslop-doc-writer
+git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+cp -r /tmp/humanize-doc/humanize-doc ~/.agents/skills/ && \
+rm -rf /tmp/humanize-doc
 ```
 </details>
 
 수동 설치 규칙:
 
-- `deslop-doc-writer/` 폴더 자체를 복사합니다
-- 폴더 이름은 `deslop-doc-writer`로 유지합니다
+- `humanize-doc/` 폴더 자체를 복사합니다
+- 폴더 이름은 `humanize-doc`로 유지합니다
 - 사용하는 agent의 skills 디렉터리 아래에 둡니다
 
 ## Goal
@@ -102,7 +102,7 @@ rm -rf /tmp/deslop-doc-writer
 ## Repo layout
 
 ```text
-deslop-doc-writer/
+humanize-doc/
   SKILL.md
   references/
     anti-slop-patterns.md
@@ -128,6 +128,6 @@ docs/
 
 ## Next draft questions
 
-- 이걸 계속 하나의 skill로 둘지, `deslop` + `doc-compose`로 나눌지
+- 이걸 계속 하나의 skill로 둘지, `humanize` + `doc-compose`로 나눌지
 - repo-specific terminology 정책을 어디까지 skill 본문에 넣고 어디까지 reference로 뺄지
 - DM/email 같은 short-form 출력을 별도 하위 workflow로 둘지
