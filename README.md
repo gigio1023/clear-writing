@@ -1,5 +1,7 @@
 # deslop-doc-writer
 
+[English](README.md) | [한국어](README.ko.md)
+
 Draft skill repo for a writing skill that combines two jobs that are usually split apart:
 
 - remove AI-sounding prose and abstraction-heavy phrasing
