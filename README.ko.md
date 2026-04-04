@@ -1,133 +1,159 @@
 # humanize-doc
 
-[English](README.md) | [한국어](README.ko.md)
+AI 티가 나는 초안, 거친 메모, 읽기 어려운 문서를 사람이 쓴 것처럼 읽히는 문서로 다시 쓰기 위한 writing skill입니다.
 
-AI 티가 나는 문장과 추상적인 표현을 줄이면서, 읽는 사람이 맥락 없이도 이해할 수 있는 문서를 만들기 위한 draft skill repo입니다.
+이 repo는 `humanize-doc` 하나를 패키징합니다. 역할은 분명합니다.
 
-이 초안은 두 갈래를 합칩니다.
+- AI 냄새가 나는 과장되고 추상적인 문장을 줄이기
+- 원래 대화 맥락이 없어도 읽히는 문서 구조로 다시 세우기
 
-- `stop-slop`에서 참고한 anti-slop 접근
-- `human-readable-doc-composer`에 있던 문서 구성 아이디어
+즉, 단순 문법 교정이 아니라 **rewrite + readability**용 skill입니다.
 
-`humanize`는 외부 레퍼런스가 아니라 사용자 내부 자산으로 취급합니다. 즉, 이 repo의 외부 출처 기준점은 아니고, 인접한 내부 선행 작업으로 봅니다.
+## 이 skill이 해결하는 문제
+
+`humanize-doc`는 보통 AI 글의 문제를 두 층으로 봅니다.
+
+1. **문장 수준의 slop**
+   - vague label
+   - placeholder actor
+   - false agency
+   - 기계적인 리듬
+2. **문서 수준의 약함**
+   - 부족한 맥락
+   - 약한 구조
+   - 흔들리는 용어
+   - 이전 채팅을 알아야만 이해되는 전개
+
+이 skill은 둘 중 하나만 고치지 않고, 둘을 함께 고쳐서 결과물이 더 읽히고 더 믿을 만하게 보이도록 합니다.
+
+## 언제 쓰면 좋은가
+
+이런 요청에 잘 맞습니다.
+
+- “이거 humanize 해줘”
+- “사람이 쓴 것처럼 다시 써줘”
+- “이 문서를 읽기 좋게 고쳐줘”
+- “이 메모를 standalone 문서로 정리해줘”
+- “사실은 유지하면서 AI 티만 줄여줘”
+
+## 언제 쓰면 안 되는가
+
+다음 작업에는 맞지 않습니다.
+
+- 번역
+- fact-checking이나 웹 검증
+- 새로운 도메인 전문지식이 필요한 리뷰
+- 구조는 충분히 괜찮고 문법만 손보면 되는 경우
+
+## 모드
+
+이 skill은 세 가지 모드로 동작합니다.
+
+### `correction`
+구조는 대체로 맞고, 진짜 문제는 문장 톤, vague함, filler, AI 냄새일 때 사용합니다.
+
+### `compose`
+소스가 메모, bullet, fragment, 약한 초안이라서 그대로는 문서로 읽히지 않을 때 사용합니다.
+
+### `hybrid`
+두 문제가 같이 있을 때 사용합니다. 대부분의 중간 길이 이상 문서에서는 이 모드가 기본입니다.
 
 ## Install
 
 이 repo는 현재 private 입니다.
 
-- `gigio1023/humanize-doc`에 접근 권한이 있으면 `npx skills add`로 설치할 수 있습니다
-- private 상태에서는 public `skills.sh` 검색이나 leaderboard 노출을 기대하면 안 됩니다
-
-### npx skills
-
-repo를 직접 지정해서 설치:
+### Skills CLI
 
 ```bash
-npx skills add gigio1023/humanize-doc --skill humanize-doc
+npx skills add gigio1023/humanize-doc@humanize-doc
+npx skills add gigio1023/humanize-doc@humanize-doc -g
 ```
-
-자주 쓰는 변형:
-
-```bash
-npx skills add gigio1023/humanize-doc --skill humanize-doc --agent codex
-npx skills add gigio1023/humanize-doc --skill humanize-doc --agent claude-code
-npx skills add gigio1023/humanize-doc --skill humanize-doc -g
-```
-
-메모:
-
-- 기본 설치는 project-local 입니다
-- `-g`를 붙이면 global 설치입니다
-- private repo이므로 public `find`나 `skills.sh` discovery보다 direct `add`가 더 확실합니다
 
 ### Manual install
 
 <details>
 <summary>Claude Code</summary>
 
-`humanize-doc` 폴더를 `~/.claude/skills/humanize-doc` 아래로 복사합니다:
-
 ```bash
 mkdir -p ~/.claude/skills && \
-git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-cp -r /tmp/humanize-doc/humanize-doc ~/.claude/skills/ && \
-rm -rf /tmp/humanize-doc
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.claude/skills/ && \
+  rm -rf /tmp/humanize-doc
 ```
 </details>
 
 <details>
 <summary>Codex CLI</summary>
 
-`humanize-doc` 폴더를 `~/.codex/skills/humanize-doc` 아래로 복사합니다:
-
 ```bash
 mkdir -p ~/.codex/skills && \
-git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-cp -r /tmp/humanize-doc/humanize-doc ~/.codex/skills/ && \
-rm -rf /tmp/humanize-doc
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.codex/skills/ && \
+  rm -rf /tmp/humanize-doc
 ```
 </details>
 
 <details>
 <summary>Other agents</summary>
 
-공용 `.agents/skills` 규약을 따르는 agent는 `~/.agents/skills/humanize-doc` 아래로 복사합니다:
-
 ```bash
 mkdir -p ~/.agents/skills && \
-git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-cp -r /tmp/humanize-doc/humanize-doc ~/.agents/skills/ && \
-rm -rf /tmp/humanize-doc
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.agents/skills/ && \
+  rm -rf /tmp/humanize-doc
 ```
 </details>
 
-수동 설치 규칙:
+## Skill 동작 방식
 
-- `humanize-doc/` 폴더 자체를 복사합니다
-- 폴더 이름은 `humanize-doc`로 유지합니다
-- 사용하는 agent의 skills 디렉터리 아래에 둡니다
+`humanize-doc/SKILL.md`의 workflow는 단순합니다.
 
-## Goal
+1. 결과물 종류를 먼저 파악합니다
+2. `references/document-modes.md`로 모드를 고릅니다
+3. anti-slop / output 규칙을 읽습니다
+4. 매체에 맞는 최소 추상화 수준으로 다시 씁니다
+5. 사실, uncertainty, intended tone을 유지합니다
+6. 마지막에 readability gate를 통과시킵니다
 
-이 skill의 목표는 보통 따로 취급되는 두 작업을 한 번에 다루는 것입니다.
+핵심 reference는 아래 네 개입니다.
 
-1. "AI가 쓴 것처럼 안 들리게 만들기"
-2. "사람이 실제로 읽고 쓸 수 있는 문서로 다시 쓰기"
+- `references/anti-slop-patterns.md`
+- `references/document-modes.md`
+- `references/output-contract.md`
+- `references/readability-gates.md`
 
-핵심 가정은 둘이 사실 같은 문제의 다른 단면이라는 점입니다.
+## 잘 맞는 요청 예시
 
-- 문장 수준 문제: label, placeholder, false agency, 기계적인 리듬
-- 문서 수준 문제: 약한 흐름, 부족한 맥락, 불안정한 용어, 과도한 압축
+- “이 전략 메모를 덜 AI스럽게 바꿔줘.”
+- “이 회의 메모를 팀에 공유할 문서로 정리해줘.”
+- “기술 내용은 유지하되 README를 더 읽기 쉽게 다시 써줘.”
+- “사실과 불확실성은 유지하고, 문장만 사람이 쓴 것처럼 다듬어줘.”
 
 ## Repo layout
 
 ```text
 humanize-doc/
-  SKILL.md
-  references/
-    anti-slop-patterns.md
-    document-modes.md
-    output-contract.md
-    readability-gates.md
-docs/
-  merge-notes.md
+├── README.md
+├── README.ko.md
+├── docs/
+│   ├── eval-prompts.md
+│   └── merge-notes.md
+└── humanize-doc/
+    ├── SKILL.md
+    └── references/
+        ├── anti-slop-patterns.md
+        ├── document-modes.md
+        ├── output-contract.md
+        └── readability-gates.md
 ```
 
-## Current scope
+## Development notes
 
-- Correction mode: 사실은 유지한 채 기존 문서를 다듬기
-- Compose mode: 메모나 거친 초안을 standalone 문서로 재구성하기
-- Hybrid mode: 대부분의 중간 길이 이상 문서에서 구조와 문장 둘 다 손보기
+이 repo는 두 갈래를 합친 결과물입니다.
 
-## Not in scope
+- `stop-slop`에서 온 anti-slop 레퍼런스
+- `human-readable-doc-composer`에서 온 문서 구성 아이디어
 
-- fact-checking이나 웹 검증
-- 번역
-- readability 문제 없이 문법만 고치는 작업
-- 도메인 전문성 자체를 대신하는 작업
+어떻게 합쳤는지는 `docs/merge-notes.md`에 기록되어 있고, 개선용 평가 프롬프트는 `docs/eval-prompts.md`에 정리되어 있습니다.
 
-## Next draft questions
-
-- 이걸 계속 하나의 skill로 둘지, `humanize` + `doc-compose`로 나눌지
-- repo-specific terminology 정책을 어디까지 skill 본문에 넣고 어디까지 reference로 뺄지
-- DM/email 같은 short-form 출력을 별도 하위 workflow로 둘지
+여기서 `humanize`는 외부 기준점이 아니라, 인접한 내부 선행 자산으로 취급합니다.

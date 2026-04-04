@@ -1,136 +1,159 @@
 # humanize-doc
 
-[English](README.md) | [한국어](README.ko.md)
+A writing skill for turning AI-sounding drafts, rough notes, and weak documents into writing that reads like a competent human wrote it.
 
-Draft skill repo for a writing skill that combines two jobs that are usually split apart:
+This repo packages one skill, `humanize-doc`, with a narrow job:
 
-- remove AI-sounding prose and abstraction-heavy phrasing
-- produce documents that are readable on their own, with enough context and clear structure
+- remove synthetic, inflated, abstraction-heavy prose
+- rebuild the document so it still works for a reader who was not in the original chat
 
-The current draft merges two source lines:
+It is not a grammar checker and it is not a fact-checking workflow. It is a **rewrite + readability** skill.
 
-- external anti-slop reference work from `stop-slop`
-- existing internal document-composition ideas from `human-readable-doc-composer`
+## What the skill does
 
-`humanize` is treated here as the user's own adjacent skill, not as an external source to borrow from blindly. It is a nearby internal precedent, not the reference baseline for this draft.
+`humanize-doc` treats most bad AI writing as a two-layer problem:
+
+1. **sentence-level slop**
+   - vague labels
+   - placeholder actors
+   - false agency
+   - repetitive cadence
+2. **document-level weakness**
+   - missing context
+   - weak structure
+   - unstable terminology
+   - reasoning that only makes sense if you saw the earlier conversation
+
+The skill fixes both layers together so the output is easier to read and easier to trust.
+
+## When to use it
+
+Use this skill when the request sounds like any of these:
+
+- “humanize this”
+- “rewrite this so it reads like a person wrote it”
+- “make this document readable”
+- “organize these notes into a standalone doc”
+- “remove AI smell without losing the facts”
+
+## When not to use it
+
+Do **not** use this skill for:
+
+- translation
+- fact-checking or web verification
+- domain-expert review that needs new subject-matter knowledge
+- grammar-only cleanup when the document structure is already fine
+
+## Modes
+
+The skill has three working modes.
+
+### `correction`
+Use when the structure is mostly right and the real problem is synthetic prose, vagueness, filler, or AI smell.
+
+### `compose`
+Use when the source is rough notes, fragments, bullets, or a weak draft that does not stand on its own.
+
+### `hybrid`
+Use when both problems are present. This is the default for most medium or long documents.
 
 ## Install
 
 This repo is currently private.
 
-- `npx skills add` works if you have GitHub access to `gigio1023/humanize-doc`
-- it will not show up in public `skills.sh` search or leaderboard while it stays private
-
-### npx skills
-
-Direct install by repo:
+### Skills CLI
 
 ```bash
-npx skills add gigio1023/humanize-doc --skill humanize-doc
+npx skills add gigio1023/humanize-doc@humanize-doc
+npx skills add gigio1023/humanize-doc@humanize-doc -g
 ```
-
-Useful variants:
-
-```bash
-npx skills add gigio1023/humanize-doc --skill humanize-doc --agent codex
-npx skills add gigio1023/humanize-doc --skill humanize-doc --agent claude-code
-npx skills add gigio1023/humanize-doc --skill humanize-doc -g
-```
-
-Notes:
-
-- default install is project-local
-- use `-g` for a global install
-- because the repo is private, direct `add` is the reliable path; public `find`/`skills.sh` discovery is not
 
 ### Manual install
 
 <details>
 <summary>Claude Code</summary>
 
-Copy the skill folder into `~/.claude/skills/humanize-doc`:
-
 ```bash
 mkdir -p ~/.claude/skills && \
-git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-cp -r /tmp/humanize-doc/humanize-doc ~/.claude/skills/ && \
-rm -rf /tmp/humanize-doc
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.claude/skills/ && \
+  rm -rf /tmp/humanize-doc
 ```
 </details>
 
 <details>
 <summary>Codex CLI</summary>
 
-Copy the skill folder into `~/.codex/skills/humanize-doc`:
-
 ```bash
 mkdir -p ~/.codex/skills && \
-git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-cp -r /tmp/humanize-doc/humanize-doc ~/.codex/skills/ && \
-rm -rf /tmp/humanize-doc
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.codex/skills/ && \
+  rm -rf /tmp/humanize-doc
 ```
 </details>
 
 <details>
 <summary>Other agents</summary>
 
-For agents that follow the shared `.agents/skills` convention, copy the skill into `~/.agents/skills/humanize-doc`:
-
 ```bash
 mkdir -p ~/.agents/skills && \
-git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-cp -r /tmp/humanize-doc/humanize-doc ~/.agents/skills/ && \
-rm -rf /tmp/humanize-doc
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.agents/skills/ && \
+  rm -rf /tmp/humanize-doc
 ```
 </details>
 
-Manual rule of thumb:
+## How the skill works
 
-- copy `humanize-doc/`
-- keep the folder name as `humanize-doc`
-- put it under your agent's skills directory
+The workflow in `humanize-doc/SKILL.md` is intentionally simple:
 
-## Goal
+1. identify the deliverable type
+2. choose a mode using `references/document-modes.md`
+3. load the anti-slop and output rules
+4. rewrite at the lowest abstraction level that still fits the medium
+5. preserve facts, uncertainty, and intended tone
+6. run the readability gates before delivering
 
-Build one skill that can handle both:
+The key reference files are:
 
-1. "make this sound less AI-generated"
-2. "rewrite this into a document people can actually read and use"
+- `references/anti-slop-patterns.md`
+- `references/document-modes.md`
+- `references/output-contract.md`
+- `references/readability-gates.md`
 
-The working assumption is that these are usually the same problem from two angles:
+## Example requests
 
-- sentence-level problem: vague labels, placeholders, false agency, metronomic rhythm
-- document-level problem: weak flow, missing context, unstable terminology, over-compressed reasoning
+- “Make this strategy memo sound less AI-generated.”
+- “Turn these meeting notes into a document I can send to the team.”
+- “Rewrite this README so it is clearer without losing technical detail.”
+- “Keep the facts and uncertainty, but make the prose read like competent human writing.”
 
 ## Repo layout
 
 ```text
 humanize-doc/
-  SKILL.md
-  references/
-    anti-slop-patterns.md
-    document-modes.md
-    output-contract.md
-    readability-gates.md
-docs/
-  merge-notes.md
+├── README.md
+├── README.ko.md
+├── docs/
+│   ├── eval-prompts.md
+│   └── merge-notes.md
+└── humanize-doc/
+    ├── SKILL.md
+    └── references/
+        ├── anti-slop-patterns.md
+        ├── document-modes.md
+        ├── output-contract.md
+        └── readability-gates.md
 ```
 
-## Current scope
+## Development notes
 
-- Correction mode: rewrite an existing draft without changing facts
-- Compose mode: turn messy notes or partial drafts into a readable standalone document
-- Hybrid mode: default for most medium/long docs, where both correction and restructuring are needed
+This repo combines two source lines:
 
-## Not in scope
+- anti-slop reference work from `stop-slop`
+- internal document-composition ideas from `human-readable-doc-composer`
 
-- Fact-checking or web verification
-- Translation
-- Pure grammar fixing with no readability issue
-- Domain expertise substitution
+`docs/merge-notes.md` records how those lines were combined. `docs/eval-prompts.md` holds prompts for testing and improving the skill.
 
-## Next draft questions
-
-- Should this remain one skill or split into `humanize` + `doc-compose` later?
-- How much repo-specific terminology policy should live in the skill vs references?
-- Should short-form outputs like DM/email use a narrower sub-workflow?
+`humanize` is treated here as an adjacent internal precedent, not as an external baseline to copy blindly.
