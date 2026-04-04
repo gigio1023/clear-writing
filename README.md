@@ -12,6 +12,82 @@ The current draft merges two source lines:
 
 `humanize` is treated here as the user's own adjacent skill, not as an external source to borrow from blindly. It is a nearby internal precedent, not the reference baseline for this draft.
 
+## Install
+
+This repo is currently private.
+
+- `npx skills add` works if you have GitHub access to `gigio1023/deslop-doc-writer`
+- it will not show up in public `skills.sh` search or leaderboard while it stays private
+
+### npx skills
+
+Direct install by repo:
+
+```bash
+npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer
+```
+
+Useful variants:
+
+```bash
+npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer --agent codex
+npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer --agent claude-code
+npx skills add gigio1023/deslop-doc-writer --skill deslop-doc-writer -g
+```
+
+Notes:
+
+- default install is project-local
+- use `-g` for a global install
+- because the repo is private, direct `add` is the reliable path; public `find`/`skills.sh` discovery is not
+
+### Manual install
+
+<details>
+<summary>Claude Code</summary>
+
+Copy the skill folder into `~/.claude/skills/deslop-doc-writer`:
+
+```bash
+mkdir -p ~/.claude/skills && \
+git clone https://github.com/gigio1023/deslop-doc-writer.git /tmp/deslop-doc-writer && \
+cp -r /tmp/deslop-doc-writer/deslop-doc-writer ~/.claude/skills/ && \
+rm -rf /tmp/deslop-doc-writer
+```
+</details>
+
+<details>
+<summary>Codex CLI</summary>
+
+Copy the skill folder into `~/.codex/skills/deslop-doc-writer`:
+
+```bash
+mkdir -p ~/.codex/skills && \
+git clone https://github.com/gigio1023/deslop-doc-writer.git /tmp/deslop-doc-writer && \
+cp -r /tmp/deslop-doc-writer/deslop-doc-writer ~/.codex/skills/ && \
+rm -rf /tmp/deslop-doc-writer
+```
+</details>
+
+<details>
+<summary>Other agents</summary>
+
+For agents that follow the shared `.agents/skills` convention, copy the skill into `~/.agents/skills/deslop-doc-writer`:
+
+```bash
+mkdir -p ~/.agents/skills && \
+git clone https://github.com/gigio1023/deslop-doc-writer.git /tmp/deslop-doc-writer && \
+cp -r /tmp/deslop-doc-writer/deslop-doc-writer ~/.agents/skills/ && \
+rm -rf /tmp/deslop-doc-writer
+```
+</details>
+
+Manual rule of thumb:
+
+- copy `deslop-doc-writer/`
+- keep the folder name as `deslop-doc-writer`
+- put it under your agent's skills directory
+
 ## Goal
 
 Build one skill that can handle both:
