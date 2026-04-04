@@ -9,6 +9,56 @@ AI 티가 나는 초안, 거친 메모, 읽기 어려운 문서를 사람이 쓴
 
 즉, 단순 문법 교정이 아니라 **rewrite + readability**용 skill입니다.
 
+## Installation
+
+설치 방식은 플랫폼마다 조금 다르지만, 기본 원칙은 같습니다. 가능하면 먼저 skills ecosystem으로 설치하고, 직접 파일 복사가 필요할 때만 수동 설치를 사용합니다.
+
+### Skills CLI
+
+```bash
+npx skills add gigio1023/humanize-doc@humanize-doc
+npx skills add gigio1023/humanize-doc@humanize-doc -g
+```
+
+### Claude Code
+
+```bash
+mkdir -p ~/.claude/skills && \
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.claude/skills/ && \
+  rm -rf /tmp/humanize-doc
+```
+
+### Codex CLI
+
+```bash
+mkdir -p ~/.codex/skills && \
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.codex/skills/ && \
+  rm -rf /tmp/humanize-doc
+```
+
+### Other skills-compatible agents
+
+```bash
+mkdir -p ~/.agents/skills && \
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.agents/skills/ && \
+  rm -rf /tmp/humanize-doc
+```
+
+### Verify installation
+
+새 세션을 열고, 문장 톤 수정과 문서 재구성이 동시에 필요한 요청을 줘보면 됩니다.
+
+예:
+
+- `이 메모를 humanize 해줘.`
+- `이 노트를 읽히는 standalone 문서로 바꿔줘.`
+- `기술 내용은 유지하고 README를 더 사람답게 다시 써줘.`
+
+설치가 잘 됐다면, 에이전트가 단순 문장 치환이 아니라 문서 전체의 readability까지 같이 손보는 방향으로 반응해야 합니다.
+
 ## 이 skill이 해결하는 문제
 
 `humanize-doc`는 보통 AI 글의 문제를 두 층으로 봅니다.
@@ -30,11 +80,11 @@ AI 티가 나는 초안, 거친 메모, 읽기 어려운 문서를 사람이 쓴
 
 이런 요청에 잘 맞습니다.
 
-- “이거 humanize 해줘”
-- “사람이 쓴 것처럼 다시 써줘”
-- “이 문서를 읽기 좋게 고쳐줘”
-- “이 메모를 standalone 문서로 정리해줘”
-- “사실은 유지하면서 AI 티만 줄여줘”
+- `이거 humanize 해줘`
+- `사람이 쓴 것처럼 다시 써줘`
+- `이 문서를 읽기 좋게 고쳐줘`
+- `이 메모를 standalone 문서로 정리해줘`
+- `사실은 유지하면서 AI 티만 줄여줘`
 
 ## 언제 쓰면 안 되는가
 
@@ -47,8 +97,6 @@ AI 티가 나는 초안, 거친 메모, 읽기 어려운 문서를 사람이 쓴
 
 ## 모드
 
-이 skill은 세 가지 모드로 동작합니다.
-
 ### `correction`
 구조는 대체로 맞고, 진짜 문제는 문장 톤, vague함, filler, AI 냄새일 때 사용합니다.
 
@@ -57,52 +105,6 @@ AI 티가 나는 초안, 거친 메모, 읽기 어려운 문서를 사람이 쓴
 
 ### `hybrid`
 두 문제가 같이 있을 때 사용합니다. 대부분의 중간 길이 이상 문서에서는 이 모드가 기본입니다.
-
-## Install
-
-이 repo는 현재 private 입니다.
-
-### Skills CLI
-
-```bash
-npx skills add gigio1023/humanize-doc@humanize-doc
-npx skills add gigio1023/humanize-doc@humanize-doc -g
-```
-
-### Manual install
-
-<details>
-<summary>Claude Code</summary>
-
-```bash
-mkdir -p ~/.claude/skills && \
-  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-  cp -r /tmp/humanize-doc/humanize-doc ~/.claude/skills/ && \
-  rm -rf /tmp/humanize-doc
-```
-</details>
-
-<details>
-<summary>Codex CLI</summary>
-
-```bash
-mkdir -p ~/.codex/skills && \
-  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-  cp -r /tmp/humanize-doc/humanize-doc ~/.codex/skills/ && \
-  rm -rf /tmp/humanize-doc
-```
-</details>
-
-<details>
-<summary>Other agents</summary>
-
-```bash
-mkdir -p ~/.agents/skills && \
-  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-  cp -r /tmp/humanize-doc/humanize-doc ~/.agents/skills/ && \
-  rm -rf /tmp/humanize-doc
-```
-</details>
 
 ## Skill 동작 방식
 
@@ -124,10 +126,10 @@ mkdir -p ~/.agents/skills && \
 
 ## 잘 맞는 요청 예시
 
-- “이 전략 메모를 덜 AI스럽게 바꿔줘.”
-- “이 회의 메모를 팀에 공유할 문서로 정리해줘.”
-- “기술 내용은 유지하되 README를 더 읽기 쉽게 다시 써줘.”
-- “사실과 불확실성은 유지하고, 문장만 사람이 쓴 것처럼 다듬어줘.”
+- `이 전략 메모를 덜 AI스럽게 바꿔줘.`
+- `이 회의 메모를 팀에 공유할 문서로 정리해줘.`
+- `기술 내용은 유지하되 README를 더 읽기 쉽게 다시 써줘.`
+- `사실과 불확실성은 유지하고, 문장만 사람이 쓴 것처럼 다듬어줘.`
 
 ## Repo layout
 

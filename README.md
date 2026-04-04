@@ -7,7 +7,57 @@ This repo packages one skill, `humanize-doc`, with a narrow job:
 - remove synthetic, inflated, abstraction-heavy prose
 - rebuild the document so it still works for a reader who was not in the original chat
 
-It is not a grammar checker and it is not a fact-checking workflow. It is a **rewrite + readability** skill.
+It is not a grammar checker and it is not a fact-checking workflow. It is a rewrite-and-readability skill.
+
+## Installation
+
+Installation differs a little by platform, but the recommended path is the same: use the skills ecosystem first, and copy files manually only when you need a direct local install.
+
+### Skills CLI
+
+```bash
+npx skills add gigio1023/humanize-doc@humanize-doc
+npx skills add gigio1023/humanize-doc@humanize-doc -g
+```
+
+### Claude Code
+
+```bash
+mkdir -p ~/.claude/skills && \
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.claude/skills/ && \
+  rm -rf /tmp/humanize-doc
+```
+
+### Codex CLI
+
+```bash
+mkdir -p ~/.codex/skills && \
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.codex/skills/ && \
+  rm -rf /tmp/humanize-doc
+```
+
+### Other skills-compatible agents
+
+```bash
+mkdir -p ~/.agents/skills && \
+  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
+  cp -r /tmp/humanize-doc/humanize-doc ~/.agents/skills/ && \
+  rm -rf /tmp/humanize-doc
+```
+
+### Verify installation
+
+Start a fresh session and give the agent a request that should clearly need tone cleanup plus document restructuring.
+
+For example:
+
+- `Humanize this memo without losing the facts.`
+- `Turn these notes into a readable standalone doc.`
+- `Rewrite this README so it sounds human but stays technical.`
+
+If the install worked, the agent should shift toward concrete, readable prose instead of shallow line edits.
 
 ## What the skill does
 
@@ -30,15 +80,15 @@ The skill fixes both layers together so the output is easier to read and easier 
 
 Use this skill when the request sounds like any of these:
 
-- “humanize this”
-- “rewrite this so it reads like a person wrote it”
-- “make this document readable”
-- “organize these notes into a standalone doc”
-- “remove AI smell without losing the facts”
+- `humanize this`
+- `rewrite this so it reads like a person wrote it`
+- `make this document readable`
+- `organize these notes into a standalone doc`
+- `remove AI smell without losing the facts`
 
 ## When not to use it
 
-Do **not** use this skill for:
+Do not use this skill for:
 
 - translation
 - fact-checking or web verification
@@ -46,8 +96,6 @@ Do **not** use this skill for:
 - grammar-only cleanup when the document structure is already fine
 
 ## Modes
-
-The skill has three working modes.
 
 ### `correction`
 Use when the structure is mostly right and the real problem is synthetic prose, vagueness, filler, or AI smell.
@@ -58,53 +106,7 @@ Use when the source is rough notes, fragments, bullets, or a weak draft that doe
 ### `hybrid`
 Use when both problems are present. This is the default for most medium or long documents.
 
-## Install
-
-This repo is currently private.
-
-### Skills CLI
-
-```bash
-npx skills add gigio1023/humanize-doc@humanize-doc
-npx skills add gigio1023/humanize-doc@humanize-doc -g
-```
-
-### Manual install
-
-<details>
-<summary>Claude Code</summary>
-
-```bash
-mkdir -p ~/.claude/skills && \
-  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-  cp -r /tmp/humanize-doc/humanize-doc ~/.claude/skills/ && \
-  rm -rf /tmp/humanize-doc
-```
-</details>
-
-<details>
-<summary>Codex CLI</summary>
-
-```bash
-mkdir -p ~/.codex/skills && \
-  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-  cp -r /tmp/humanize-doc/humanize-doc ~/.codex/skills/ && \
-  rm -rf /tmp/humanize-doc
-```
-</details>
-
-<details>
-<summary>Other agents</summary>
-
-```bash
-mkdir -p ~/.agents/skills && \
-  git clone https://github.com/gigio1023/humanize-doc.git /tmp/humanize-doc && \
-  cp -r /tmp/humanize-doc/humanize-doc ~/.agents/skills/ && \
-  rm -rf /tmp/humanize-doc
-```
-</details>
-
-## How the skill works
+## How it works
 
 The workflow in `humanize-doc/SKILL.md` is intentionally simple:
 
@@ -115,21 +117,21 @@ The workflow in `humanize-doc/SKILL.md` is intentionally simple:
 5. preserve facts, uncertainty, and intended tone
 6. run the readability gates before delivering
 
-The key reference files are:
+Core reference files:
 
 - `references/anti-slop-patterns.md`
 - `references/document-modes.md`
 - `references/output-contract.md`
 - `references/readability-gates.md`
 
-## Example requests
+## Example prompts
 
-- “Make this strategy memo sound less AI-generated.”
-- “Turn these meeting notes into a document I can send to the team.”
-- “Rewrite this README so it is clearer without losing technical detail.”
-- “Keep the facts and uncertainty, but make the prose read like competent human writing.”
+- `Make this strategy memo sound less AI-generated.`
+- `Turn these meeting notes into a document I can send to the team.`
+- `Rewrite this README so it is clearer without losing technical detail.`
+- `Keep the facts and uncertainty, but make the prose read like competent human writing.`
 
-## Repo layout
+## What's inside
 
 ```text
 humanize-doc/
