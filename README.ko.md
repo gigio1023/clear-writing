@@ -52,6 +52,54 @@ Fetch and follow instructions from https://raw.githubusercontent.com/gigio1023/h
 
 상세 문서: `docs/README.cursor.md`
 
+## 이 skill이 개선하는 것
+
+나쁜 AI 글은 보통 두 층에서 동시에 망가집니다.
+
+1. **문장 수준의 slop**
+   - vague label 남발
+   - placeholder actor 사용
+   - false agency와 과장된 표현
+   - 기계적인 리듬
+2. **문서 수준의 약함**
+   - 부족한 맥락
+   - 약한 흐름
+   - 흔들리는 용어
+   - 원래 대화를 알아야만 이해되는 전개
+
+`humanize-doc`는 이 둘을 함께 고쳐서 결과물이 더 읽히고, 더 믿을 만하고, 원래 채팅 바깥에서도 쓸 수 있게 만듭니다.
+
+## 예시: 문장 수준 수정
+
+**AI 티가 나는 초안**
+
+```text
+This initiative enables cross-functional alignment and drives strategic clarity across key stakeholders.
+```
+
+**더 나은 출력**
+
+```text
+This document explains who owns the rollout, what changes this week, and which teams need to review it before launch.
+```
+
+## 예시: 문서 수준 수정
+
+**약한 메모 덤프**
+
+```text
+- metrics weird
+- auth issue maybe cache
+- users saw old dashboard
+- fix before friday
+```
+
+**더 나은 출력**
+
+```text
+Users briefly saw stale dashboard data because the auth cache was not invalidated during the metrics refresh. We should fix the cache invalidation path before Friday's rollout and verify the dashboard against a cold session.
+```
+
 ## 이런 작업에 맞습니다
 
 - AI스럽게 들리는 문장 humanize
@@ -59,22 +107,12 @@ Fetch and follow instructions from https://raw.githubusercontent.com/gigio1023/h
 - 사실은 유지하고 톤만 자연스럽게 개선
 - 구조와 문장을 한 번에 다시 쓰기
 
-## 이 skill이 해결하는 문제
+## 맞지 않는 작업
 
-`humanize-doc`는 보통 AI 글의 문제를 두 층으로 봅니다.
-
-1. **문장 수준의 slop**
-   - vague label
-   - placeholder actor
-   - false agency
-   - 기계적인 리듬
-2. **문서 수준의 약함**
-   - 부족한 맥락
-   - 약한 구조
-   - 흔들리는 용어
-   - 이전 채팅을 알아야만 이해되는 전개
-
-이 skill은 둘 중 하나만 고치지 않고, 둘을 함께 고쳐서 결과물이 더 읽히고 더 믿을 만하게 보이도록 합니다.
+- 번역
+- fact-checking이나 웹 검증
+- 새로운 도메인 전문지식이 필요한 리뷰
+- 구조는 충분히 괜찮고 문법만 손보면 되는 경우
 
 ## 모드
 

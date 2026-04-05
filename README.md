@@ -52,22 +52,53 @@ Fetch and follow instructions from https://raw.githubusercontent.com/gigio1023/h
 
 Detailed docs: `docs/README.cursor.md`
 
-## What the skill does
+## What this skill improves
 
-`humanize-doc` treats most bad AI writing as a two-layer problem:
+Most bad AI writing fails in two places at once:
 
 1. **sentence-level slop**
-   - vague labels
-   - placeholder actors
-   - false agency
-   - repetitive cadence
+   - vague labels instead of concrete actions
+   - placeholder actors instead of named responsibility
+   - false agency and inflated wording
+   - repetitive, metronomic rhythm
 2. **document-level weakness**
    - missing context
-   - weak structure
+   - weak flow
    - unstable terminology
-   - reasoning that only makes sense if you saw the earlier conversation
+   - reasoning that only makes sense if you saw the earlier chat
 
-The skill fixes both layers together so the output is easier to read and easier to trust.
+`humanize-doc` fixes both layers together so the output is easier to read, easier to trust, and more durable outside the original conversation.
+
+## Example: sentence-level cleanup
+
+**Weak AI-sounding draft**
+
+```text
+This initiative enables cross-functional alignment and drives strategic clarity across key stakeholders.
+```
+
+**Better output**
+
+```text
+This document explains who owns the rollout, what changes this week, and which teams need to review it before launch.
+```
+
+## Example: document-level cleanup
+
+**Weak note dump**
+
+```text
+- metrics weird
+- auth issue maybe cache
+- users saw old dashboard
+- fix before friday
+```
+
+**Better output**
+
+```text
+Users briefly saw stale dashboard data because the auth cache was not invalidated during the metrics refresh. We should fix the cache invalidation path before Friday's rollout and verify the dashboard against a cold session.
+```
 
 ## When to use it
 
