@@ -97,7 +97,9 @@ This document explains who owns the rollout, what changes this week, and which t
 **더 나은 출력**
 
 ```text
-Users briefly saw stale dashboard data because the auth cache was not invalidated during the metrics refresh. We should fix the cache invalidation path before Friday's rollout and verify the dashboard against a cold session.
+Users saw stale dashboard data, and the metrics also looked unusual. The cause is
+not confirmed; the notes suggest the authentication cache may be involved. We
+should investigate that hypothesis and fix the issue before Friday.
 ```
 
 ## 이런 작업에 맞습니다
@@ -116,9 +118,9 @@ Users briefly saw stale dashboard data because the auth cache was not invalidate
 
 ## 모드
 
-- `correction` — 문장 톤과 prose 중심 수정
+- `correction` — 문장 톤과 prose 중심 수정. 단순 `humanize` 요청의 기본값
 - `compose` — 메모를 문서로 재구성
-- `hybrid` — 둘 다 같이
+- `hybrid` — 문장과 문서 구조에 모두 문제가 있거나 둘 다 요청한 경우
 
 ## 핵심 reference
 
