@@ -97,7 +97,9 @@ This document explains who owns the rollout, what changes this week, and which t
 **Better output**
 
 ```text
-Users briefly saw stale dashboard data because the auth cache was not invalidated during the metrics refresh. We should fix the cache invalidation path before Friday's rollout and verify the dashboard against a cold session.
+Users saw stale dashboard data, and the metrics also looked unusual. The cause is
+not confirmed; the notes suggest the authentication cache may be involved. We
+should investigate that hypothesis and fix the issue before Friday.
 ```
 
 ## When to use it
@@ -122,24 +124,24 @@ Do not use this skill for:
 ## Modes
 
 ### `correction`
-Use when the structure is mostly right and the real problem is synthetic prose, vagueness, filler, or AI smell.
+Use when the structure is mostly right and the real problem is synthetic prose, vagueness, filler, or AI smell. This is the default for a plain `humanize` request.
 
 ### `compose`
 Use when the source is rough notes, fragments, bullets, or a weak draft that does not stand on its own.
 
 ### `hybrid`
-Use when both problems are present. This is the default for most medium or long documents.
+Use when both sentence-level and document-level problems are present, or the user asks for both kinds of change.
 
 ## How it works
 
 The workflow in `humanize-doc/SKILL.md` is intentionally simple:
 
-1. identify the deliverable type
-2. choose a mode using `references/document-modes.md`
-3. load the anti-slop and output rules
+1. identify the deliverable, audience, and allowed structural change
+2. choose the narrowest mode; consult `references/document-modes.md` only when ambiguous
+3. load only the anti-slop rules for correction, the output contract for compose, or both for hybrid
 4. rewrite at the lowest abstraction level that still fits the medium
 5. preserve facts, uncertainty, and intended tone
-6. run the readability gates before delivering
+6. run the readability gates for medium or long deliverables
 
 Core reference files:
 

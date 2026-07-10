@@ -1,12 +1,11 @@
 ---
 name: humanize-doc
 description: >
-  Rewrite drafts, notes, and documents so they read like competent human writing rather than
-  AI output. Use when the user asks to humanize prose, deslop text, rewrite for readability,
-  organize messy notes into a standalone document, or make documentation clearer without losing
-  facts. Triggers include "humanize", "deslop", "AI스럽게 쓰지 말고", "이 문서 읽기 좋게 고쳐줘",
-  "rewrite this doc", "organize these notes", and "make this readable". Not for translation,
-  fact-checking, or grammar-only edits.
+  Use when the user asks to humanize or deslop prose, rewrite for readability,
+  organize notes into a standalone document, or make documentation clearer
+  without losing facts. Triggers include "humanize", "deslop", "AI스럽게 쓰지
+  말고", "이 문서 읽기 좋게 고쳐줘", "rewrite this doc", and "organize these
+  notes". NOT for translation, fact-checking, or grammar-only edits.
 ---
 
 # Humanize Doc
@@ -15,9 +14,9 @@ description: >
 
 Pick one mode first:
 
-- `correction`: the structure mostly works, but the prose sounds synthetic, vague, or inflated
+- `correction`: the structure mostly works, but the prose sounds synthetic, vague, or inflated; use this by default for a plain "humanize" request
 - `compose`: the source is fragmented, context-light, or hard to follow as a standalone doc
-- `hybrid`: both are true; this should be the default for most substantial documents
+- `hybrid`: both are true, or the user explicitly asks for sentence and structure changes together
 
 The core rule is simple:
 
@@ -42,17 +41,22 @@ This skill fixes both layers together.
 
 ## Workflow
 
-1. Read the target text and identify the deliverable type.
-2. Choose the mode using `references/document-modes.md`.
-3. Load `references/anti-slop-patterns.md`.
-4. Load `references/output-contract.md`.
-5. Load `references/readability-gates.md`.
-6. Diagnose the draft on two axes:
+1. Read the target text and identify the deliverable, audience, and how much
+   structural change the request permits.
+2. Choose the narrowest mode that solves the problem. Read
+   `references/document-modes.md` only when the mode is ambiguous.
+3. Load only the references needed for that mode:
+   - correction: `references/anti-slop-patterns.md`
+   - compose: `references/output-contract.md`
+   - hybrid: both references
+   - medium/long deliverables: also use `references/readability-gates.md` before delivery
+4. Diagnose the draft on two axes:
    - sentence quality: labels, placeholders, false agency, cadence, filler
    - document quality: purpose, flow, evidence, terminology, standalone readability
-7. Rewrite at the lowest abstraction level that still fits the medium.
-8. Preserve verified facts and clearly keep assumptions or open questions visible.
-9. Run the readability gates before delivering.
+5. Rewrite at the lowest abstraction level that still fits the medium.
+6. Preserve verified facts and clearly keep assumptions or open questions visible.
+7. Re-read the final text against the user's requested scope and the applicable
+   readability gates.
 
 ## Rewrite Priorities
 
@@ -137,6 +141,14 @@ Short-form writing should not be reformatted into a mini-report.
 - Never keep vague abstraction if the source provides a more concrete form.
 - Never assume the reader saw the prior conversation.
 
+## Output Behavior
+
+Return the rewritten text first, in the source's existing format unless the user
+asked for a new document shape. Do not preface it with a diagnosis, list every
+edit, or add a process explanation. Add a short note after the rewrite only when
+a factual ambiguity, missing source, or unresolved choice materially affects
+trust.
+
 ## Gotchas
 
 - Phrase swapping is not enough. Lower the abstraction level.
@@ -150,10 +162,10 @@ Short-form writing should not be reformatted into a mini-report.
 
 | File | When to load | Purpose |
 | --- | --- | --- |
-| `references/document-modes.md` | First | Choose correction, compose, or hybrid |
-| `references/anti-slop-patterns.md` | Every rewrite | Detect sentence-level AI patterns |
-| `references/output-contract.md` | Medium/long docs | Keep standalone readability and evidence shape |
-| `references/readability-gates.md` | Before delivery | Final quality gate |
+| `references/document-modes.md` | The mode remains ambiguous after reading the source | Choose correction, compose, or hybrid |
+| `references/anti-slop-patterns.md` | Correction or hybrid mode | Detect sentence-level AI patterns |
+| `references/output-contract.md` | Compose or hybrid mode | Keep standalone readability and evidence shape |
+| `references/readability-gates.md` | Before delivering a medium or long artifact | Final quality gate |
 
 ## Safety
 

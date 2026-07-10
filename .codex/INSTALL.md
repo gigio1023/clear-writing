@@ -3,7 +3,7 @@
 ## Preferred
 
 ```bash
-npx skills add gigio1023/humanize-doc@humanize-doc
+npx skills add gigio1023/humanize-doc@humanize-doc --agent codex
 ```
 
 ## Manual install
@@ -11,14 +11,15 @@ npx skills add gigio1023/humanize-doc@humanize-doc
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/gigio1023/humanize-doc.git ~/.codex/humanize-doc
+mkdir -p ~/.local/share
+git clone https://github.com/gigio1023/humanize-doc.git ~/.local/share/humanize-doc
 ```
 
 2. Copy the skill into Codex skills:
 
 ```bash
-mkdir -p ~/.codex/skills
-cp -R ~/.codex/humanize-doc/humanize-doc ~/.codex/skills/
+mkdir -p ~/.agents/skills
+cp -R ~/.local/share/humanize-doc/humanize-doc ~/.agents/skills/
 ```
 
 3. Restart Codex.

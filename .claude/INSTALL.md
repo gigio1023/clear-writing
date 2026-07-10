@@ -14,4 +14,6 @@ mkdir -p ~/.claude/skills
 cp -R ~/.claude/humanize-doc/humanize-doc ~/.claude/skills/
 ```
 
-Restart Claude Code after copying.
+Claude Code normally detects `SKILL.md` changes live. Restart only if the new
+top-level skills directory was created after the session started or the skill
+does not appear.
