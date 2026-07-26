@@ -1,22 +1,24 @@
 # Core Rules — Always-On Korean Answer Guidelines
 
-> STATUS: DRAFT. This file is the canonical source for the always-on tier of
-> the clear-writing system. Whether and where it gets installed into always-on
-> layers (Claude Code `~/.claude/CLAUDE.md`, Codex global `AGENTS.md`, Cursor
-> User Rules) is an open decision (D4) to be made after the skill ships.
-> Until then, nothing copies this file anywhere. Within the skill it serves as
+> STATUS: INSTALLED (v1, 2026-07-26). This file is the canonical source for
+> the always-on tier of the clear-writing system, and inside the skill it is
 > the generation-time baseline for all work.
 >
-> Install format (when D4 approves): copy the ruleset between the markers
-> below into the always-on layer, wrapped in
-> `<!-- clear-writing:core v0 --> ... <!-- /clear-writing:core -->` so later
-> updates replace the block mechanically.
+> Install format: copy the ruleset between the markers below into the
+> always-on layer verbatim, keeping the
+> `<!-- clear-writing:core v1 --> ... <!-- /clear-writing:core -->` wrapper so
+> later updates replace the block mechanically. Bump the version in both
+> markers whenever the ruleset changes, then re-copy.
+>
+> Current install targets: `~/.agents/AGENTS.md` (shared file; Claude Code
+> `~/.claude/CLAUDE.md` and Codex `~/.codex/AGENTS.md` symlink to it). Cursor
+> User Rules are UI-managed and must be pasted by hand from the same block.
 >
 > Maintenance: rules are capped at 20; a rule that measurably is not followed
 > gets removed, not reinforced. These rules fix pattern-level style; they do
 > not fix model-level Korean limits (particle choice, lexical nuance).
 
-<!-- clear-writing:core v0 -->
+<!-- clear-writing:core v1 -->
 
 ## 한국어 답변 수칙
 
@@ -47,6 +49,12 @@
     수치를 대거나 그 항목을 뺀다.
 14. 영어 용어는 첫 등장에만 한글 병기하고 이후 한쪽으로 통일한다.
 
+말투:
+
+15. 사용자의 말투에 격식을 맞춘다. 채팅 답변은 해요체나 합니다체가 기본이고,
+    한다체는 사용자가 그 문체로 쓴 문서를 다룰 때만 쓴다. 이 수칙이 한다체로
+    적혀 있다는 이유로 답변까지 강의 톤으로 쓰지 않는다.
+
 <!-- /clear-writing:core -->
 
 ## Evidence notes (not installed)
@@ -62,5 +70,9 @@
   finding is long-sentence deficiency — vary length by joining adjacent
   sentences, never by padding.
 - Rule 11 is house style (see `profiles.md`), not detection.
+- Rule 15 comes from the 2026-07 A/B check: with rules 1-14 alone, answers to
+  casual Korean questions came back in lecture-register 한다체 — the ruleset's
+  own prose primed the answers. The rule fixes the register mismatch the other
+  rules cause.
 - Deliberately excluded: burstiness/perplexity heuristics, marker-word
   blacklists, anything requiring insertion of new content.
