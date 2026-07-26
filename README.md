@@ -1,33 +1,20 @@
 # clear-writing
 
 [![skills.sh](https://skills.sh/b/gigio1023/clear-writing)](https://skills.sh/gigio1023/clear-writing)
+![prose](https://img.shields.io/badge/prose-EN%20%C2%B7%20KO-22684E)
+![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2016%20references-555)
 
-One Agent Skill for prose-document work in English and Korean: author
-repository-grounded docs, rewrite AI-sounding drafts, turn rough notes into
-standalone documents, review terminology, and surgically polish Korean
-technical writing — all without changing the facts.
+Write, rewrite, and review prose documents with one skill: repository-grounded
+authoring, humanizing revision, terminology checks, and surgical Korean
+polish — without changing the facts.
 
-The skill follows the [Agent Skills format](https://agentskills.io/) with a
-`SKILL.md` router and supporting references beside it. Install it with
-[`npx skills`](https://github.com/vercel-labs/skills), then pull later
-revisions from the same tracked source.
+[Install](#install) · [What's inside](#whats-inside) · [Examples](#examples) ·
+[Evidence](#evidence-and-lineage) · [Layout](#package-layout) ·
+[Development](#local-development)
 
-[Install](#install-with-npx-skills) · [Update](#keep-the-skill-up-to-date) ·
-[What's inside](#whats-inside) · [Examples](#examples) ·
-[Evidence and lineage](#evidence-and-lineage) ·
-[Local development](#local-development)
+## Install
 
-## Install with `npx skills`
-
-Prerequisite: Node.js 22.20.0 or newer for the current Skills CLI release.
-
-Inspect the published package before installing it:
-
-```bash
-npx --yes skills add 'gigio1023/clear-writing#main' --list --full-depth
-```
-
-Install it globally for the agents you use:
+Requires Node.js 22.20.0 or newer.
 
 ```bash
 npx --yes skills add 'gigio1023/clear-writing#main' \
@@ -37,33 +24,19 @@ npx --yes skills add 'gigio1023/clear-writing#main' \
   --yes
 ```
 
-Replace the agent IDs as needed; `cursor`, `gemini-cli`, and `antigravity` are
-also supported by the Skills CLI. Omit `--global` for a project-local install.
+Swap the agent IDs as needed (`cursor`, `gemini-cli`, and `antigravity` are
+also supported); omit `--global` for a project-local install. Verify with
+`npx --yes skills list --global`, and update later with
+`npx --yes skills update clear-writing --global --yes`.
 
-The quoted `#main` source makes the published branch explicit and gives the CLI
-the provenance it needs for later updates. Let the CLI manage each agent's
-destination; this repository does not maintain separate `.claude/`, `.codex/`,
-`.cursor/`, or `.gemini/` installation adapters.
-
-Verify the installation:
-
-```bash
-npx --yes skills list --global
-```
-
-## Keep the skill up to date
-
-```bash
-npx --yes skills update clear-writing --global --yes
-```
-
-Updates are pull-based and use the remote source recorded at installation.
+The quoted `#main` source records the provenance updates rely on; the CLI
+manages each agent's install destination.
 
 ## What's inside
 
-`clear-writing/SKILL.md` is a thin router. It establishes the deliverable,
-language, grounding, edit authority, style profile, and voice sample, then
-selects a job and loads only the references that job needs.
+`SKILL.md` is a thin router. It establishes the deliverable, language,
+grounding, edit authority, style profile, and voice sample, then loads only
+the references its job needs.
 
 | Job | Covers | Primary reference |
 | --- | --- | --- |
@@ -71,24 +44,20 @@ selects a job and loads only the references that job needs.
 | Revision | humanizing, restructuring, composing notes into standalone docs | `references/revision.md` |
 | Passes | terminology review; Korean sentence-level polishing | `references/terminology.md`, `references/korean-tells.md` |
 
-Design points worth knowing:
+Design points:
 
-- **Evidence ledger.** Rules are tagged by justification: measured AI-vs-human
-  discriminators, Korean style evidence, observation-only diagnostics, and
-  house style. Rules rejected by upstream corpus studies are conditioned
-  rather than silently kept.
-- **Voice preservation.** Rewriting itself homogenizes text, so the skill
-  enforces removal-only editing, protects the author's voice markers, and
-  treats a user-supplied writing sample as outranking every style rule.
-- **Delivery gates.** Every deliverable passes fact-preservation checks, a
-  change-rate guard (warn at 30% changed, stop at 50%), and an editor-slop
-  self-check applied to the skill's own output.
+- **Evidence ledger.** Every rule carries its justification type: measured
+  AI-vs-human discriminator, Korean style evidence, observation-only, or
+  house style. Rules rejected by corpus studies are conditioned, not kept.
+- **Voice preservation.** Removal-only editing; the author's voice markers
+  are protected, and a user-supplied writing sample outranks every style rule.
+- **Delivery gates.** Fact-preservation checks, a change-rate guard (warn at
+  30%, stop at 50%), and an editor-slop self-check on the skill's own output.
 - **Profiles.** House-style strictness (em-dash prohibition, workplace
-  vocabulary) is a selectable profile in `references/profiles.md`, not a fork
-  of the skill.
+  vocabulary) is a selectable profile, not a fork.
 - **Always-on core draft.** `references/core-rules.md` holds a 14-rule Korean
-  answer baseline intended for always-on agent layers. Installing it anywhere
-  is an explicitly deferred decision, tracked in the file itself.
+  answer baseline for always-on agent layers; whether to install it is a
+  deferred decision tracked in the file.
 
 ## Examples
 
@@ -123,14 +92,13 @@ After:  데이터를 정제하고 모델을 학습시킨 다음 결과를 검증
 
 ## Evidence and lineage
 
-The skill's rules are grounded in a July 2026 research pass: upstream
-repository audits, an ecosystem sweep of writing skills, academic work on
-AI-text markers (KatFishNet at ACL 2025, lexical-overuse and rewrite-drift
-studies), and Korean translation-ese scholarship. See
-[docs/redesign-plan.md](docs/redesign-plan.md) for the design and trigger
-boundaries, and [docs/merge-notes.md](docs/merge-notes.md) for the lineage.
-[docs/eval-prompts.md](docs/eval-prompts.md) provides lightweight trigger and
-preservation checks.
+Rules come from a July 2026 research pass: upstream repository audits, an
+ecosystem sweep of writing skills, academic work on AI-text markers
+(KatFishNet at ACL 2025, lexical-overuse and rewrite-drift studies), and
+Korean translation-ese scholarship. [docs/redesign-plan.md](docs/redesign-plan.md)
+holds the design and trigger boundaries; [docs/merge-notes.md](docs/merge-notes.md)
+the lineage; [docs/eval-prompts.md](docs/eval-prompts.md) lightweight trigger
+and preservation checks.
 
 ## Package layout
 
@@ -138,23 +106,22 @@ preservation checks.
 clear-writing/
 ├── README.md
 ├── README.ko.md
-├── docs/
-│   ├── eval-prompts.md
-│   ├── merge-notes.md
-│   └── redesign-plan.md
+├── docs/                   # design record, not installed
 └── clear-writing/          # the installable skill
     ├── SKILL.md
     └── references/         # 16 files, loaded per job
 ```
 
-## Local development
+The package follows the [Agent Skills format](https://agentskills.io/) and is
+distributed with the [Skills CLI](https://github.com/vercel-labs/skills); the
+repository keeps no per-agent install adapters.
 
-Inspect a checkout without creating an update-tracked install:
+## Local development
 
 ```bash
 npx --yes skills add . --list --full-depth
 ```
 
-Before publishing a change, verify that the `SKILL.md` name matches its
-folder, every referenced path exists, and this README and `README.ko.md`
-describe the same installation and behavior.
+Before publishing a change: the listing reports exactly `clear-writing`, the
+`SKILL.md` name matches its folder, every referenced path exists, and this
+README stays aligned with `README.ko.md`.
