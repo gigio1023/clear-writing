@@ -22,7 +22,9 @@ applies to both English and Korean documents.
 line. Distinguish from a WHY sentence (see Preservation rules).
 
 **Obvious command caption.** "다음 명령어로 의존성을 설치합니다" above
-`uv sync`. Caption commands only when non-obvious.
+`uv sync`. Caption commands only when non-obvious. Keep test: does the caption
+carry why, when, scope, or audience — something the command line itself does
+not show? Then it stays.
 
 **Conclusion echo.** The last paragraph restates what the body said, prefixed
 with "정리하면 / In summary". Delete or fold into the body sentence.
@@ -71,7 +73,10 @@ possibility. Removing "may", "optional", "when", units, or version limits to
 shorten a sentence creates a false guarantee — that is a bug, not a fix.
 
 **Scope-clarification noise.** "X는 Y가 아니다", "Z와는 별개다" answering
-questions no reader asked. Delete, or restate positively ("X가 다룬다").
+questions no reader asked. Delete, or restate positively ("X가 다룬다"). Keep
+test: would the intended reader plausibly ask this, or does an instruction or
+boundary depend on the answer? Then it is a real boundary, not noise —
+declared scope limits ("NOT for X, Y") are a convention, not negative listing.
 
 **Indirect definition.** "X는 A를 입력으로 받아 B하고 C를 측정하는 D다" — a
 40+ character definition sentence burying the point. Split into 목표/입력/출력
