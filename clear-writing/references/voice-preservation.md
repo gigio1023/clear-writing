@@ -34,6 +34,24 @@ Do not "improve away", in any language:
   humor, mixed feelings. A pattern rule firing on the author's deliberate,
   repeated choice is a category error.
 
+## Registers with no personal voice
+
+Audit memos, technical reviews, specs, and runbooks are often impersonal by
+design: no first person, directive endings ("-하라", "must"), and explicit
+epistemic status ("확인됨 / 추정 / 미확인", "not confirmed"). The markers above
+have little surface to grab there, and their absence is not drift — do not
+"restore" a first-person stance the document never had, and do not warm up a
+directive register into a conversational one.
+
+What to protect instead, because it is this register's voice:
+
+- Epistemic status marking: confidence labels, "증거 아님" disclaimers,
+  falsification conditions. Never flatten a hedged claim into a flat one, or a
+  flat one into a hedged one.
+- Directive endings where the document's job is issuing decisions.
+- Repeated structural formulas that carry an audit convention rather than
+  filler (per-item verdict lines, evidence citations).
+
 ## Anti-homogenization rules
 
 - **Removal only.** Delete or tighten slop; never insert stock transitions,
