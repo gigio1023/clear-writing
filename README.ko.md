@@ -8,28 +8,19 @@
 산문 문서 작업을 스킬 하나로: 저장소에 근거한 문서 작성, AI 티를 걷어내는
 개고, 용어 점검, 한국어 수술 윤문까지 사실관계는 그대로 두고 처리합니다.
 
-[설치](#설치) · [구성](#구성) · [예시](#예시) · [근거](#근거와-계보) ·
-[구조](#패키지-구조) · [개발](#로컬-개발)
+하나로 묶은 이유는 원래 이 일들이 여러 스킬로 흩어져 있었고, "이 README 좀
+정리해줘" 같은 요청 하나에 여러 스킬이 동시에 걸렸기 때문입니다. 이제 라우터
+하나가 요청을 읽고 문서에 실제로 필요한 작업을 판단해 그 작업의 규칙만
+로드합니다. 한국어는 영어 조언을 옮긴 것이 아니라 별도 계층입니다. 한국어
+문서에는 문장 단위 패턴 레이어가 따로 붙고, 상류 분류 체계와 동기화하며
+규칙마다 어떤 종류의 근거에 기대는지 표기합니다.
 
-## 설치
+편집은 지우는 방향으로만 합니다. 원문이 뒷받침하지 않는 사실, 예시, 인용,
+연결어를 새로 넣지 않고, 어떤 글도 AI가 썼다고 단정하지 않습니다. 대신
+문제가 되는 표현 자체를 지적합니다.
 
-Node.js 22.20.0 이상이 필요합니다.
-
-```bash
-npx --yes skills add 'gigio1023/clear-writing#main' \
-  --skill clear-writing \
-  --agent codex claude-code \
-  --global \
-  --yes
-```
-
-에이전트 ID는 필요에 따라 바꿉니다(`cursor`, `gemini-cli`, `antigravity`도
-지원). 프로젝트 안에만 설치하려면 `--global`을 빼세요. 설치 확인은
-`npx --yes skills list --global`, 이후 갱신은
-`npx --yes skills update clear-writing --global --yes`.
-
-따옴표로 묶은 `#main` 소스가 업데이트에 필요한 출처를 기록하고, 각
-에이전트의 설치 위치는 CLI가 관리합니다.
+[구성](#구성) · [예시](#예시) · [근거](#근거와-계보) ·
+[구조](#패키지-구조) · [설치](#설치) · [개발](#로컬-개발)
 
 ## 구성
 
@@ -114,6 +105,26 @@ clear-writing/
 패키지는 [Agent Skills 형식](https://agentskills.io/)을 따르고
 [Skills CLI](https://github.com/vercel-labs/skills)로 배포됩니다. 저장소는
 에이전트별 설치 어댑터를 두지 않습니다.
+
+## 설치
+
+Node.js 22.20.0 이상이 필요합니다.
+
+```bash
+npx --yes skills add 'gigio1023/clear-writing#main' \
+  --skill clear-writing \
+  --agent codex claude-code \
+  --global \
+  --yes
+```
+
+에이전트 ID는 필요에 따라 바꿉니다(`cursor`, `gemini-cli`, `antigravity`도
+지원). 프로젝트 안에만 설치하려면 `--global`을 빼세요. 설치 확인은
+`npx --yes skills list --global`, 이후 갱신은
+`npx --yes skills update clear-writing --global --yes`.
+
+따옴표로 묶은 `#main` 소스가 업데이트에 필요한 출처를 기록하고, 각
+에이전트의 설치 위치는 CLI가 관리합니다.
 
 ## 로컬 개발
 
