@@ -1,71 +1,91 @@
 # Evaluation Prompts
 
-Use these lightweight prompts to inspect trigger boundaries, mode selection,
-and preservation behavior after a skill change. Record the harness, model,
-effort, and available tools when results are used as compatibility evidence.
-The expected behavior below is a rubric, not a recorded test result.
+Lightweight prompts to inspect trigger boundaries, job selection, and
+preservation behavior after a skill change. Record the harness, model, effort,
+and available tools when results are used as compatibility evidence. The
+expected behavior below is a rubric, not a recorded test result. A fuller
+three-arm comparison protocol and its 2026-07 results live in the workspace
+notes (`notes/humanize-consolidation/p3-eval.md`), outside this repository.
 
-## Prompt 1: correction
+## Prompt 1: sentence-level humanize (Korean)
 
-> 이 문단 AI 티 안 나게 자연스럽게 다듬어줘. 사실관계는 바꾸지 말고 표현만 고쳐줘.
-
-Expected:
-
-- `correction` mode
-- keeps structure mostly intact
-- lowers abstraction and removes filler
-
-## Prompt 2: compose
-
-> 아래 메모를 팀 공유용 문서로 정리해줘. 채팅 맥락 없이 읽어도 이해되게 써줘.
+> 아래 문단 AI 티 안 나게 자연스럽게 다듬어줘. 사실관계는 바꾸지 말고.
 
 Expected:
 
-- `compose` mode
-- standalone document
-- clear result-first structure
+- revision job, sentence-level pass; structure left intact
+- formulaic wrap-ups and undue-significance phrasing deleted, not reworded
+- comma-after-connective cleanup (korean-tells C-11); conditioned rules
+  (single "~를 통해", uniform 어미 in short formal text) left alone
+- dates, numbers, and uncertainty hedges preserved verbatim; no new
+  connectives inserted (removal only)
 
-## Prompt 3: hybrid
+## Prompt 2: compose notes into a standalone doc
 
-> 이 전략 메모 전체를 읽기 좋게 다시 써줘. 지금은 너무 AI가 쓴 것 같고 흐름도 별로야.
+> Turn these notes into a short incident summary the on-call team can read
+> standalone.
 
 Expected:
 
-- `hybrid` mode
-- restructures sections and rewrites prose together
-- preserves uncertainty and evidence markers
+- revision job, compose path; result-first structure
+- every source fact carried over; suspected causes stay suspected
+- no invented severity, IDs, timestamps, or next steps
+- medium calibration: status-update register, no ceremonial open/close
 
-## Prompt 4: should not trigger
+## Prompt 3: revision with voice preservation (English)
+
+> Edit this blog draft so it doesn't read AI-generated. Keep my voice.
+
+Expected:
+
+- voice signals noted and kept: first person, humor, profanity, asides,
+  concrete numbers
+- rhetorical patterns removed: throat-clearing openers, lone-expert framing,
+  colon reveals, negative listing, synonym cycling
+- a fake-profound kicker is deleted, never rewritten into a better metaphor;
+  the piece ends on the last concrete sentence
+- change-rate guard reported when deletions push past 30%
+
+## Prompt 4: factual preservation under edit pressure
+
+> 이 장애 공지 자연스럽게 다듬어줘. 날짜, 영향 범위, 원인 불확실성은 그대로
+> 유지해줘.
+
+Expected:
+
+- generic boilerplate (mission statements, closing pledges) deleted
+- dates, impact scope, and "possible but unconfirmed" hedges preserved
+  word-for-word; no invented remediation promises
+- ends on the concrete remediation step, not a generic closing line
+
+## Prompt 5: review-only terminology pass
+
+> 이 문단 용어 이상한 거 없나 봐줘. 고치지는 말고 봐주기만 해.
+
+Expected:
+
+- findings only, no edits (authority rule); each finding quotes the line,
+  names the pattern, states the fix
+- coined consultant names flagged or marked uncertain with the
+  mechanism question to ask the author; established domain terms
+  (e.g., Kubernetes Operator, sidecar) kept
+- no confidence beyond evidence; no authorship claims, no scores
+
+## Prompt 6: should not trigger
 
 > 이 문장 문법만 체크해줘.
-
-Expected:
-
-- do not force this skill unless the text clearly has a readability or AI-slop problem
-
-## Prompt 5: factual preservation
-
-> 아래 장애 공지를 자연스럽게 다듬어줘. 날짜, 영향 범위, 원인에 대한
-> 불확실성은 그대로 유지해줘.
-
-Expected:
-
-- preserves dates and scope exactly
-- does not turn a suspected cause into a confirmed cause
-- improves prose without adding evidence or reassurance
-
-## Prompt 6: adjacent translation request
 
 > 이 한국어 문서를 영어로 번역해줘.
 
 Expected:
 
-- does not trigger `humanize-doc` for a translation-only request
+- neither request loads this skill: grammar-only checks and translation are
+  out of scope (NOT-for list in `../clear-writing/SKILL.md`)
 
 ## Package checks
 
-From the repository root, both commands should discover exactly one skill named
-`humanize-doc`:
+From the repository root, both commands should discover exactly one skill
+named `clear-writing`:
 
 ```bash
 npx --yes skills add . --list
