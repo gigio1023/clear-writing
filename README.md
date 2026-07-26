@@ -3,6 +3,7 @@
 [![skills.sh](https://skills.sh/b/gigio1023/clear-writing)](https://skills.sh/gigio1023/clear-writing)
 ![prose](https://img.shields.io/badge/prose-EN%20%C2%B7%20KO-22684E)
 ![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2016%20references-555)
+[![license](https://img.shields.io/badge/license-MIT-555)](LICENSE)
 
 Write, rewrite, and review prose documents with one skill: repository-grounded
 authoring, humanizing revision, terminology checks, and surgical Korean
@@ -55,9 +56,10 @@ Design points:
   30%, stop at 50%), and an editor-slop self-check on the skill's own output.
 - **Profiles.** House-style strictness (em-dash prohibition, workplace
   vocabulary) is a selectable profile, not a fork.
-- **Always-on core draft.** `references/core-rules.md` holds a 14-rule Korean
-  answer baseline for always-on agent layers; whether to install it is a
-  deferred decision tracked in the file.
+- **Always-on core.** The skill loads on demand, so it cannot govern ordinary
+  chat answers. `references/core-rules.md` holds a 15-rule Korean answer
+  baseline for that job: copy the marked block verbatim into an always-on
+  layer, and later updates replace it mechanically by version marker.
 
 ## Examples
 
@@ -106,6 +108,7 @@ and preservation checks.
 clear-writing/
 ├── README.md
 ├── README.ko.md
+├── LICENSE                 # MIT
 ├── docs/                   # design record, not installed
 └── clear-writing/          # the installable skill
     ├── SKILL.md

@@ -3,6 +3,7 @@
 [![skills.sh](https://skills.sh/b/gigio1023/clear-writing)](https://skills.sh/gigio1023/clear-writing)
 ![prose](https://img.shields.io/badge/prose-EN%20%C2%B7%20KO-22684E)
 ![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2016%20references-555)
+[![license](https://img.shields.io/badge/license-MIT-555)](LICENSE)
 
 산문 문서 작업을 스킬 하나로: 저장소에 근거한 문서 작성, AI 티를 걷어내는
 개고, 용어 점검, 한국어 수술 윤문까지 사실관계는 그대로 두고 처리합니다.
@@ -52,9 +53,10 @@ npx --yes skills add 'gigio1023/clear-writing#main' \
   출력에 대한 editor-slop 검사.
 - **프로파일.** 하우스 스타일 강화(em-dash 금지, 업무 어휘)는 스킬의 분기가
   아니라 선택 항목입니다.
-- **상시 코어 초안.** `references/core-rules.md`가 상시 로드 계층용 한국어
-  답변 수칙 14개의 초안을 보관합니다. 설치 여부는 파일에 기록된 보류
-  결정입니다.
+- **상시 코어.** 스킬은 필요할 때만 로드되므로 평소 답변까지 관장하지
+  못합니다. 그 몫이 `references/core-rules.md`의 한국어 답변 수칙 15개입니다.
+  마커로 감싼 블록을 상시 계층에 그대로 복사하면, 이후 갱신은 버전 마커
+  기준으로 블록만 교체됩니다.
 
 ## 예시
 
@@ -102,6 +104,7 @@ After:  데이터를 정제하고 모델을 학습시킨 다음 결과를 검증
 clear-writing/
 ├── README.md
 ├── README.ko.md
+├── LICENSE                 # MIT
 ├── docs/                   # 설계 기록, 설치 대상 아님
 └── clear-writing/          # 설치되는 스킬
     ├── SKILL.md
