@@ -27,7 +27,8 @@ Establish before touching text:
    [korean-tells.md](references/korean-tells.md).
 3. **Grounding** — repository-based (claims must match code/config) vs
    standalone text (claims must match the source text).
-4. **Authority** — "review/진단/check/피드백" returns findings without edits;
+4. **Authority** — "review/진단/check/피드백" returns findings without edits
+   (quote the line, name the pattern, state the fix);
    "다듬어줘/고쳐줘/써줘/적용해줘" authorizes edits within the given scope.
    Multi-file or repo-wide requests: confirm the target list first, then
    process sequentially under the same discipline. Publishing, commits, PRs,

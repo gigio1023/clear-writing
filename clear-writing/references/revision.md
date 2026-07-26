@@ -66,6 +66,9 @@ into a mini-report.
 - Before editing, note the invariants: facts, conditions, exceptions,
   prohibitions, commands, numbers, quotations, register, repo-specific terms.
   Ambiguous source meaning stays ambiguous — style cleanup must not resolve it.
+- Also note the core point and 3-5 voice signals to preserve (vocabulary,
+  cadence, bluntness, humor, hedging, digressions). The note stays internal;
+  it defines what the edits must not flatten.
 - Edit surgically. Delete information-free sentences first; when prose, table,
   and list repeat one fact, keep the clearest single form.
 - Removal only — never insert clichés, facts, examples, or citations

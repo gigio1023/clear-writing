@@ -32,12 +32,22 @@ Watch verbs: 구축했다/확보했다/달성했다, enabled/established/facilit
 **Placeholder actors.** "various teams", "stakeholders", "여러 팀". Name the
 actor if the source names it; otherwise bound or quantify the group.
 
+**Verb inflation.** "serves as a centralized hub", "acts as", "functions as",
+"made a decision", "has the ability to". Prefer the plain verb — is, has,
+tracks, decided, can. A plain "is" beats a fake-strong verb; the inflation
+runs both ways (puffed linking verbs and padded verb phrases). (no-ai-slop
+lineage.)
+
 **False agency.** Abstractions performing human actions: "the decision
 emerged", "the roadmap identified", "a complaint becomes a fix". Name the
 person, team, or process. (stop-slop lineage.)
 
 **Unearned authority.** "experts agree", "studies show", "industry reports
 suggest" with no citation. Either cite the real source or drop the appeal.
+
+**Lone-expert framing.** "What nobody tells you", "the part everyone misses",
+"what most people get wrong" — flatters the writer as the sole insider. Cut
+the setup and let the claim stand on its own. (no-ai-slop lineage.)
 
 **Undue significance.** "stands as a testament", "plays a crucial/pivotal
 role", "underscores the importance", "시사하는 바가 크다" — importance
@@ -47,13 +57,35 @@ consequence.
 **Negative listing.** "It's not just X. Not Y either. It's Z." — rhetorical
 striptease withholding the point. State Z. (stop-slop lineage.)
 
+**Colon reveals.** Noun phrase, colon, dramatic payoff: "The best part: it
+learns." Rewrite as a plain sentence; reserve colons for lists, labels, and
+quotes. (no-ai-slop lineage.)
+
+**Rhetorical setups.** "What if I told you...", "Plot twist:", "Think about
+it:", and self-answered "Question? Answer." pairs. Drop the setup and make
+the point. (no-ai-slop lineage.)
+
+**Dramatic fragmentation.** "X. And Y. And Z.", "That's it. That's the whole
+thing." — stacked punchy fragments as manufactured emphasis. Use complete
+sentences; keep a fragment only when it is the author's own established
+voice. (no-ai-slop lineage.)
+
 **Narrator-from-a-distance.** "Nobody designed this", "There's something
 profound about..." — detached voiceover replacing an embedded speaker. Restore
 the direct claim: who did what. (stop-slop lineage.)
 
+**Throat-clearing openers.** "Here's the thing", "Let me be clear", "I'll be
+honest", "The uncomfortable truth is" — delay dressed as candor. Cut and
+state the point; keep a personal aside that genuinely adds context or
+character. (no-ai-slop lineage.)
+
 **Formulaic wrap-ups.** "In conclusion", "결론적으로", a "Future Outlook"
 section, or a closing paragraph that re-summarizes the page. The last body
-paragraph is the conclusion.
+paragraph is the conclusion. Same family: the fake-profound kicker — a
+closing aphorism, metaphor, or mic-drop line. Delete it; do not rewrite it
+into a better metaphor. End on the last concrete sentence the draft already
+has, adding a plain takeaway or next action only when closure is genuinely
+missing. (no-ai-slop lineage.)
 
 **Present-participle pseudo-analysis.** "...ing" clauses tacked on for fake
 depth: "...highlighting the tradition", "...ensuring continuity". Cut or turn
@@ -63,6 +95,11 @@ into a real causal sentence.
 tricolon cadence repeated across paragraphs. State the conclusion once,
 plainly. (Korean measurement: 9.2× AI-vs-human — see
 `korean-tells.md` C-8.)
+
+**Synonym cycling.** One referent rotated through synonyms for style — "the
+agent reviews... the assistant scores... the tool suggests". If the clear
+word is right, repeat it; route genuine naming doubts to `terminology.md`.
+(no-ai-slop lineage.)
 
 **Empty modifiers.** robust, seamless, significant, innovative, strategic,
 effectively — cut unless carrying real scope, or replace with the fact that
