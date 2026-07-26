@@ -71,7 +71,10 @@ Any failure: fix before delivery, not after.
 
 ## Report format
 
-Lead with the deliverable (or highest-impact findings for review mode). Then,
+Lead with the deliverable (or highest-impact findings for review mode).
+Review-mode findings quote the offending line, name the pattern, and give the
+fix in a few words — a quoted pattern is evidence the user can check; scores
+and authorship guesses are not. Then,
 briefly: files touched, major patterns fixed or structural decisions, checks
 run with results, and spans left unchanged because meaning could not be
 proven preserved. No grades, no change-rate percentages as scores, no process

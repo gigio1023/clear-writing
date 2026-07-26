@@ -18,6 +18,7 @@ not an installation path.
 | company `im-not-ai` snapshot + upstream `epoko77-ai/im-not-ai` v2.3 | Korean sentence-level taxonomy with pattern IDs, surgical diff-evidence editing discipline |
 | company `anti-ai-slop-terminology`, `dev-doc-style` | superseded ancestors of the two agent-skills sources; dropped as direct sources |
 | 2026-07 research pass (5 lanes) | voice-preservation rules (rewrite-drift research), evidence ledger, change-rate guard, editor-slop self-check, myth exclusions |
+| `petergyang/no-ai-slop` (2026-07 one-time port) | rhetorical-pattern additions to `anti-slop-core.md` (colon reveals, lone-expert framing, rhetorical setups, dramatic fragmentation, throat-clearing openers, verb inflation, synonym cycling, kicker-deletion rule), review-mode quote contract, pre-edit voice-signal note; its outright word bans and universal em-dash caps were not adopted — they conflict with the evidence ledger (marker lists decay per model generation; hard bans reject valid domain language) |
 
 Key decisions, in order of how hard they would be to reverse:
 
