@@ -1,6 +1,9 @@
-# Eval Prompts
+# Evaluation Prompts
 
-Use these prompts to test whether the skill triggers at the right time and responds with the right mode.
+Use these lightweight prompts to inspect trigger boundaries, mode selection,
+and preservation behavior after a skill change. Record the harness, model,
+effort, and available tools when results are used as compatibility evidence.
+The expected behavior below is a rubric, not a recorded test result.
 
 ## Prompt 1: correction
 
@@ -39,3 +42,32 @@ Expected:
 Expected:
 
 - do not force this skill unless the text clearly has a readability or AI-slop problem
+
+## Prompt 5: factual preservation
+
+> 아래 장애 공지를 자연스럽게 다듬어줘. 날짜, 영향 범위, 원인에 대한
+> 불확실성은 그대로 유지해줘.
+
+Expected:
+
+- preserves dates and scope exactly
+- does not turn a suspected cause into a confirmed cause
+- improves prose without adding evidence or reassurance
+
+## Prompt 6: adjacent translation request
+
+> 이 한국어 문서를 영어로 번역해줘.
+
+Expected:
+
+- does not trigger `humanize-doc` for a translation-only request
+
+## Package checks
+
+From the repository root, both commands should discover exactly one skill named
+`humanize-doc`:
+
+```bash
+npx --yes skills add . --list
+npx --yes skills add . --list --full-depth
+```

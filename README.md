@@ -1,179 +1,189 @@
-# humanize-doc
+# clear-writing
 
-Rewrite AI-sounding drafts into readable human documents.
+[![skills.sh](https://skills.sh/b/gigio1023/clear-writing)](https://skills.sh/gigio1023/clear-writing)
 
-This repo packages the `humanize-doc` skill: a writing skill that fixes both sentence-level AI slop and document-level readability problems.
+One Agent Skill for prose-document work in English and Korean: author
+repository-grounded docs, rewrite AI-sounding drafts, turn rough notes into
+standalone documents, review terminology, and surgically polish Korean
+technical writing — all without changing the facts.
 
-## Installation
+The skill follows the [Agent Skills format](https://agentskills.io/) with a
+`SKILL.md` router and supporting references beside it. Install it with
+[`npx skills`](https://github.com/vercel-labs/skills), then pull later
+revisions from the same tracked source.
 
-Preferred:
+[Transition status](#transition-from-humanize-doc) ·
+[Install](#install-with-npx-skills) · [Update](#keep-the-skill-up-to-date) ·
+[What's inside](#whats-inside) · [Examples](#examples) ·
+[Evidence and lineage](#evidence-and-lineage) ·
+[Local development](#local-development)
+
+## Transition from humanize-doc
+
+This repository was renamed from `gigio1023/humanize-doc` on 2026-07-26 and now
+publishes the unified `clear-writing` skill. It consolidates what previously
+lived in several places: the `humanize-doc` skill (this repo), the
+`terminology-review` and `engineering-docs` skills (from the
+`gigio1023/agent-skills` pack), and a Korean surgical-polish rule line kept in
+sync with [`epoko77-ai/im-not-ai`](https://github.com/epoko77-ai/im-not-ai).
+
+During the transition:
+
+- The legacy `humanize-doc/` package remains installable from this repository
+  until the unified skill passes its evaluation phase, and is removed after
+  that.
+- Old install sources pointing at `gigio1023/humanize-doc` keep working through
+  GitHub's rename redirect, but new installs should use the
+  `gigio1023/clear-writing` source below.
+- `terminology-review` and `engineering-docs` are still published from
+  `agent-skills` and are scheduled for retirement there once this skill
+  replaces them. Avoid installing them alongside `clear-writing`; the triggers
+  overlap by design.
+
+## Install with `npx skills`
+
+Prerequisite: Node.js 22.20.0 or newer for the current Skills CLI release.
+
+Inspect the published package before installing it:
 
 ```bash
-npx skills add gigio1023/humanize-doc@humanize-doc
+npx --yes skills add 'gigio1023/clear-writing#main' --list --full-depth
 ```
 
-### Codex
+Install it globally for the agents you use:
 
-Tell Codex:
-
-```text
-Fetch and follow instructions from https://raw.githubusercontent.com/gigio1023/humanize-doc/refs/heads/main/.codex/INSTALL.md
+```bash
+npx --yes skills add 'gigio1023/clear-writing#main' \
+  --skill clear-writing \
+  --agent codex claude-code \
+  --global \
+  --yes
 ```
 
-Detailed docs: `docs/README.codex.md`
+Replace the agent IDs as needed; `cursor`, `gemini-cli`, and `antigravity` are
+also supported by the Skills CLI. Omit `--global` for a project-local install.
 
-### Claude Code
+The quoted `#main` source makes the published branch explicit and gives the CLI
+the provenance it needs for later updates. Let the CLI manage each agent's
+destination; this repository does not maintain separate `.claude/`, `.codex/`,
+`.cursor/`, or `.gemini/` installation adapters.
 
-Tell Claude Code:
+Verify the installation:
 
-```text
-Fetch and follow instructions from https://raw.githubusercontent.com/gigio1023/humanize-doc/refs/heads/main/.claude/INSTALL.md
+```bash
+npx --yes skills list --global
 ```
 
-Detailed docs: `docs/README.claude.md`
+## Keep the skill up to date
 
-### Gemini CLI
-
-Tell Gemini CLI:
-
-```text
-Fetch and follow instructions from https://raw.githubusercontent.com/gigio1023/humanize-doc/refs/heads/main/.gemini/INSTALL.md
+```bash
+npx --yes skills update clear-writing --global --yes
 ```
 
-Detailed docs: `docs/README.gemini.md`
-
-### Cursor
-
-Tell Cursor:
-
-```text
-Fetch and follow instructions from https://raw.githubusercontent.com/gigio1023/humanize-doc/refs/heads/main/.cursor/INSTALL.md
-```
-
-Detailed docs: `docs/README.cursor.md`
-
-## What this skill improves
-
-Most bad AI writing fails in two places at once:
-
-1. **sentence-level slop**
-   - vague labels instead of concrete actions
-   - placeholder actors instead of named responsibility
-   - false agency and inflated wording
-   - repetitive, metronomic rhythm
-2. **document-level weakness**
-   - missing context
-   - weak flow
-   - unstable terminology
-   - reasoning that only makes sense if you saw the earlier chat
-
-`humanize-doc` fixes both layers together so the output is easier to read, easier to trust, and more durable outside the original conversation.
-
-## Example: sentence-level cleanup
-
-**Weak AI-sounding draft**
-
-```text
-This initiative enables cross-functional alignment and drives strategic clarity across key stakeholders.
-```
-
-**Better output**
-
-```text
-This document explains who owns the rollout, what changes this week, and which teams need to review it before launch.
-```
-
-## Example: document-level cleanup
-
-**Weak note dump**
-
-```text
-- metrics weird
-- auth issue maybe cache
-- users saw old dashboard
-- fix before friday
-```
-
-**Better output**
-
-```text
-Users saw stale dashboard data, and the metrics also looked unusual. The cause is
-not confirmed; the notes suggest the authentication cache may be involved. We
-should investigate that hypothesis and fix the issue before Friday.
-```
-
-## When to use it
-
-Use this skill when the request sounds like any of these:
-
-- `humanize this`
-- `rewrite this so it reads like a person wrote it`
-- `make this document readable`
-- `organize these notes into a standalone doc`
-- `remove AI smell without losing the facts`
-
-## When not to use it
-
-Do not use this skill for:
-
-- translation
-- fact-checking or web verification
-- domain-expert review that needs new subject-matter knowledge
-- grammar-only cleanup when the document structure is already fine
-
-## Modes
-
-### `correction`
-Use when the structure is mostly right and the real problem is synthetic prose, vagueness, filler, or AI smell. This is the default for a plain `humanize` request.
-
-### `compose`
-Use when the source is rough notes, fragments, bullets, or a weak draft that does not stand on its own.
-
-### `hybrid`
-Use when both sentence-level and document-level problems are present, or the user asks for both kinds of change.
-
-## How it works
-
-The workflow in `humanize-doc/SKILL.md` is intentionally simple:
-
-1. identify the deliverable, audience, and allowed structural change
-2. choose the narrowest mode; consult `references/document-modes.md` only when ambiguous
-3. load only the anti-slop rules for correction, the output contract for compose, or both for hybrid
-4. rewrite at the lowest abstraction level that still fits the medium
-5. preserve facts, uncertainty, and intended tone
-6. run the readability gates for medium or long deliverables
-
-Core reference files:
-
-- `references/anti-slop-patterns.md`
-- `references/document-modes.md`
-- `references/output-contract.md`
-- `references/readability-gates.md`
-
-## Example prompts
-
-- `Make this strategy memo sound less AI-generated.`
-- `Turn these meeting notes into a document I can send to the team.`
-- `Rewrite this README so it is clearer without losing technical detail.`
-- `Keep the facts and uncertainty, but make the prose read like competent human writing.`
+Updates are pull-based and use the remote source recorded at installation. If
+an older `humanize-doc` install is reported as untracked or keeps updating
+from the old source, remove it and reinstall once from the quoted
+`gigio1023/clear-writing#main` source above.
 
 ## What's inside
 
+`clear-writing/SKILL.md` is a thin router. It establishes the deliverable,
+language, grounding, edit authority, style profile, and voice sample, then
+selects a job and loads only the references that job needs.
+
+| Job | Covers | Primary reference |
+| --- | --- | --- |
+| Authoring | README, guides, API references, ADRs, specs grounded in repository evidence | `references/authoring.md` |
+| Revision | humanizing, restructuring, composing notes into standalone docs | `references/revision.md` |
+| Passes | terminology review; Korean sentence-level polishing | `references/terminology.md`, `references/korean-tells.md` |
+
+Design points worth knowing:
+
+- **Evidence ledger.** Rules are tagged by justification: measured AI-vs-human
+  discriminators, Korean style evidence, observation-only diagnostics, and
+  house style. Rules rejected by upstream corpus studies are conditioned
+  rather than silently kept.
+- **Voice preservation.** Rewriting itself homogenizes text, so the skill
+  enforces removal-only editing, protects the author's voice markers, and
+  treats a user-supplied writing sample as outranking every style rule.
+- **Delivery gates.** Every deliverable passes fact-preservation checks, a
+  change-rate guard (warn at 30% changed, stop at 50%), and an editor-slop
+  self-check applied to the skill's own output.
+- **Profiles.** House-style strictness (em-dash prohibition, workplace
+  vocabulary) is a selectable profile in `references/profiles.md`, not a fork
+  of the skill.
+- **Always-on core draft.** `references/core-rules.md` holds a 14-rule Korean
+  answer baseline intended for always-on agent layers. Installing it anywhere
+  is an explicitly deferred decision, tracked in the file itself.
+
+## Examples
+
+Sentence-level revision:
+
 ```text
-humanize-doc/
-├── docs/
-└── humanize-doc/
-    ├── SKILL.md
-    └── references/
+Before: This initiative enables cross-functional alignment and drives
+        strategic clarity across key stakeholders.
+After:  This document explains who owns the rollout, what changes this week,
+        and which teams need to review it before launch.
 ```
 
-## Development notes
+Composing notes into a standalone document:
 
-This repo combines two source lines:
+```text
+Before: - metrics weird
+        - auth issue maybe cache
+        - users saw old dashboard
+        - fix before friday
+After:  Users saw stale dashboard data, and the metrics also looked unusual.
+        The cause is not confirmed; the notes suggest the authentication cache
+        may be involved. We should investigate that hypothesis and fix the
+        issue before Friday.
+```
 
-- anti-slop reference work from `stop-slop`
-- internal document-composition ideas from `human-readable-doc-composer`
+Korean surgical polish (facts, commands, and register preserved):
 
-`docs/merge-notes.md` records how those lines were combined. `docs/eval-prompts.md` holds prompts for testing and improving the skill.
+```text
+Before: 데이터를 정제하고, 모델을 학습시킨 다음, 결과를 검증합니다.
+After:  데이터를 정제하고 모델을 학습시킨 다음 결과를 검증합니다.
+```
 
-`humanize` is treated here as an adjacent internal precedent, not as an external baseline to copy blindly.
+## Evidence and lineage
+
+The consolidation and its rules come from a July 2026 research pass: upstream
+repository audits, an ecosystem sweep of writing skills, academic work on
+AI-text markers (KatFishNet at ACL 2025, lexical-overuse and rewrite-drift
+studies), and Korean translation-ese scholarship. See
+[docs/redesign-plan.md](docs/redesign-plan.md) for the migration matrix and
+trigger boundaries, and [docs/merge-notes.md](docs/merge-notes.md) for the
+full lineage. [docs/eval-prompts.md](docs/eval-prompts.md) provides
+lightweight trigger and preservation checks.
+
+## Package layout
+
+```text
+clear-writing/
+├── README.md
+├── README.ko.md
+├── docs/
+│   ├── eval-prompts.md
+│   ├── merge-notes.md
+│   └── redesign-plan.md
+├── clear-writing/          # the installable skill
+│   ├── SKILL.md
+│   └── references/         # 16 files, loaded per job
+└── humanize-doc/           # legacy package, removed after evaluation
+```
+
+## Local development
+
+Inspect a checkout without creating an update-tracked install:
+
+```bash
+npx --yes skills add . --list --full-depth
+```
+
+During the transition the listing reports two packages (`clear-writing` and
+the legacy `humanize-doc`); after retirement it must report exactly one.
+Before publishing a change, verify that the `SKILL.md` name matches its
+folder, every referenced path exists, and this README and `README.ko.md`
+describe the same installation and behavior.
