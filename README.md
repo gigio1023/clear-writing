@@ -12,33 +12,10 @@ The skill follows the [Agent Skills format](https://agentskills.io/) with a
 [`npx skills`](https://github.com/vercel-labs/skills), then pull later
 revisions from the same tracked source.
 
-[Transition status](#transition-from-humanize-doc) ·
 [Install](#install-with-npx-skills) · [Update](#keep-the-skill-up-to-date) ·
 [What's inside](#whats-inside) · [Examples](#examples) ·
 [Evidence and lineage](#evidence-and-lineage) ·
 [Local development](#local-development)
-
-## Transition from humanize-doc
-
-This repository was renamed from `gigio1023/humanize-doc` on 2026-07-26 and now
-publishes the unified `clear-writing` skill. It consolidates what previously
-lived in several places: the `humanize-doc` skill (this repo), the
-`terminology-review` and `engineering-docs` skills (from the
-`gigio1023/agent-skills` pack), and a Korean surgical-polish rule line kept in
-sync with [`epoko77-ai/im-not-ai`](https://github.com/epoko77-ai/im-not-ai).
-
-During the transition:
-
-- The legacy `humanize-doc/` package remains installable from this repository
-  until the unified skill passes its evaluation phase, and is removed after
-  that.
-- Old install sources pointing at `gigio1023/humanize-doc` keep working through
-  GitHub's rename redirect, but new installs should use the
-  `gigio1023/clear-writing` source below.
-- `terminology-review` and `engineering-docs` are still published from
-  `agent-skills` and are scheduled for retirement there once this skill
-  replaces them. Avoid installing them alongside `clear-writing`; the triggers
-  overlap by design.
 
 ## Install with `npx skills`
 
@@ -80,10 +57,7 @@ npx --yes skills list --global
 npx --yes skills update clear-writing --global --yes
 ```
 
-Updates are pull-based and use the remote source recorded at installation. If
-an older `humanize-doc` install is reported as untracked or keeps updating
-from the old source, remove it and reinstall once from the quoted
-`gigio1023/clear-writing#main` source above.
+Updates are pull-based and use the remote source recorded at installation.
 
 ## What's inside
 
@@ -149,14 +123,14 @@ After:  데이터를 정제하고 모델을 학습시킨 다음 결과를 검증
 
 ## Evidence and lineage
 
-The consolidation and its rules come from a July 2026 research pass: upstream
+The skill's rules are grounded in a July 2026 research pass: upstream
 repository audits, an ecosystem sweep of writing skills, academic work on
 AI-text markers (KatFishNet at ACL 2025, lexical-overuse and rewrite-drift
 studies), and Korean translation-ese scholarship. See
-[docs/redesign-plan.md](docs/redesign-plan.md) for the migration matrix and
-trigger boundaries, and [docs/merge-notes.md](docs/merge-notes.md) for the
-full lineage. [docs/eval-prompts.md](docs/eval-prompts.md) provides
-lightweight trigger and preservation checks.
+[docs/redesign-plan.md](docs/redesign-plan.md) for the design and trigger
+boundaries, and [docs/merge-notes.md](docs/merge-notes.md) for the lineage.
+[docs/eval-prompts.md](docs/eval-prompts.md) provides lightweight trigger and
+preservation checks.
 
 ## Package layout
 
@@ -168,10 +142,9 @@ clear-writing/
 │   ├── eval-prompts.md
 │   ├── merge-notes.md
 │   └── redesign-plan.md
-├── clear-writing/          # the installable skill
-│   ├── SKILL.md
-│   └── references/         # 16 files, loaded per job
-└── humanize-doc/           # legacy package, removed after evaluation
+└── clear-writing/          # the installable skill
+    ├── SKILL.md
+    └── references/         # 16 files, loaded per job
 ```
 
 ## Local development
@@ -182,8 +155,6 @@ Inspect a checkout without creating an update-tracked install:
 npx --yes skills add . --list --full-depth
 ```
 
-During the transition the listing reports two packages (`clear-writing` and
-the legacy `humanize-doc`); after retirement it must report exactly one.
 Before publishing a change, verify that the `SKILL.md` name matches its
 folder, every referenced path exists, and this README and `README.ko.md`
 describe the same installation and behavior.
