@@ -9,29 +9,21 @@ Write, rewrite, and review prose documents with one skill: repository-grounded
 authoring, humanizing revision, terminology checks, and surgical Korean
 polish — without changing the facts.
 
-[Install](#install) · [What's inside](#whats-inside) · [Examples](#examples) ·
+It is one skill because those jobs used to be several, and a single request
+("clean up this README") could match more than one of them at once. A router
+now reads the request, works out what the document actually needs, and loads
+only the rules for that job. Korean is first-class rather than translated
+English advice: Korean documents get their own sentence-level pattern layer,
+synced to an upstream taxonomy and tagged by what kind of evidence each rule
+rests on.
+
+Every edit removes rather than inserts. The skill never adds a fact, example,
+citation, or transition the source does not support, and it never claims a
+document was written by AI — it reports the wording problem instead.
+
+[What's inside](#whats-inside) · [Examples](#examples) ·
 [Evidence](#evidence-and-lineage) · [Layout](#package-layout) ·
-[Development](#local-development)
-
-## Install
-
-Requires Node.js 22.20.0 or newer.
-
-```bash
-npx --yes skills add 'gigio1023/clear-writing#main' \
-  --skill clear-writing \
-  --agent codex claude-code \
-  --global \
-  --yes
-```
-
-Swap the agent IDs as needed (`cursor`, `gemini-cli`, and `antigravity` are
-also supported); omit `--global` for a project-local install. Verify with
-`npx --yes skills list --global`, and update later with
-`npx --yes skills update clear-writing --global --yes`.
-
-The quoted `#main` source records the provenance updates rely on; the CLI
-manages each agent's install destination.
+[Install](#install) · [Development](#local-development)
 
 ## What's inside
 
@@ -118,6 +110,26 @@ clear-writing/
 The package follows the [Agent Skills format](https://agentskills.io/) and is
 distributed with the [Skills CLI](https://github.com/vercel-labs/skills); the
 repository keeps no per-agent install adapters.
+
+## Install
+
+Requires Node.js 22.20.0 or newer.
+
+```bash
+npx --yes skills add 'gigio1023/clear-writing#main' \
+  --skill clear-writing \
+  --agent codex claude-code \
+  --global \
+  --yes
+```
+
+Swap the agent IDs as needed (`cursor`, `gemini-cli`, and `antigravity` are
+also supported); omit `--global` for a project-local install. Verify with
+`npx --yes skills list --global`, and update later with
+`npx --yes skills update clear-writing --global --yes`.
+
+The quoted `#main` source records the provenance updates rely on; the CLI
+manages each agent's install destination.
 
 ## Local development
 
