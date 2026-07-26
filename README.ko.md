@@ -11,29 +11,8 @@
 [`npx skills`](https://github.com/vercel-labs/skills)로 설치하고, 같은 추적
 소스에서 이후 개정판을 받으세요.
 
-[전환 상태](#humanize-doc에서의-전환) · [설치](#npx-skills로-설치) ·
-[업데이트](#스킬-업데이트) · [구성](#구성) · [예시](#예시) ·
-[근거와 계보](#근거와-계보) · [로컬 개발](#로컬-개발)
-
-## humanize-doc에서의 전환
-
-이 저장소는 2026-07-26에 `gigio1023/humanize-doc`에서 개명되었고, 이제 통합
-스킬 `clear-writing`을 배포합니다. 여러 곳에 흩어져 있던 것을 하나로
-합쳤습니다: `humanize-doc` 스킬(이 저장소), `terminology-review`와
-`engineering-docs` 스킬(`gigio1023/agent-skills` 팩), 그리고
-[`epoko77-ai/im-not-ai`](https://github.com/epoko77-ai/im-not-ai)와 동기화되는
-한국어 수술 윤문 규칙 계열입니다.
-
-전환 기간 동안:
-
-- 구 `humanize-doc/` 패키지는 통합 스킬이 평가 단계를 통과할 때까지 이
-  저장소에서 계속 설치 가능하며, 그 뒤 제거됩니다.
-- `gigio1023/humanize-doc`을 가리키는 기존 설치 소스는 GitHub의 개명
-  리다이렉트로 계속 동작하지만, 새 설치는 아래의 `gigio1023/clear-writing`
-  소스를 사용하세요.
-- `terminology-review`와 `engineering-docs`는 아직 `agent-skills`에서
-  배포되며, 이 스킬이 대체를 마치면 그쪽에서 퇴역할 예정입니다.
-  `clear-writing`과 함께 설치하지 마세요. 트리거가 의도적으로 겹칩니다.
+[설치](#npx-skills로-설치) · [업데이트](#스킬-업데이트) · [구성](#구성) ·
+[예시](#예시) · [근거와 계보](#근거와-계보) · [로컬 개발](#로컬-개발)
 
 ## `npx skills`로 설치
 
@@ -76,9 +55,7 @@ npx --yes skills list --global
 npx --yes skills update clear-writing --global --yes
 ```
 
-업데이트는 pull 기반이며 설치 시점에 기록된 원격 소스를 사용합니다. 이전
-`humanize-doc` 설치가 미추적으로 나오거나 옛 소스에서 계속 갱신된다면,
-제거한 뒤 위의 `gigio1023/clear-writing#main` 소스로 한 번 재설치하세요.
+업데이트는 pull 기반이며 설치 시점에 기록된 원격 소스를 사용합니다.
 
 ## 구성
 
@@ -141,10 +118,10 @@ After:  데이터를 정제하고 모델을 학습시킨 다음 결과를 검증
 
 ## 근거와 계보
 
-통합과 규칙은 2026년 7월 조사에 기반합니다: 상류 저장소 감사, 글쓰기 스킬
+스킬의 규칙은 2026년 7월 조사에 기반합니다: 상류 저장소 감사, 글쓰기 스킬
 생태계 조사, AI 텍스트 신호 학술 연구(ACL 2025의 KatFishNet, 어휘 과용과
-리라이트 드리프트 연구), 한국어 번역투 학술 자료. 이관 매트릭스와 트리거
-경계는 [docs/redesign-plan.md](docs/redesign-plan.md), 전체 계보는
+리라이트 드리프트 연구), 한국어 번역투 학술 자료. 설계와 트리거 경계는
+[docs/redesign-plan.md](docs/redesign-plan.md), 계보는
 [docs/merge-notes.md](docs/merge-notes.md)를 보세요.
 [docs/eval-prompts.md](docs/eval-prompts.md)는 가벼운 트리거·보존 검사를
 제공합니다.
@@ -159,10 +136,9 @@ clear-writing/
 │   ├── eval-prompts.md
 │   ├── merge-notes.md
 │   └── redesign-plan.md
-├── clear-writing/          # 설치되는 스킬
-│   ├── SKILL.md
-│   └── references/         # 16개, 작업별 로드
-└── humanize-doc/           # 구 패키지, 평가 후 제거
+└── clear-writing/          # 설치되는 스킬
+    ├── SKILL.md
+    └── references/         # 16개, 작업별 로드
 ```
 
 ## 로컬 개발
@@ -173,7 +149,6 @@ clear-writing/
 npx --yes skills add . --list --full-depth
 ```
 
-전환 기간에는 목록에 두 패키지(`clear-writing`, 구 `humanize-doc`)가
-보이고, 퇴역 후에는 정확히 하나만 보여야 합니다. 변경을 공개하기 전에
-`SKILL.md` 이름이 폴더와 일치하는지, 참조된 경로가 모두 존재하는지, 이
-문서와 `README.md`가 같은 설치 방법과 동작을 설명하는지 확인하세요.
+변경을 공개하기 전에 `SKILL.md` 이름이 폴더와 일치하는지, 참조된 경로가
+모두 존재하는지, 이 문서와 `README.md`가 같은 설치 방법과 동작을
+설명하는지 확인하세요.
