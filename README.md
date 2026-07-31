@@ -2,12 +2,12 @@
 
 [![skills.sh](https://skills.sh/b/gigio1023/clear-writing)](https://skills.sh/gigio1023/clear-writing)
 ![prose](https://img.shields.io/badge/prose-EN%20%C2%B7%20KO-22684E)
-![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2016%20references-555)
+![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2017%20references-555)
 [![license](https://img.shields.io/badge/license-MIT-555)](LICENSE)
 
-Write, rewrite, and review prose documents with one skill: repository-grounded
+Write, rewrite, and review prose documents with one skill: evidence-grounded
 authoring, humanizing revision, terminology checks, and surgical Korean
-polish — without changing the facts.
+polish, while preserving facts and visible uncertainty.
 
 It is one skill because those jobs used to be several, and a single request
 ("clean up this README") could match more than one of them at once. A router
@@ -17,9 +17,11 @@ English advice: Korean documents get their own sentence-level pattern layer,
 synced to an upstream taxonomy and tagged by what kind of evidence each rule
 rests on.
 
-Every edit removes rather than inserts. The skill never adds a fact, example,
-citation, or transition the source does not support, and it never claims a
-document was written by AI — it reports the wording problem instead.
+Humanize and surface cleanup are removal-first. Authoring, composition, and
+full revision may add context or connective reasoning only when user material,
+inspected repository evidence, or verified external sources support it. The
+skill never invents facts, examples, quotations, or citations, and it never
+claims a document was written by AI; it reports the wording problem instead.
 
 [What's inside](#whats-inside) · [Examples](#examples) ·
 [Evidence](#evidence-and-lineage) · [Layout](#package-layout) ·
@@ -33,19 +35,29 @@ the references its job needs.
 
 | Job | Covers | Primary reference |
 | --- | --- | --- |
-| Authoring | README, guides, API references, ADRs, specs grounded in repository evidence | `references/authoring.md` |
+| Authoring | README, guides, API references, ADRs, and specs grounded in an explicit evidence boundary | `references/authoring.md` |
 | Revision | humanizing, restructuring, composing notes into standalone docs | `references/revision.md` |
 | Passes | terminology review; Korean sentence-level polishing | `references/terminology.md`, `references/korean-tells.md` |
 
 Design points:
 
-- **Evidence ledger.** Every rule carries its justification type: measured
-  AI-vs-human discriminator, Korean style evidence, observation-only, or
-  house style. Rules rejected by corpus studies are conditioned, not kept.
-- **Voice preservation.** Removal-only editing; the author's voice markers
-  are protected, and a user-supplied writing sample outranks every style rule.
-- **Delivery gates.** Fact-preservation checks, a change-rate guard (warn at
-  30%, stop at 50%), and an editor-slop self-check on the skill's own output.
+- **Source grounding.** Material external claims are checked for source fit,
+  currentness, and evidentiary status. Search snippets and generated summaries
+  are leads, not proof.
+- **Korean evidence ledger.** Korean pattern rules distinguish measured
+  AI-vs-human signals, Korean style evidence, and observation-only diagnostics.
+  Rules rejected by corpus studies are conditioned rather than presented as
+  detection signals.
+- **Voice preservation.** Surface cleanup is removal-first; authoring,
+  composition, and full revision remain evidence-bounded. The author's voice
+  markers are protected, and a user-supplied writing sample outranks every
+  style rule.
+- **Delivery gates.** Cold-reader completeness, claim-to-evidence fit, fact
+  preservation, a change-rate guard (warn at 30%, stop at 50%), and an
+  editor-slop self-check on the skill's own output.
+- **Form follows the reader job.** Prose carries reasoning; lists, tables,
+  charts, and diagrams are used only when their structure clarifies the
+  material better than short prose.
 - **Profiles.** House-style strictness (em-dash prohibition, workplace
   vocabulary) is a selectable profile, not a fork.
 - **Always-on core.** The skill loads on demand, so it cannot govern ordinary
@@ -58,23 +70,22 @@ Design points:
 Sentence-level revision:
 
 ```text
-Before: This initiative enables cross-functional alignment and drives
-        strategic clarity across key stakeholders.
-After:  This document explains who owns the rollout, what changes this week,
-        and which teams need to review it before launch.
+Before: The dashboard serves as a centralized hub for release status and
+        functions as the team's primary source of deployment updates.
+After:  The dashboard is the team's source for release status and deployment
+        updates.
 ```
 
 Composing notes into a standalone document:
 
 ```text
-Before: - metrics weird
-        - auth issue maybe cache
-        - users saw old dashboard
-        - fix before friday
-After:  Users saw stale dashboard data, and the metrics also looked unusual.
-        The cause is not confirmed; the notes suggest the authentication cache
-        may be involved. We should investigate that hypothesis and fix the
-        issue before Friday.
+Before: - users saw the old dashboard and wrong metrics
+        - cause unconfirmed
+        - investigate auth cache
+        - fix before Friday
+After:  Users saw the old dashboard and incorrect metrics. The cause is not
+        confirmed. Investigate the authentication cache and fix the issue
+        before Friday.
 ```
 
 Korean surgical polish (facts, commands, and register preserved):
@@ -86,13 +97,14 @@ After:  데이터를 정제하고 모델을 학습시킨 다음 결과를 검증
 
 ## Evidence and lineage
 
-Rules come from a July 2026 research pass: upstream repository audits, an
-ecosystem sweep of writing skills, academic work on AI-text markers
-(KatFishNet at ACL 2025, lexical-overuse and rewrite-drift studies), and
-Korean translation-ese scholarship. [docs/redesign-plan.md](docs/redesign-plan.md)
-holds the design and trigger boundaries; [docs/merge-notes.md](docs/merge-notes.md)
-the lineage; [docs/eval-prompts.md](docs/eval-prompts.md) lightweight trigger
-and preservation checks.
+The [sources and inspiration register](docs/sources-and-inspiration.md) records
+the inspected version, license or status, adopted insight, and rejected ideas
+for the projects, research, official guidance, and maintainer material that
+informed the skill. [Design and lineage notes](docs/merge-notes.md) explain how
+the earlier skills were consolidated. The
+[redesign plan](docs/redesign-plan.md) preserves the historical design state,
+and [evaluation prompts](docs/eval-prompts.md) hold lightweight trigger and
+preservation checks.
 
 ## Package layout
 
@@ -104,7 +116,7 @@ clear-writing/
 ├── docs/                   # design record, not installed
 └── clear-writing/          # the installable skill
     ├── SKILL.md
-    └── references/         # 16 files, loaded per job
+    └── references/         # 17 files, loaded per job
 ```
 
 The package follows the [Agent Skills format](https://agentskills.io/) and is

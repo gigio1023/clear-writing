@@ -54,9 +54,11 @@ What to protect instead, because it is this register's voice:
 
 ## Anti-homogenization rules
 
-- **Removal only.** Delete or tighten slop; never insert stock transitions,
-  invented examples, fake citations, or replacement clichés. (Traced to a real
-  incident: a rewriter injecting the clichés it was meant to remove.)
+- **Mode boundary.** Humanize and surface cleanup are removal-first: delete or
+  tighten slop, and never insert stock transitions, invented examples, fake
+  citations, or replacement clichés. Compose and full revision may restore
+  necessary context or reasoning only inside the evidence boundary in
+  `source-grounding.md`.
 - **No vocabulary upgrades.** Do not swap plain words for rarer synonyms or
   lengthen words to sound polished — that is the measured direction of
   machine drift.

@@ -147,9 +147,9 @@ Preserve these even when a rule seems to match:
   on current-generation models. Vary cadence as craft, never as a detector.
 - **Marker-word removal = humanized.** Necessary at most; genericness survives
   synonym swaps.
-- **"Reads natural to me" = pass.** Human detection accuracy is near chance
-  (57-64% in controlled studies). The bar is the delivery gates
-  (`gates.md`) plus fact preservation, not a gut read.
+- **"Reads natural to me" = pass.** A gut read does not verify facts, sources,
+  reader context, or voice preservation. Use the delivery gates (`gates.md`)
+  and check facts against the evidence boundary.
 - **AI-sounding = AI-authored.** Never claim authorship; report the wording
   problem itself. Heuristic "sounds AI" judgments systematically misfire on
   authentic non-standard voices.

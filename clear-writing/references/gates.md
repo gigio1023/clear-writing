@@ -2,24 +2,48 @@
 
 Run before delivering any authored or revised document. Apply to the changed
 scope, not mechanically to every page. The bar is these gates plus fact
-preservation — never "it reads natural to me" (human judgment of AI-ish text
-is near chance).
+preservation, not "it reads natural to me."
 
-## Gate 1 — Reader and purpose
+## Gate 1 — Cold reader, purpose, and relevance
 
 - The intended reader and the page's primary job are clear from the top.
-- The main problem, decision, or command appears before background.
-- A new reader can follow the document without the chat history that produced
-  it; local shorthand is explained at first use.
+- The opening matches that job: decision or finding for analysis, first useful
+  action for a procedure, lookup scope for reference, or necessary context for
+  architecture and history.
+- From the document alone, a new reader can recover the subject and, as the
+  genre requires, current state, problem or decision, evidence, constraints,
+  and next action. Local shorthand is explained at first use.
+- No phrase points only into the drafting session or hidden worktree:
+  "as discussed", "this task", an unexplained task ID, branch-only shorthand,
+  or a numbered option whose definition is absent.
+- Every section, example, statistic, table, chart, and diagram serves the
+  reader job, necessary context, a supported claim, or a reader action.
+  Interesting but orphaned material is removed.
+- Ordinary docs describe the current subject. Diff narration remains only
+  when change is the reader job, such as changelogs, release notes, migration
+  guides, ADRs, histories, and retrospectives.
 
-## Gate 2 — Fact preservation (hard gate)
+## Gate 2 — Source, claim, and fact integrity (hard gate)
 
+- The evidence boundary is explicit enough to audit. Material external or
+  mixed claims pass `source-grounding.md`; model memory, snippets, generated
+  summaries, and copied aggregations are leads rather than proof.
+- Consequential sources match the claim's actor, mechanism, scope, conditions,
+  and time. Authorship, publication or update date, version, and currentness
+  were checked where they can change the conclusion.
+- In decision and analysis documents, each material claim has a reason or
+  evidence, visible connective logic where needed, and material limits. Claims
+  without support are labeled as inference, assumption, or unverified; evidence
+  without a claim, necessary context, or reader action is removed.
+- Reference and procedural docs were checked against current behavior,
+  prerequisites, constraints, actions, and observable verification instead of
+  being forced into an argument shape.
 - Commands, paths, identifiers, numbers, units, dates, versions, links, and
   quotations match the source or repository evidence.
 - Conditions survived: no "when/may/optional/unit/version limit" silently
   dropped; requirement level (must/should/may) unchanged.
-- Nothing was invented: no new facts, examples, citations, metaphors, or
-  quotations that the source does not support.
+- Nothing was invented: new facts, examples, citations, metaphors, opinions,
+  or quotations all stay inside the evidence boundary.
 - Genuine uncertainty is still visible; a style edit did not silently resolve
   a factual conflict.
 
@@ -62,6 +86,11 @@ Any failure: fix before delivery, not after.
 ## Gate 6 — Verification actions
 
 - Re-read the complete changed page top to bottom, as its intended reader.
+- For a new or materially rebuilt document, use an isolated fresh-context
+  reader when available: provide only the document and intended reader role,
+  then test 3-5 realistic questions plus hidden assumptions, ambiguous
+  references, and contradictions. With no isolated context, perform the same
+  cold read sequentially. This tests comprehension, not factual accuracy.
 - Inspect the diff for unrelated churn and accidental deletions of scope,
   prerequisites, exceptions, or ownership.
 - Search inbound references before renaming headings or anchors.

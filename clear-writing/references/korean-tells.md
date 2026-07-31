@@ -1,10 +1,12 @@
 # Korean Sentence-Level Patterns (한국어 문장 단위 패턴)
 
 Editing taxonomy for Korean technical prose. Pattern IDs stay aligned with
-upstream `epoko77-ai/im-not-ai` `humanize-korean` (synced against v2.3,
-2026-07; empirical-validation backport applied). Quarterly maintenance: diff
-upstream `references/ai-tell-taxonomy.md` and `empirical-validation.md`
-against this file and carry over only ID-level changes.
+upstream `epoko77-ai/im-not-ai` `humanize-korean`. Inspected 2026-07-31:
+upstream `main` was `53e24e8`, and v2.3.0 points to `82137e8`. Changes after
+the tag affect social-preview assets and their build script, not the writing
+taxonomy used here. Quarterly maintenance: diff upstream
+`references/ai-tell-taxonomy.md` and `empirical-validation.md` against this
+file and carry over only ID-level changes.
 
 Every rule carries an evidence ledger tag:
 
@@ -18,6 +20,12 @@ Severity is review order, not a quality score: S1 = check first, single
 occurrence matters; S2 = fix when repeated (3+ or clustered); S3 = adjust only
 when stacked with other problems. Never grade a document by pattern counts or
 change ratio.
+
+Upstream's v2.3 self-study compared 60 LLM documents with 60 human documents.
+The topics were not paired, and the human side consisted of edited prose
+published before 2022. The public repository records the method and results
+but does not include the reproduction corpus or scripts. Treat its figures as
+bounded evidence for those models and genres, not universal human/AI rates.
 
 ## Contents
 
@@ -45,7 +53,7 @@ Check these four first; they carry the strongest measured evidence.
 | ID | Pattern | Evidence |
 |---|---|---|
 | C-8 | 부정 대구 "A가 아니라 B", "A인가 B인가" | `[AI]` 9.2× vs published prose, 18× vs blogs, G²=41.7, consistent across 3 model families → 부정절을 버리고 결론만 쓴다. 판정 테스트 아래 |
-| C-11 | 연결어미(-고/-며/-지만/-면서/-아서/-어서) 뒤 쉼표 | `[AI]` KatFishNet(ACL 2025) comma AUC 94.88% 방향 재현 → 쉼표 제거, 호흡이 길면 마침표 |
+| C-11 | 연결어미(-고/-며/-지만/-면서/-아서/-어서) 뒤 쉼표 | `[AI]` KatFish 에세이: 인간 4.10% vs LLM 19.83%, 4.84× → 쉼표 제거, 호흡이 길면 마침표. 94.88% AUC는 C-11 단일 규칙이 아닌 전체 punctuation feature set 성능 |
 | E-5/C-12 | 문장당 쉼표 과다 | `[AI]` AI 1.5× (G²=25.5); 쉼표 포함 문장 비율 1.4× → 절이 길면 쉼표 대신 문장 분리 |
 | E-1' | 장문 결핍 (100자+ 문장 부재) | `[AI]` 인간 대비 11× 결핍 (G²=60.9). "문장 길이 균일"의 실체 → 처방은 인접 문장 잇기만. 내용 추가 금지 |
 
@@ -54,7 +62,7 @@ C-8 판정 테스트: 부정절을 지웠을 때 주장이 그대로 남으면 �
 보존한다("X는 형식이 아니라 정책이다"처럼 기존 통념을 정정하는 진술). 측정
 근거는 논설·블로그 산문 기준이라, 정의를 다시 세우는 기술 문서에서는 같은
 표면형이 정보를 나른다. 재정의라도 같은 몰드가 3회 이상 반복되면 일부는
-결론형으로 바꿔 몰드를 흩는다. D-8도 같은 테스트를 쓴다.
+결론형으로 바꿔 몰드를 흩는다.
 
 ## A. 번역투 (S1~S2)
 
@@ -82,8 +90,10 @@ A-17('-들' 기계 부착)은 upstream이 hold — 탐지 보조로만.
 ## B. 영어 인용 (S2)
 
 - B-1: 괄호 영어 병기는 첫 등장만, 이후 한글만.
-- B-2: 직역 가능한 영어(`leverage`, `seamless`, `robust`)는 한국어로. 업계
-  표준어(`pipeline`, `endpoint`, `runtime`)는 유지하되 한 문서에서 영/한 혼용 금지.
+- B-2: 인용부호 안이나 본문에 들어간 영어는 문서의 언어, 하우스 스타일,
+  독자의 이해를 해칠 때만 고친다. 직역 가능한 영어(`leverage`, `seamless`,
+  `robust`)는 한국어를 검토하고 독자가 더 익숙한 업계 표준어(`pipeline`,
+  `endpoint`, `runtime`)는 유지한다. 한 문서에서는 영/한 표기를 통일한다.
 
 ## C. 구조 패턴
 
@@ -94,7 +104,7 @@ A-17('-들' 기계 부착)은 upstream이 hold — 탐지 보조로만.
 - C-7 "먼저/반면/결국" 3단 공식(S2): 접속사를 줄이거나 본문에 녹인다.
 - C-8, C-11: [Strongest signals](#strongest-signals) 참조.
 - C-9 숫자 괄호 인덱싱 "(1)(2)(3)"(S2): 본문에 녹이거나 줄바꿈.
-- C-10 콜론 부제 헤딩 "X: Y" 반복(S1): 평서 헤딩으로.
+- C-10 콜론 부제 헤딩 "X: Y" 반복(S2): 평서 헤딩으로.
 
 문서 구조 단위 장황함(헤딩·표 인플레이션, 자기 설명 도입부 등)은
 `structure-anti-patterns.md`가 정본이다.
@@ -109,7 +119,6 @@ Delete-only category — **removal only, never insert** replacement clichés.
 - D-4 hype 어휘(혁신적, 획기적, 강력한, 압도적): 근거가 있으면 구체 사실로, 없으면 삭제.
 - D-5 의인화 추상 주어("기술이 묻는다"): 사람·기관 주어로.
 - D-6 결말 공식("~할 때다"): 평서로 닫거나 삭제.
-- D-8 부정-대조 단정: C-8과 동일 처방. 대조가 진짜 정보면 표로.
 
 ## E. 리듬 (S2)
 
@@ -155,7 +164,8 @@ Delete-only category — **removal only, never insert** replacement clichés.
 - 직접 인용 결핍 (AI 0.0 vs 인간 8.7/1k, G²=96.4) — 없는 인용을 만들지 않는다
 - 괄호 결핍 (G²=69.5) — 장식 괄호를 삽입하지 않는다
 - 과거형 회피 (잠정, 장르 교란 가능)
-- 띄어쓰기의 비인간적 일관성 (KatFishNet AUC 79.51%) — 일부러 틀리지 않는다
+- 띄어쓰기 특징군 (KatFishNet 에세이 평균 AUC 79.51%) — 단일 규칙의
+  성능이 아니며 일부러 틀린 띄어쓰기를 추가하지 않는다
 
 ## Rewrite examples
 
@@ -163,7 +173,7 @@ Delete-only category — **removal only, never insert** replacement clichés.
 - 데이터를 정제하고, 모델을 학습시킨 다음, 결과를 검증합니다.        (C-11)
 + 데이터를 정제하고 모델을 학습시킨 다음 결과를 검증합니다.
 
-- 핵심은 runtime brain 자체가 아니다. 세 가지 action을 분리 실험한다.  (C-8/D-8)
+- 핵심은 runtime brain 자체가 아니다. 세 가지 action을 분리 실험한다.  (C-8)
 + 검증 순서: 세 가지 action의 효과를 먼저 측정한다.
 
 - 이 명령어로 서버를 실행할 수 있습니다.                             (A-10)

@@ -8,7 +8,7 @@ not an installation path.
 
 ## Generation 2 (2026-07): clear-writing
 
-`clear-writing` absorbs six sources:
+`clear-writing` combines the source families below:
 
 | Source | What it contributed |
 | --- | --- |
@@ -26,10 +26,10 @@ Key decisions, in order of how hard they would be to reverse:
   surface: one request should have one firing candidate. Fallback recorded in
   `redesign-plan.md`: split authoring/revision only if over-triggering is
   observed in practice.
-- **Two-tier system.** The skill is the on-demand deep tier. An always-on core
-  (14 Korean answer rules) lives as a draft in
-  `clear-writing/references/core-rules.md`; installing it into always-on agent
-  layers is a deferred decision tracked in that file.
+- **Two-tier system.** The skill is the on-demand deep tier. The always-on core
+  has 15 Korean answer rules. Its canonical block and current install targets
+  are recorded in `clear-writing/references/core-rules.md`; the block is
+  installed as `clear-writing:core v1` in the shared agent instructions.
 - **Evidence ledger over flat rules.** Every Korean rule carries its
   justification type: measured AI discriminator, Korean style evidence,
   observation-only, or house style. Upstream's 2026-07 corpus study rejected
@@ -77,6 +77,8 @@ concerns to six skills.
 
 ## Standing maintenance decisions
 
+- Source provenance, inspection dates, adopted ideas, rejected ideas, and
+  reuse status live in `sources-and-inspiration.md`.
 - Publish and update through `npx skills` from this repository's `main`
   branch. No manual per-agent copies, symlinks, or install adapters.
 - No banned-phrase lint script: whether wording is synthetic depends on

@@ -59,9 +59,13 @@
 
 ## Evidence notes (not installed)
 
-- Rules 1-2: KatFishNet (ACL 2025) — comma patterns are the strongest Korean
-  AI/human discriminator (AUC 94.88%); AI text carries commas in ~61% of
-  sentences vs ~26% for humans.
+- Upstream status checked 2026-07-31: `epoko77-ai/im-not-ai` `main` was
+  `53e24e8`, and v2.3.0 points to `82137e8`. Post-tag changes affect social
+  assets and a build script, not the writing taxonomy used here.
+- Rules 1-2: KatFish reports an essay ending-comma rate of 4.10% for human
+  text and 19.83% for LLM text (4.84×), and comma-containing sentences at
+  26.31% vs 61.03%. The separate 94.88% figure is the average AUC for its
+  complete punctuation feature set, not a score for either individual rule.
 - Rule 7: negative-contrast couplets measured 9.2× AI-vs-human (G²=41.7),
   stable across three model families.
 - Rules 3-5: 국립국어원 새국어생활 22-1 translation-ese studies (style
@@ -69,6 +73,11 @@
 - Rule 6: uniform sentence endings measured 1.8× in AI text; the deeper
   finding is long-sentence deficiency — vary length by joining adjacent
   sentences, never by padding.
+- The upstream v2.3 self-study behind Rules 6-7 compared 60 LLM documents
+  with 60 human documents. Topics were not paired; the human texts were
+  edited prose published before 2022; and the public repository does not
+  include the reproduction corpus or scripts. Treat the figures as bounded
+  evidence for the sampled models and genres.
 - Rule 11 is house style (see `profiles.md`), not detection.
 - Rule 15 comes from the 2026-07 A/B check: with rules 1-14 alone, answers to
   casual Korean questions came back in lecture-register 한다체 — the ruleset's

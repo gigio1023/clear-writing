@@ -1,5 +1,13 @@
 # clear-writing 재설계 계획 (P1 산출물, 2026-07-26)
 
+> 상태: 이 문서는 초기 설계를 보존한 historical 기록이며 현재 실행
+> 계획으로는 superseded 상태다. 하단의 보류 표기를 현재 결정으로 읽지
+> 않는다. D4는 후속 구현에서 해결했다. 한국어 답변 수칙 15개를
+> `clear-writing/references/core-rules.md`의 `clear-writing:core v1` 블록으로
+> 상시 계층에 설치했다. 현재 작동 규약은 `clear-writing/SKILL.md`와
+> `clear-writing/references/`를 따른다. 아래 본문은 2026-07-26 당시의
+> 계획과 미해결 상태를 설명하므로 고치지 않았다.
+
 이 문서는 통합 스킬 `clear-writing` 저작(P2)의 입력이다. 배경·근거·전체 로드맵의
 정본은 워크스페이스의 `notes/humanize-consolidation/launch-brief.md`와 계획
 아티팩트에 있다. 여기에는 P2가 그대로 따라 할 수 있는 것만 담는다:

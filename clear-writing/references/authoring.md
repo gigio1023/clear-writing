@@ -1,16 +1,19 @@
 # Authoring Workflow
 
-For creating or materially updating repository-grounded documentation: README,
+For creating or materially updating evidence-grounded documentation: README,
 CONTRIBUTING, setup and how-to guides, API references, architecture docs,
-ADRs, specifications. Improving prose that already exists without new facts
-belongs to `revision.md`; the two combine when a rewrite also
-needs fresh repository evidence.
+ADRs, specifications, reports, and decision memos. Improving prose that
+already exists without new facts belongs to `revision.md`; the two combine
+when a rewrite also needs fresh repository or external evidence.
 
 ## Ground rules
 
-- Ground every technical claim in the repository: code, configuration,
-  scripts, tests, schemas, accepted specs. Never present an unrun command or
-  invented example as verified; placeholders are realistic but visibly fake.
+- Select the evidence boundary from `SKILL.md`. Ground technical claims in
+  inspected code, configuration, scripts, tests, schemas, or accepted specs.
+  Claims that depend on external or mixed sources follow
+  `source-grounding.md`.
+- Never present an unrun command or invented example as verified; placeholders
+  are realistic but visibly fake.
 - Read repository instructions and neighboring pages first; they set language,
   terminology, renderer, and navigation conventions that outrank this skill's
   preferences.
@@ -27,16 +30,43 @@ needs fresh repository evidence.
 | Look up an API or option | names, types, required/default behavior, constraints, examples, errors |
 | Understand architecture | context, current design, boundaries/data flow, rationale, trade-offs |
 | Record a decision | status, context, decision, alternatives, consequences |
+| Decide or approve | head message, request or recommendation, reasons and evidence, risks, owner and timing |
+| Report status | objective, current state, material variance, evidence, next action, owner and timing |
 | Contribute changes | supported setup, checks, conventions, submission flow |
 
 Do not omit a necessary fact merely to shorten the page. When decisive
-evidence is missing or contradictory, name the gap and its consequence instead
-of guessing. When code and a normative spec disagree, surface the conflict —
-code shows current behavior; the spec may intentionally describe the target.
+evidence is missing or contradictory, find a governing source, state the
+bounded gap and its consequence, or omit the unsupported claim. When code and
+a normative spec disagree, surface the conflict: code shows current behavior;
+the spec may intentionally describe the target.
 
 `templates.md` offers page shapes as a menu, never a mandatory
 skeleton. `doc-patterns.md` collects worked repairs for
 common technical-documentation problems.
+
+## Document spine
+
+Match the opening to the reader job:
+
+- Decision and analysis documents lead with the decision, request,
+  recommendation, or finding the reader must evaluate.
+- Procedures lead with the task, prerequisites, and first useful action.
+- Reference pages lead with the lookup scope and current behavior.
+- Architecture and decision records may need context before the conclusion
+  when chronology or rationale is the reader's job.
+
+For argument-bearing documents, make an internal map:
+
+```text
+claim -> reason or evidence -> warrant (why the support fits) -> limit
+```
+
+Every material claim must have direct support or an explicit status such as
+inference, assumption, or unverified. Every source, statistic, chart, and
+example must serve a claim, necessary context, or reader action. Remove
+material that is merely interesting. Do not force a thesis onto API reference,
+lookup, or procedural pages; verify their statements against current behavior
+instead.
 
 ## Five zoom levels
 
@@ -58,9 +88,25 @@ rewrite that drops a condition is wrong.
 
 Prose for reasoning; numbered steps for order-dependent work; bullets for
 independent items; tables for repeated fields or comparisons; code blocks for
-copyable input; diagrams only when relationships beat short prose. Match the
-target renderer before using callouts, tabs, or MDX components. Search inbound
-references before renaming headings or anchors.
+copyable input; charts for consequential trends; diagrams only when
+relationships beat short prose. Text states the takeaway and material caveats
+that a visual alone would hide. Match the target renderer before using
+callouts, tabs, or MDX components. Search inbound references before renaming
+headings or anchors.
+
+## Coverage and currentness
+
+For a large documentation audit or a major feature page, check both
+directions:
+
+1. **Docs to implementation:** commands, paths, versions, configuration, and
+   described behavior match the repository.
+2. **Implementation to docs:** recent high-signal changes and user-visible
+   behavior do not expose a material documentation gap.
+
+Keep this proportional. A sentence edit does not authorize a repository-wide
+audit. External and time-sensitive claims use the freshness and stop rules in
+`source-grounding.md`.
 
 ## Scope
 
@@ -75,6 +121,6 @@ references before renaming headings or anchors.
 ## Delivery
 
 Draft only the sections that serve the reader job, then deliver through
-`gates.md` — for authoring, Gate 2 (facts vs repository evidence)
-and Gate 6 (links, anchors, commands, renderer syntax, docs checks) carry the
-most weight.
+`gates.md`. For authoring, Gate 1 (cold-reader completeness and relevance),
+Gate 2 (source and claim integrity), and Gate 6 (links, anchors, commands,
+renderer syntax, docs checks) carry the most weight.
