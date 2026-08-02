@@ -46,3 +46,25 @@ publishing search results.
   representative-reader benchmark was executed.
 - Revisit: add behavior fixtures only in a separately scoped evaluation change,
   so packaging and guidance changes remain reviewable here.
+
+### Model-native anti-slop correction
+
+- Plan: make multilingual coverage robust by adding bounded language guidance.
+- Reality: requiring a matching language layer for every span still pushed the
+  package toward a grammar encyclopedia. Current frontier models already carry
+  broad grammar, spelling, syntax, and idiom knowledge. More tables would add
+  exceptions, conflicts, and context cost without defining AI slop better.
+- Conservative choice: define slop by four reader-visible failures, make the
+  common semantic tests the normal path, and load language files only for a
+  language-specific candidate or locale risk. Keep an unambiguous local
+  correction floor inside authorized rewrites, while excluding grammar-only
+  proofreading from the trigger.
+- Revisit: expand a language overlay only after a recurring deslop failure is
+  observed and the new rule adds evidence or a meaning-preservation boundary
+  beyond ordinary model fluency.
+
+- Verification: `validate_skill.sh clear-writing` passed at 7,786 bytes and
+  147 lines; the Skills CLI found one installable skill; all 19 direct
+  references and repository-relative Markdown links resolve; `git diff
+  --check` passed. No cross-harness behavior run or representative-reader
+  study was performed.

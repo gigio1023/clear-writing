@@ -13,6 +13,9 @@
 - **R5:** Keep the package discoverable in Codex and Claude Code and propose a
   distinctive replacement name without breaking the current package before
   the maintainer chooses it.
+- **R6:** Make AI-slop diagnosis the primary contract, rely on frontier-model
+  fluency for ordinary language knowledge, and prevent language overlays from
+  becoming grammar encyclopedias.
 
 ## Tasks
 
@@ -24,6 +27,10 @@
 | T4 | terminology and anti-slop references | Remove duplicate catalogs and make cluster-based, meaning-preserving cleanup canonical. | No conflicting replacement tables; unsupported specificity is never inserted. | Diff review and package validation. |
 | T5 | `docs/sources-and-inspiration.md`, `README*` | Record new sources, adoption limits, multilingual coverage, and naming candidates. | README matches the actual tree and states the supported language boundaries. | Link/path checks and complete README/SKILL reread. |
 | T6 | whole repo | Run packaging, portability, Markdown, and fresh-context integration checks. | One installable skill is found; validation passes; no material unresolved review finding remains. | `validate_skill.sh`, `npx skills add . --list --full-depth`, `git diff --check`, targeted link checks. |
+| T7 | router and common core | Define AI slop by reader-visible function and add semantic diagnosis tests. | The skill distinguishes slop from grammar errors and authorship detection. | Direct contract read-through. |
+| T8 | language references | Convert English, Korean, Italian, and Chinese files from mandatory language passes to optional diagnostic overlays. | Ordinary fluency stays model-native; overlays load only for a language-specific candidate or locale risk. | Router-to-reference alignment check. |
+| T9 | revision, gates, README, lineage | Add the correction floor, document the new purpose, and record current model-guidance rationale. | Obvious local errors remain fixable without expanding the trigger to grammar-only proofreading. | README/SKILL/gates reread and source-register check. |
+| T10 | whole repo and PR #4 | Re-run package checks and publish the focused follow-up. | Validation passes, one skill is found, and the existing Draft PR describes the model-native anti-slop contract. | Validator, package listing, link check, diff check, PR inspection. |
 
 ## Status
 
@@ -33,10 +40,15 @@
 - T4: completed
 - T5: completed
 - T6: completed
+- T7: completed
+- T8: completed
+- T9: completed
+- T10: completed
 
 ## Verification record
 
-- `validate_skill.sh clear-writing`: passed at 8,114 bytes and 145 lines.
+- `validate_skill.sh clear-writing`: passed at 7,786 bytes and 147 lines after
+  the model-native anti-slop revision.
 - `npx --yes skills add . --list --full-depth`: found exactly one installable
   skill, `clear-writing`.
 - `git diff --check`: passed.
@@ -44,6 +56,9 @@
 - Router reference check: all 19 unique direct reference files exist.
 - Fresh-context reviews: English/common, Italian, and Chinese reviewers found
   no material issue after targeted repairs and rechecks.
+- Model-native follow-up: router and reference read-through confirmed that
+  language overlays are conditional, grammar-only proofreading is excluded,
+  and every supported language retains a correction floor and meaning gate.
 - Not verified: no harness-specific model-behavior benchmark or representative
   human-reader study was run. The existing eval prompts remain prompts, not
   measured results.

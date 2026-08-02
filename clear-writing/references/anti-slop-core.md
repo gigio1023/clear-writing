@@ -1,12 +1,14 @@
 # Common Integrity and Anti-Slop Core
 
-Use this layer in every supported language. It covers defects that survive
-translation: weak evidence, missing reasoning, irrelevant detail, generic
-claims, lost context, and template-shaped repetition. Language-specific
-syntax, punctuation, vocabulary, and register live in separate references.
+Use this layer for every deslop job. It defines AI slop by what the prose does
+to a reader, never by who or what wrote it. The same defects can occur in human
+drafts and can survive translation. Language overlays hold a small number of
+evidence-backed cues that this common diagnosis may miss.
 
 ## Contents
 
+- Working definition
+- LLM-native diagnosis
 - Firing rule
 - Substance and evidence
 - Reader and relevance
@@ -15,12 +17,57 @@ syntax, punctuation, vocabulary, and register live in separate references.
 - Keep list
 - Never encode
 
+## Working definition
+
+AI slop is prose whose plausible, complete-looking surface substitutes for the
+selection, evidence, and point of view the document needs. It usually appears
+as one or more of four reader-visible failures, regardless of authorship:
+
+1. **Generic completion:** claims, benefits, actors, examples, or conclusions
+   could be transferred to an unrelated document with little change.
+2. **Performed reasoning:** citations, transitions, contrasts, or confident
+   synthesis imitate an argument whose relation the source never establishes.
+3. **Reader displacement:** template sections, process narration, hidden chat
+   context, and exhaustive side paths occupy space needed for the reader's job.
+4. **Voice flattening:** repeated safe phrasing, uniform cadence, synonym
+   display, and prestige vocabulary erase the writer's stable choices.
+
+Grammatical correctness does not cure these failures. A grammatical sentence
+can still be empty, irrelevant, or unsupported. A nonstandard sentence can
+still be exact, purposeful, and recognizably the writer's.
+
+## LLM-native diagnosis
+
+Use contextual language understanding instead of expanding a lint catalog:
+
+1. Read the complete relevant scope and identify its reader job, supported
+   point, evidence boundary, and recurring voice.
+2. Form one short working hypothesis about the dominant slop failure in this
+   document. Do not expose private reasoning or force every category to fire.
+3. Test candidate spans semantically:
+   - **transfer test:** could this span fit an unrelated product or topic?
+   - **support test:** what source or nearby reasoning licenses the claim and
+     relation?
+   - **reader test:** what decision, understanding, or action does it enable?
+   - **deletion test:** what fact, condition, relation, or voice is lost if it
+     disappears?
+   - **voice test:** does the rewrite move toward the writer's repeated choices
+     or toward generic polished prose?
+4. Fix the dominant cluster first with the smallest edit that passes those
+   tests. Re-read the paragraph or section because a locally fluent rewrite can
+   still damage long-range meaning.
+
+The model already knows ordinary syntax, idiom, and spelling across many
+languages. Use that competence to understand and revise context. Add a written
+rule only for a recurring slop failure, an evidence boundary, or a meaning-risk
+that general fluency does not reliably protect.
+
 ## Firing rule
 
-Diagnose the function of the span before its surface form. One familiar word or
-construction is rarely a defect. Act when a pattern changes meaning, hides the
-source, wastes the reader's attention, or clusters through a paragraph or
-section. Preserve a deliberate repeated voice choice.
+Diagnose function before surface form. One familiar word or construction is
+rarely a defect. Act when a direct reader harm is clear or when a pattern
+clusters through a paragraph or section. Preserve a deliberate voice choice.
+If the only finding is a debatable grammar preference, this layer does not fire.
 
 ## Substance and evidence
 
@@ -103,10 +150,11 @@ step. Do not replace one empty kicker with another.
 ## Surface signals
 
 Word lists, punctuation habits, sentence-length variance, and vendor-specific
-formatting change across models, regions, and genres. Use them as look-closer
-prompts inside the matching language layer, never as authorship evidence or as
-automatic replacements. Remove literal generation artifacts and broken markup
-when they do not belong in the target format.
+formatting decay across models, regions, and genres. Let the model recognize
+them in context, then use them only as look-closer prompts inside a matching
+language overlay. Never turn them into authorship evidence or automatic
+replacements. Remove literal generation artifacts and broken markup when they
+do not belong in the target format.
 
 ## Keep list
 

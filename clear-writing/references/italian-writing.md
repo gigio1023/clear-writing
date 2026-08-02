@@ -1,26 +1,20 @@
 # Italian Writing Layer
 
-Apply this file only to Italian spans, after the common integrity layer. It
-covers Italian document authoring, revision, and already-translated Italian;
-it does not authorize translation. Genre, locale, repository policy, and the
-writer's established voice outrank these defaults.
+Load this file only when an Italian-specific slop candidate survives the common
+diagnosis. It is not an Italian grammar guide and does not authorize
+translation. Use ordinary model fluency for well-formedness. Genre, locale,
+repository policy, and the writer's established voice outrank these lenses.
 
-## Punctuation and attachment
+## Meaning safety during a slop edit
 
-**Comma boundaries.** Do not separate a subject from its verb, a verb from its
-object, or a noun from a closely attached adjective without a syntactic reason.
-A comma around a relative clause can change which referents the clause selects.
-After changing punctuation, verify that scope, condition, cause, and parenthetic
-status remain the same. Use semicolons to separate complex list items only when
-internal commas would make the grouping unclear.
+Do not run a comma or gerund checklist. When removing padding changes
+punctuation or attachment, verify that referent scope, condition, cause,
+parenthetic status, and actor remain the same.
 
-**Gerund subject.** Identify the understood subject of a `gerundio` from its
-function and context. Do not assume it is always the governing clause's
-grammatical subject; check an explicit separate subject, a passive agent, and
-impersonal use. Rewrite with a finite clause only when the actor or relation
-remains ambiguous. The relation may be temporal, causal, conditional,
-concessive, modal, instrumental, or consequential. Repair English-shaped
-gerunds that incorrectly modify a noun; do not ban Italian gerunds.
+An appended `gerundio` is a slop candidate when it supplies an unsupported
+result or leaves its actor or relation unclear. Infer its function from context,
+including an explicit separate subject, passive agent, or impersonal use.
+Rewrite with a finite clause only if ambiguity remains. Do not ban gerunds.
 
 ## Information flow
 
@@ -31,7 +25,7 @@ decision. Reorder only when the reader cannot recover the actor, action, or
 governing clause soon enough. Keep the original order when a locally simpler
 sentence would break the paragraph's topic and focus.
 
-## Bureaucratic weight
+## Italian-specific slop lenses
 
 **Active, passive, and impersonal forms.** Name the actor when responsibility or
 reader action depends on it and the evidence supplies the actor. Keep passive
@@ -50,7 +44,7 @@ standard developer terms such as `runtime`, `endpoint`, and `SDK` when a forced
 translation would be less precise or less searchable. Remove decorative
 archaism or Latin only when it serves no legal or domain function.
 
-## Ambiguity and translation interference
+## Translation interference and false polish
 
 Use `piuttosto che` for preference, not as a neutral alternative. Use `o` or
 `oppure` when the choices are equal. Preserve `piuttosto che` when the first
@@ -62,14 +56,12 @@ source text, do not diagnose "translationese" from unfamiliarity alone. Fix
 the observable ambiguity or broken connection and preserve conditions whose
 source meaning cannot be checked.
 
-## Length and connectives
+## Connective and rhythm boundary
 
-Do not impose a word limit on sentences. Split a sentence when it combines
-independent decisions or actions so densely that their relation disappears;
-keep a longer sentence when it makes conditions, causes, and exceptions easier
-to follow. Keep `in conclusione`, `inoltre`, and `tuttavia` when they mark a
-real relation. Remove clustered connectors that merely announce a structure
-the sentences already express.
+Do not impose a word limit or manufacture varied rhythm. Keep `in conclusione`,
+`inoltre`, and `tuttavia` when they mark a real relation. Remove clustered
+connectors that merely announce structure. Split or join only when the relation
+among decisions, causes, conditions, or exceptions becomes clearer.
 
 ## AI-related evidence boundary
 
@@ -83,7 +75,8 @@ deliberate noise to evade a detector.
 
 - Can the reader recover each required actor and action without an invented
   subject?
-- Did punctuation preserve referent scope, conditions, and causal relations?
+- Did the slop edit preserve referent scope, conditions, and causal relations?
 - Does the sentence order support the paragraph's information flow?
 - Did simplification preserve legal, technical, and procedural distinctions?
 - Did the edit improve the text itself instead of gaming a detector?
+- Did the pass stop before becoming general Italian proofreading?

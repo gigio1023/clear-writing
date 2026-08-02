@@ -18,7 +18,7 @@ evidence.
   translationese studies
 - English and common: anti-slop skills, documentation workflows, source and
   argument guidance, plain-language guidance, voice and assisted-revision
-  research, Pilcrow, and local research notes
+  research, Pilcrow, local research notes, and frontier-model prompting guidance
 - Italian: institutional plain-language guidance, grammar and information-flow
   scholarship, and generated-text research
 - Chinese: `zh-CN`, `zh-TW`, and `zh-HK` standards and manuals, translation
@@ -463,6 +463,27 @@ evidence.
   persona, detector gaming, reinforcement-learning rewards from a slop score,
   treating Longreads as a style authority, and using a local summary in place
   of its cited paper or repository.
+
+## Frontier-model prompting guidance
+
+- **Titles and URLs:** OpenAI [Model guidance for
+  GPT-5.6](https://developers.openai.com/api/docs/guides/latest-model) and
+  Anthropic [Prompting Claude Fable
+  5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5).
+- **Responsible:** OpenAI and Anthropic.
+- **Version:** live official documentation inspected 2026-08-02. These pages
+  can change and do not define a permanent model contract.
+- **Inspected:** 2026-08-02; prompt-size, instruction-following, migration, and
+  skill-scaffolding guidance relevant to this package.
+- **License/status:** official product documentation cited for design rationale;
+  no prompt blocks or model-specific configuration are redistributed.
+- **Adopted:** remove repeated generic language instruction, state the outcome
+  and hard boundaries once, and let a capable model perform ordinary contextual
+  language judgment. Preserve direct verification for facts, artifacts, and
+  meaning-sensitive edits.
+- **Rejected:** naming a current model in the portable writing contract,
+  hard-coding effort or harness features, assuming leaner is always better, and
+  treating vendor evaluation ranges as evidence that this skill improved.
 
 ## Italian official and institutional guidance
 

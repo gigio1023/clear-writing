@@ -8,7 +8,7 @@ preservation, not "it reads natural to me."
 
 - Cold reader, purpose, and relevance
 - Source, claim, and fact integrity
-- Language quality
+- Slop removal and language floor
 - Change-rate guard
 - Editor-slop test
 - Verification actions
@@ -60,17 +60,21 @@ preservation, not "it reads natural to me."
 - Genuine uncertainty is still visible; a style edit did not silently resolve
   a factual conflict.
 
-## Gate 3 — Language quality
+## Gate 3 — Slop removal and language floor
 
-- Generic, label-heavy, irrelevant, or template-shaped prose was reduced where
-  the evidence allows (`anti-slop-core.md`).
+- The edit names and repairs a reader-visible failure from the common slop
+  definition. It does not merely exchange a flagged phrase for a preferred one.
+- The dominant cluster was tested against the reader job, evidence, deletion
+  cost, and writer's voice (`anti-slop-core.md`).
 - Structure inflation cleared without deleting a needed warrant, condition,
   or guide-section tone (`structure-anti-patterns.md`).
-- Each span passed only its matching language layer: English rhetoric and
-  register (`english-writing.md`); Korean evidence-labeled syntax and
-  punctuation (`korean-tells.md`); Italian attachment, information flow, and
-  bureaucratic weight (`italian-writing.md`); Chinese script, punctuation,
-  terminology, and regional convention (`chinese-writing.md`).
+- Ordinary grammar and idiom were handled contextually. An obvious local error
+  encountered during revision was fixed only when one correction preserved
+  meaning, register, dialect, and voice. No full proofreading pass is implied.
+- A language overlay was loaded only when a language-specific candidate or
+  locale risk justified it: English (`english-writing.md`), Korean
+  (`korean-tells.md`), Italian (`italian-writing.md`), or Chinese
+  (`chinese-writing.md`). Its cues were not applied as an exhaustive checklist.
 - Mixed-language documents preserved identifiers, quotations, borrowed terms,
   and locale-specific script. Unsupported languages received no invented tell
   list. Terminology stayed stable once chosen.
@@ -99,6 +103,8 @@ Read your rewrite and your report as if told "an LLM wrote this":
 
 - Does the rewrite now carry tells the original lacked (stock transitions,
   symmetric contrasts, upgraded vocabulary, formulaic wrap-up)?
+- Did correction make the text uniformly polished while erasing a precise,
+  unusual, dialectal, or personal choice?
 - Voice drift check (`voice-preservation.md`): were stance, causal chains,
   register, recurring choices, and language-specific rhythm preserved?
 - Is the report itself free of the patterns this skill removes?

@@ -1,11 +1,34 @@
 # Design and Lineage Notes
 
-This repository's skill has three design generations. The 2026-03 generation
+This repository's skill has four design generations. The 2026-03 generation
 built `humanize-doc` from an external anti-slop line and an internal
 document-composition line. The 2026-07 generation built `clear-writing` by
 consolidating six writing skills into one. The 2026-08 generation separated a
 common integrity core from English, Korean, Italian, and Chinese language
-layers. These notes record the lineage; they are not an installation path.
+layers, then recentered them on model-native slop diagnosis. These notes record
+the lineage; they are not an installation path.
+
+## Generation 4 (2026-08): model-native anti-slop
+
+The multilingual package still risked becoming a compact grammar encyclopedia.
+That duplicated frontier models' ordinary fluency and made every language file
+look mandatory. Generation 4 tightened the contract:
+
+- AI slop is a functional failure, not a writing-origin label: generic
+  completion, performed reasoning, reader displacement, or voice flattening;
+- the model reads the whole relevant scope and uses semantic transfer, support,
+  reader, deletion, and voice tests instead of walking every rule;
+- basic grammar, spelling, idiom, and syntax rely on model fluency. An obvious
+  local error may be fixed during an authorized rewrite, but grammar-only
+  proofreading does not trigger the skill;
+- English, Korean, Italian, and Chinese files became optional diagnostic
+  overlays. They load for a language-specific candidate or locale risk rather
+  than for every span;
+- current model guidance informed the subtraction, but model names, effort,
+  tools, and harness controls stay outside the portable domain skill.
+
+This change preserves the evidence ledger and locale safety material. It
+removes their role as exhaustive checklists.
 
 ## Generation 3 (2026-08): multilingual integrity layers
 

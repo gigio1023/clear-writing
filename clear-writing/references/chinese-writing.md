@@ -1,9 +1,10 @@
 # Chinese Writing Layer
 
-Apply this file only to Chinese spans, after the common integrity layer. Choose
-locale before normalizing script or punctuation. `zh-CN`, `zh-TW`, and `zh-HK`
-differ in terminology, punctuation, glyph guidance, and official-document
-practice; `zh-Hans` or `zh-Hant` alone does not settle those choices.
+Load this file only when a Chinese-specific slop candidate or locale risk
+survives the common diagnosis, or when the user requests intra-Chinese
+normalization. It is not a Chinese grammar guide. Use ordinary model fluency
+for well-formedness. Choose locale before changing script, punctuation, or
+terminology because `zh-CN`, `zh-TW`, and `zh-HK` are not interchangeable.
 
 This is a prose and intra-Chinese consistency layer, including script and
 locale normalization. It does not translate between languages or detect
@@ -14,7 +15,7 @@ authorship.
 - Evidence and precedence
 - Locale intake
 - Protected spans
-- Script, punctuation, and layout
+- Locale safety when normalization is in scope
 - Terminology by locale
 - Corpus-based review cues
 - Bureaucratic scaffolding
@@ -48,7 +49,11 @@ schema fields, API signatures, product literals, trademarks, official entity
 names, or quotations. Change an official name or UI string only after verifying
 the target locale's canonical form.
 
-## Script, punctuation, and layout
+## Locale safety when normalization is in scope
+
+For an ordinary deslop pass, preserve the document's established script and
+punctuation unless inconsistency participates in the diagnosed failure. Do not
+turn revision into full localization without that authority.
 
 **Conversion can become localization.** Simplified and Traditional conversion must
 review vocabulary, regional terms, glyphs, punctuation, proper names, legal
@@ -62,15 +67,6 @@ and `『』`. `zh-HK` preserves the publisher or repository convention; Traditio
 script alone does not imply Taiwan punctuation. Quoted source punctuation and
 explicit house style take precedence.
 
-**Width.** Use Chinese fullwidth punctuation around Chinese prose. Retain ASCII
-characters where syntax or a protected literal requires them. For example,
-`API（測試版）` is prose while `foo(bar)` remains code.
-
-**Grouping.** Use `、` for short parallel items. Use commas or semicolons when
-items contain clauses or internal punctuation. Verify that edits do not change
-legal enumeration, Boolean scope, requirement grouping, or numbered-list
-syntax.
-
 **Renderer boundary.** Forbidden line starts and ends, punctuation compression,
 hanging punctuation, vertical placement, and unbreakable marks usually belong
 to CSS, a typesetter, or a fixed-layout export. Do not insert manual spaces or
@@ -79,14 +75,13 @@ the requested artifact has fixed pages or lines.
 
 ## Terminology by locale
 
-Resolve terms in this order: repository or product glossary, official entity or
-UI spelling, user-supplied reference, locale terminology database, then general
-dictionary. Do not batch-replace pairs such as `软件/軟體`, `信息/資訊`, or
-`用户/使用者`; they encode region and audience, not script alone. Preserve
-searchable standard technical borrowings when a forced localization is less
-precise.
+When a slop or normalization edit touches terminology, resolve it from the
+repository or product glossary, official entity or UI spelling, supplied
+reference, then a locale terminology source. Do not batch-replace pairs such as
+`软件/軟體`, `信息/資訊`, or `用户/使用者`; they encode region and audience, not
+script alone.
 
-## Corpus-based review cues
+## Chinese-specific slop lenses
 
 Corpus distributions prompted the editorial heuristics below, but the studies
 did not measure stacking, repetition, nesting, or reader harm directly. Apply
@@ -155,3 +150,5 @@ text.
 - Did every corpus cue pass its ambiguity or reader-harm keep test?
 - Were line-layout problems left to the renderer when source editing cannot
   solve them safely?
+- Did the pass stop before becoming general Chinese proofreading or
+  unrequested localization?

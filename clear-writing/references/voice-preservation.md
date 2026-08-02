@@ -83,10 +83,10 @@ What to protect instead, because it is this register's voice:
 
 ## Interaction with other references
 
-The common core and matching English, Korean, Italian, or Chinese layer say
-what to review; this file bounds how far removal may go. When they conflict
-with a deliberate author choice, voice wins and the finding is reported
-instead of applied.
+The common core and any triggered English, Korean, Italian, or Chinese overlay
+say what to review; this file bounds how far removal may go. When they conflict
+with a deliberate author choice, voice wins and the finding is reported instead
+of applied.
 The editor-slop test in `gates.md` is the enforcement point: rewrites
 that stripped voice markers fail delivery.
 

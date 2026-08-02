@@ -1,7 +1,14 @@
 # Korean Sentence-Level Patterns (한국어 문장 단위 패턴)
 
-Editing taxonomy for Korean technical prose. Pattern IDs stay aligned with
-upstream `epoko77-ai/im-not-ai` `humanize-korean`. Inspected 2026-07-31:
+Load this evidence ledger only when a Korean-specific slop candidate survives
+the common diagnosis. It is not a Korean grammar syllabus or a required
+sentence-by-sentence scan. Use the model's ordinary Korean fluency for an
+obvious local correction, then use only the relevant pattern family here to
+test whether a repeated form is a slop defect, valid Korean, or the writer's
+voice.
+
+Pattern IDs stay aligned with upstream `epoko77-ai/im-not-ai`
+`humanize-korean`. Inspected 2026-07-31:
 upstream `main` was `53e24e8`, and v2.3.0 points to `82137e8`. Changes after
 the tag affect social-preview assets and their build script, not the writing
 taxonomy used here. Quarterly maintenance: diff upstream
@@ -24,7 +31,8 @@ Every rule carries an evidence ledger tag:
 Severity is review order, not a quality score: S1 = check first; one occurrence
 may merit a style review but never an authorship inference. S2 = fix when
 repeated (3+ or clustered); S3 = adjust only when stacked with other problems.
-Never grade a document by pattern counts or change ratio.
+Never traverse every ID merely because the text is Korean, and never grade a
+document by pattern counts or change ratio.
 
 Upstream's v2.3 self-study compared 60 LLM documents with 60 human documents.
 The topics were not paired, and the human side consisted of edited prose
@@ -72,7 +80,8 @@ C-8 판정 테스트: 부정절을 지웠을 때 주장이 그대로 남으면 �
 
 ## A. 번역투 (S1~S2)
 
-All `[KO]` unless noted. These improve Korean regardless of authorship.
+All `[KO]` unless noted. They are contextual revision cues, not a promise that
+applying every row improves every Korean document.
 
 | ID | Pattern | Sev | Fix |
 |---|---|---|---|
@@ -193,4 +202,5 @@ authorship or fabricate a fix:
 
 After editing: (1) 불변 정보 보존 — 명령어·경로·수치·인용·조건을 원문과 대조,
 (2) 각 수정의 의미 보존을 diff로 입증, (3) 장르·격식 유지, (4) 저장소 용어
-일관성, (5) 새 사실·비유·예시를 추가하지 않았는지. 위반한 수정은 되돌린다.
+일관성, (5) 새 사실·비유·예시를 추가하지 않았는지, (6) AI slop 수정이 일반
+맞춤법 검사로 번지지 않았는지. 위반한 수정은 되돌린다.

@@ -5,61 +5,65 @@
 ![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2019%20references-555)
 [![license](https://img.shields.io/badge/license-MIT-555)](LICENSE)
 
-Write, revise, and review documents that stand on their own, preserve the
-writer's meaning and voice, and make each material claim no stronger than its
-evidence. The skill supports English, Korean, Italian, and Chinese without
-pretending that English style advice is language-neutral.
+Remove AI slop from documents without flattening the writer's meaning or voice.
+The skill treats slop as a functional writing failure: plausible completion has
+replaced selection, evidence, reader context, or a real point of view. It does
+not treat grammar mistakes or surface markers as proof of authorship.
 
-`clear-writing` handles README, guides, specs, API references, ADRs, memos,
-wiki pages, and blog drafts. It can compose notes, repair stale or
-session-dependent documentation, review terminology, and reduce formulaic
-model-assisted prose. It does not infer whether AI wrote a passage. It names
-the reader-visible defect and fixes it only when meaning can be preserved.
+`clear-writing` handles humanizing and deslop passes, plus slop-aware work on
+README, guides, specs, API references, ADRs, memos, wiki pages, and blog drafts.
+It trusts the LLM's base fluency for ordinary grammar and idiom. The skill adds
+the diagnosis, evidence boundary, voice protection, and minimal-edit tests that
+general language competence does not supply reliably.
 
-[Architecture](#architecture) · [Languages](#language-layers) ·
+[Architecture](#architecture) · [Languages](#language-overlays) ·
 [Evidence](#evidence-and-lineage) · [Layout](#package-layout) ·
 [Install](#install) · [Development](#local-development)
 
 ## Architecture
 
-`SKILL.md` is a router. It establishes the reader job, language and locale,
-evidence boundary, edit authority, governing policy, and voice sample. It then
-loads a common integrity layer, one job workflow, and only the language layer
-that matches each span.
+`SKILL.md` is a router. It establishes the reader job, evidence boundary, edit
+authority, governing policy, and voice sample. It always loads the common slop
+diagnosis. A language overlay loads only when a candidate depends on that
+language or locale.
 
 | Job | Covers | Primary reference |
 |---|---|---|
 | Authoring | new or materially updated evidence-grounded documents | `references/authoring.md` |
 | Revision | humanizing, restructuring, and composing notes into a standalone document | `references/revision.md` |
-| Focused pass | terminology or language-specific prose review | `references/terminology.md` plus one language layer |
+| Focused pass | terminology or a language-specific slop pattern | `references/terminology.md` or one language overlay |
 
-The common layer enforces:
+The common layer defines four recurring failures:
 
-- an explicit evidence boundary and current, claim-fitting sources;
-- facts, conditions, requirement levels, logical relations, and uncertainty;
-- enough context for a reader who did not see the Codex, Claude Code, issue,
-  or PR session;
-- relevance to the document's reader job;
-- the writer's established voice and minimal effective edits;
-- no invented facts, examples, quotations, citations, actors, or specificity.
+- generic completion that could fit an unrelated document;
+- performed reasoning whose citations or transitions do not establish the
+  claimed relation;
+- reader displacement by templates, hidden sessions, and irrelevant detail;
+- voice flattening through safe, uniform, over-polished prose.
+
+It tests candidate spans against the reader job, evidence, deletion cost, and
+writer's repeated choices. It preserves facts, conditions, requirement levels,
+logical relations, and uncertainty. It never invents specificity.
 
 Search snippets, copied citation lists, generated summaries, and local research
 notes can locate evidence. They do not inherit the authority of the original
 source. A cold read checks self-containment; it does not prove factual accuracy
 or replace representative-reader testing.
 
-## Language layers
+## Language overlays
 
 | Layer | What it contributes | What it does not claim |
 |---|---|---|
-| English | register-aware active/passive choice, rhetorical patterns, `-ing` attachment, marker-density and voice checks | that one word, contraction, dash, or sentence shape proves authorship |
-| Korean | `im-not-ai` taxonomy mapped to Korean corpus and translationese evidence, with keep tests and evidence labels | that an aggregate group difference identifies one passage |
-| Italian | punctuation scope, `gerundio` attachment, information flow, administrative weight, and translation interference | a durable Italian AI-tell list |
-| Chinese | locale-first `zh-CN`, `zh-TW`, and `zh-HK` punctuation, terminology, script, and official-document overlays | that Simplified or Traditional script alone determines locale |
+| English | formulaic rhetoric, unsupported `-ing` relations, inflated significance, and register flattening | a general English style guide |
+| Korean | `im-not-ai` pattern families with Korean evidence, keep tests, and explicit limits | a required scan of every sentence or pattern ID |
+| Italian | formulaic connectors, bureaucratic weight, translation interference, and meaning safety during repair | an Italian grammar syllabus or durable AI-tell list |
+| Chinese | parallel inflation, bureaucratic scaffolding, and locale safety when normalization is in scope | general proofreading or unrequested localization |
 
-For another language, the skill uses only the common integrity layer, the
-writer's sample, and governing locale or publication guidance. It does not
-translate an English surface checklist into an unsupported tell list.
+For another language, the model uses its contextual fluency with the common
+diagnosis, writer sample, and governing locale guidance. During an authorized
+rewrite it may silently fix one obvious local error. Grammar-only proofreading
+does not trigger this skill, and no English checklist is translated into a new
+language.
 
 The optional block in `references/core-rules.md` is a Korean always-on answer
 layer. It is not the generation baseline for English, Italian, or Chinese.
