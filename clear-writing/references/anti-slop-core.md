@@ -1,160 +1,126 @@
-# Anti-Slop Core (Language-Neutral)
+# Common Integrity and Anti-Slop Core
 
-Sentence- and tone-level signals that make prose read machine-generated, with
-fixes. Ordered by evidence durability: structural and substance signals stay
-valid across model generations; surface markers (word lists, punctuation
-habits) decay per model release. Weight your effort accordingly.
-
-Firing rule: single occurrences are usually coincidence. Flag clusters — one
-sentence with one tell is fine; a paragraph stacking three is not. Removal
-only: never insert a replacement cliché, invented fact, or fake citation to
-"fix" a pattern.
+Use this layer in every supported language. It covers defects that survive
+translation: weak evidence, missing reasoning, irrelevant detail, generic
+claims, lost context, and template-shaped repetition. Language-specific
+syntax, punctuation, vocabulary, and register live in separate references.
 
 ## Contents
 
-- [Durable signals](#durable-signals-fix-first)
-- [Surface signals](#surface-signals-decaying--check-last)
-- [Do-not-flag list](#do-not-flag-list)
-- [Myths](#myths-do-not-encode)
+- Firing rule
+- Substance and evidence
+- Reader and relevance
+- Prose and structure
+- Surface signals
+- Keep list
+- Never encode
 
-## Durable signals (fix first)
+## Firing rule
 
-**Genericness.** The sentence could appear in any document about any subject.
-When the evidence boundary already supplies a name, number, case, or mechanism,
-use it. Otherwise delete or bound the empty claim, or report the missing fact;
-never invent specificity during humanize or surface cleanup. "created a robust
-framework" raises the questions: what exists now, who uses it, and how? This is
-the deepest tell; surface fixes without substance make low-quality text harder
-to spot, not better.
+Diagnose the function of the span before its surface form. One familiar word or
+construction is rarely a defect. Act when a pattern changes meaning, hides the
+source, wastes the reader's attention, or clusters through a paragraph or
+section. Preserve a deliberate repeated voice choice.
 
-**Abstraction inflation.** Labels stand in for actions ("협업 기반을 구축했다",
-"enabled synergies"). Rewrite with the actual mechanism or observable result.
-Watch verbs: 구축했다/확보했다/달성했다, enabled/established/facilitated.
+## Substance and evidence
 
-**Placeholder actors.** "various teams", "stakeholders", "여러 팀". Name the
-actor if the source names it; otherwise bound or quantify the group.
+**Generic claim.** The sentence could fit any product, team, or event. Replace
+it with a supported mechanism, actor, constraint, or result. If none exists,
+bound the claim or remove it. Never invent a number or example to make prose
+look concrete.
 
-**Verb inflation.** "serves as a centralized hub", "acts as", "functions as",
-"made a decision", "has the ability to". Prefer the plain verb — is, has,
-tracks, decided, can. A plain "is" beats a fake-strong verb; the inflation
-runs both ways (puffed linking verbs and padded verb phrases). (no-ai-slop
-lineage.)
+**Unsupported authority.** Phrases equivalent to "experts agree" or "research
+shows" borrow credibility without a traceable source. Cite evidence that
+actually supports the claim or state the claim at the strength the evidence
+allows.
 
-**False agency.** Abstractions performing human actions: "the decision
-emerged", "the roadmap identified", "a complaint becomes a fix". Name the
-person, team, or process. (stop-slop lineage.)
+**Evidence theatre.** A citation can still be irrelevant, stale, circular, or
+derived from another generated summary. Inspect the underlying source and
+check claim fit, date, scope, and provenance. More citations do not repair a
+bad evidence chain.
 
-**Unearned authority.** "experts agree", "studies show", "industry reports
-suggest" with no citation. Either cite the real source or drop the appeal.
+**Claim-force drift.** Revision turns "may", "in this sample", or "the author
+reports" into a general fact. Restore modality, population, timeframe, and
+attribution. Preserve distinctions such as cause versus correlation,
+observation versus recommendation, and absence of evidence versus evidence of
+absence.
 
-**Lone-expert framing.** "What nobody tells you", "the part everyone misses",
-"what most people get wrong" — flatters the writer as the sole insider. Cut
-the setup and let the claim stand on its own. (no-ai-slop lineage.)
+**Invented connective logic.** Smooth transitions can manufacture causality,
+priority, sequence, consensus, or contrast. Add a relation only when the
+source establishes it. Otherwise keep the statements separate or mark the
+relation as an inference.
 
-**Undue significance.** "stands as a testament", "plays a crucial/pivotal
-role", "underscores the importance", "시사하는 바가 크다" — importance
-inflation applicable to any subject. Delete it, or use a concrete consequence
-already established inside the evidence boundary.
+## Reader and relevance
 
-**Negative listing.** "It's not just X. Not Y either. It's Z." — rhetorical
-striptease withholding the point. State Z. (stop-slop lineage.)
+**Session dependence.** References such as "as discussed above", "the latest
+change", "our earlier conversation", or unexplained task IDs assume hidden
+context when no recoverable in-document referent exists. Keep a clear internal
+cross-reference. Otherwise name the subject, current state, decision, and owner
+that the intended reader actually needs.
 
-**Colon reveals.** Noun phrase, colon, dramatic payoff: "The best part: it
-learns." Rewrite as a plain sentence; reserve colons for lists, labels, and
-quotes. (no-ai-slop lineage.)
+**Wrong center of gravity.** The document spends more space on an incidental
+tool, edge case, implementation detour, or source anecdote than on its reader
+job. Keep a detail only when it supports a claim, supplies necessary context,
+changes a decision, or enables an action.
 
-**Rhetorical setups.** "What if I told you...", "Plot twist:", "Think about
-it:", and self-answered "Question? Answer." pairs. Drop the setup and make
-the point. (no-ai-slop lineage.)
+**Missing warrant.** A claim and a fact appear together without saying why the
+fact supports the claim. Add the shortest supported relation a cold reader
+needs. Do not merely place a table under a headline and make the reader infer
+the argument.
 
-**Dramatic fragmentation.** "X. And Y. And Z.", "That's it. That's the whole
-thing." — stacked punchy fragments as manufactured emphasis. Use complete
-sentences; keep a fragment only when it is the author's own established
-voice. (no-ai-slop lineage.)
+**Template completion.** Sections exist because a familiar template suggested
+them, not because readers need them. Remove empty background, benefits, future
+outlook, and conclusion sections. A template is a question set, not a quota.
 
-**Narrator-from-a-distance.** "Nobody designed this", "There's something
-profound about..." — detached voiceover replacing an embedded speaker. Restore
-the direct claim: who did what. (stop-slop lineage.)
+## Prose and structure
 
-**Throat-clearing openers.** "Here's the thing", "Let me be clear", "I'll be
-honest", "The uncomfortable truth is" — delay dressed as candor. Cut and
-state the point; keep a personal aside that genuinely adds context or
-character. (no-ai-slop lineage.)
+**Abstraction inflation.** Labels replace observable action. Name what changed,
+who or what changed it, and the supported consequence. Keep established domain
+abstractions when they are the precise term.
 
-**Formulaic wrap-ups.** "In conclusion", "결론적으로", a "Future Outlook"
-section, or a closing paragraph that re-summarizes the page. The last body
-paragraph is the conclusion. Same family: the fake-profound kicker — a
-closing aphorism, metaphor, or mic-drop line. Delete it; do not rewrite it
-into a better metaphor. End on the last concrete sentence the draft already
-has, adding a plain takeaway or next action only when closure is genuinely
-missing and authoring, compose, or full-revision evidence already supports it.
-Humanize and surface cleanup stop at the last supported sentence.
-(no-ai-slop lineage.)
+**Placeholder actor.** Terms equivalent to "various teams" or "stakeholders"
+hide who acts or decides. Use the named actor from the evidence, define the
+group, or keep the limit explicit.
 
-**Present-participle pseudo-analysis.** "...ing" clauses tacked on for fake
-depth: "...highlighting the tradition", "...ensuring continuity". Cut or turn
-into a real causal sentence.
+**Synonym cycling.** One referent receives new names merely to avoid repetition.
+Repeat the stable term. Route genuine naming uncertainty to the terminology
+pass.
 
-**Symmetric contrast formulas.** "not X but Y", "A인가, B인가", chiasmus and
-tricolon cadence repeated across paragraphs. If deleting the negative side
-does not erase a meaning-bearing correction, state the conclusion once.
-Otherwise preserve the redefinition. (The 9.2× Korean figure comes from an
-unreproduced upstream self-study; see `korean-tells.md` C-8.)
+**Restatement loops.** The heading, opening sentence, bullets, and closing
+sentence repeat the same point at different levels of formality. Keep the
+version that best serves the reader and use the saved space for evidence or
+necessary action.
 
-**Synonym cycling.** One referent rotated through synonyms for style — "the
-agent reviews... the assistant scores... the tool suggests". If the clear
-word is right, repeat it; route genuine naming doubts to `terminology.md`.
-(no-ai-slop lineage.)
+**Manufactured emphasis.** Repeated fragments, binary contrasts, rhetorical
+questions, dramatic reveals, and ceremonial conclusions can make the form
+louder than the claim. Flatten them when they delay or inflate the point.
+Preserve a meaning-bearing correction, contrast, or established author voice.
 
-**Empty modifiers.** robust, seamless, significant, innovative, strategic,
-effectively — cut unless carrying real scope, or replace only with a fact that
-the evidence boundary already establishes.
+**Unsupported ending.** A confident takeaway, promise, aphorism, or call to
+action goes beyond the evidence. End on the last supported conclusion or next
+step. Do not replace one empty kicker with another.
 
-**Hedging overload.** Stacked "typically/might/may/could" avoiding any
-commitment. Commit where the source supports it; keep genuine uncertainty
-visible and specific.
+## Surface signals
 
-## Surface signals (decaying — check last)
+Word lists, punctuation habits, sentence-length variance, and vendor-specific
+formatting change across models, regions, and genres. Use them as look-closer
+prompts inside the matching language layer, never as authorship evidence or as
+automatic replacements. Remove literal generation artifacts and broken markup
+when they do not belong in the target format.
 
-Treat as look-closer prompts, never as proof or as primary rewrite targets.
+## Keep list
 
-- **Marker words** (delve, underscore, boast, intricate, meticulous, pivotal,
-  tapestry, showcase...): real but era- and model-specific; lists drift per
-  generation. Flag density, not single hits. Single words also misfire on
-  regional and non-native English — never treat one word as evidence.
-- **Punctuation habits** (em-dash frequency, curly quotes): vendor-dependent
-  and steadily patched away. House-style prohibitions live in
-  `profiles.md`, not here.
-- **Vendor artifacts** (`oaicite`, `contentReference`, `[cite: N]`,
-  `grok_card`): definitive when present — always remove.
-- **Markdown leakage** into non-Markdown contexts; emoji bullets; title-case
-  headings mid-document.
+Keep accurate domain terms, required repetition, safety language, quotations,
+intentional dialect or non-native voice, genuine uncertainty, useful metaphor,
+and genre-required structure. A text can be polished and still sound like its
+writer. It does not need to approximate one prestige dialect or one corporate
+register.
 
-## Do-not-flag list
+## Never encode
 
-Preserve these even when a rule seems to match:
-
-- Established domain terms and accurate technical vocabulary — route genuine
-  terminology doubts to `terminology.md` instead of swapping
-  synonyms.
-- Hard-to-fabricate specifics: named incidents, dates, numbers, first-person
-  experience.
-- Intentional repetition (spec obligations, safety warnings, refrains).
-- Deliberate voice: dialect, regional or non-native phrasing, era-bound slang,
-  mixed feelings, deliberate fragments. A rule firing on the writer's
-  repeated intentional choice is a category error, not a finding.
-- Explicit uncertainty markers — do not erase doubt to sound decisive.
-- Metaphors that genuinely aid comprehension.
-
-## Myths (do not encode)
-
-- **Burstiness/perplexity as a verdict.** Statistical uniformity checks fail
-  on current-generation models. Vary cadence as craft, never as a detector.
-- **Marker-word removal = humanized.** Necessary at most; genericness survives
-  synonym swaps.
-- **"Reads natural to me" = pass.** A gut read does not verify facts, sources,
-  reader context, or voice preservation. Use the delivery gates (`gates.md`)
-  and check facts against the evidence boundary.
-- **AI-sounding = AI-authored.** Never claim authorship; report the wording
-  problem itself. Heuristic "sounds AI" judgments systematically misfire on
-  authentic non-standard voices.
+- authorship verdicts from style
+- universal banned-word lists
+- perplexity, burstiness, or sentence variance as quality scores
+- mandatory active voice, short sentences, headings, bullets, charts, or
+  conclusion-first structure across genres and languages
+- specificity invented during cleanup

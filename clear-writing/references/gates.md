@@ -50,6 +50,9 @@ preservation, not "it reads natural to me."
   being forced into an argument shape.
 - Commands, paths, identifiers, numbers, units, dates, versions, links, and
   quotations match the source or repository evidence.
+- Chinese localization also spot-checks official names, UI strings, regional
+  terminology, punctuation, and protected code or product literals against the
+  selected locale. Script conversion alone does not pass this gate.
 - Conditions survived: no "when/may/optional/unit/version limit" silently
   dropped; requirement level (must/should/may) unchanged.
 - Nothing was invented: new facts, examples, citations, metaphors, opinions,
@@ -59,14 +62,18 @@ preservation, not "it reads natural to me."
 
 ## Gate 3 — Language quality
 
-- Label-heavy and placeholder phrasing reduced where the source allows
-  (`anti-slop-core.md`).
-- Structure inflation cleared without deleting WHY anchors or guide-section
-  tone (`structure-anti-patterns.md`).
-- Korean documents: measured-priority patterns checked with their evidence
-  limits and keep tests
-  (`korean-tells.md`); English documents: durable signals
-  checked. Terminology stayed stable once chosen.
+- Generic, label-heavy, irrelevant, or template-shaped prose was reduced where
+  the evidence allows (`anti-slop-core.md`).
+- Structure inflation cleared without deleting a needed warrant, condition,
+  or guide-section tone (`structure-anti-patterns.md`).
+- Each span passed only its matching language layer: English rhetoric and
+  register (`english-writing.md`); Korean evidence-labeled syntax and
+  punctuation (`korean-tells.md`); Italian attachment, information flow, and
+  bureaucratic weight (`italian-writing.md`); Chinese script, punctuation,
+  terminology, and regional convention (`chinese-writing.md`).
+- Mixed-language documents preserved identifiers, quotations, borrowed terms,
+  and locale-specific script. Unsupported languages received no invented tell
+  list. Terminology stayed stable once chosen.
 
 ## Gate 4 — Change-rate guard
 
@@ -81,15 +88,19 @@ only):
 Never present change volume, pattern counts, or a letter grade as a quality
 score in either direction.
 
+The 30% and 50% thresholds are a conservative repository operating policy, not
+an empirically validated quality boundary. A lower change rate can still alter
+meaning; an explicitly authorized rebuild can exceed 50% after full source and
+voice verification.
+
 ## Gate 5 — Editor-slop test (self-check on OWN output)
 
 Read your rewrite and your report as if told "an LLM wrote this":
 
 - Does the rewrite now carry tells the original lacked (stock transitions,
   symmetric contrasts, upgraded vocabulary, formulaic wrap-up)?
-- Voice drift check (`voice-preservation.md`):
-  contractions/first-person/causal chains preserved? Word length and
-  punctuation elaboration not inflated?
+- Voice drift check (`voice-preservation.md`): were stance, causal chains,
+  register, recurring choices, and language-specific rhythm preserved?
 - Is the report itself free of the patterns this skill removes?
 
 Any failure: fix before delivery, not after.
@@ -99,11 +110,16 @@ Any failure: fix before delivery, not after.
 - Re-read the complete changed page top to bottom, as its intended reader.
 - For a new or materially rebuilt document, use an isolated fresh-context
   reader when available: provide only the document and intended reader role,
-  then test 3-5 realistic questions plus hidden assumptions, ambiguous
-  references, and contradictions. With no isolated context, perform the same
-  cold read sequentially. This tests comprehension, not factual accuracy.
+  then test realistic questions, hidden assumptions, ambiguous references, and
+  contradictions. With no isolated context, perform the same cold read
+  sequentially. An LLM reader is a low-cost self-containment proxy, not a test
+  of factual accuracy or actual-user comprehension. Recommend representative
+  reader testing when misunderstanding is consequential.
 - Inspect the diff for unrelated churn and accidental deletions of scope,
   prerequisites, exceptions, or ownership.
+- After script or locale normalization, reread the complete affected scope and
+  spot-check proper names, regional vocabulary, punctuation, quotations, and
+  protected literals.
 - Search inbound references before renaming headings or anchors.
 - Run the repository's docs checks (formatter, link checker, build) when
   available and proportionate; `git diff --check` where applicable.

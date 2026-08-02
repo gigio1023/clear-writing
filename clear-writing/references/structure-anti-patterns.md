@@ -2,8 +2,8 @@
 
 Document-structure-level failures that make prose read machine-generated or
 padded. Report or repair a pattern only when it harms the page in context —
-these are diagnoses, not lint absolutes. Bilingual examples; every pattern
-applies to both English and Korean documents.
+these are diagnoses, not lint absolutes. Examples are English and Korean, but
+the reader-level patterns apply across languages when the same defect exists.
 
 ## Contents
 
@@ -34,12 +34,15 @@ claim. State the instruction or decision directly.
 
 ## Structure inflation
 
-**Heading inflation.** An H3 per paragraph shatters prose. Merge headings that
-own only one or two sentences.
+**Heading inflation.** Headings shatter prose when they do not help the reader
+scan, navigate, or understand hierarchy. Merge a heading whose content flows
+more clearly as part of the surrounding section; keep a short headed block
+when it supports lookup, warnings, or a consistent reference shape.
 
-**Table inflation.** A one-row table, or a table whose second column carries no
-information ("| 1 | clone 받습니다 |"). Use prose or a numbered list. A table
-earns its place with 2+ rows and 2+ informative columns.
+**Table inflation.** A table whose rows or columns carry no real comparison or
+lookup structure. Use prose or a numbered list when the grid does not help the
+reader scan, compare, or map fields. A small table may still be the clearest
+form; row and column counts are not the test.
 
 **Decorative structure.** Tables, callouts, diagrams, or nested lists that
 repeat simple prose without clarifying a comparison, sequence, or hierarchy.
@@ -47,8 +50,9 @@ repeat simple prose without clarifying a comparison, sequence, or hierarchy.
 **Bullet as paragraph.** One bullet holds several independent facts and links.
 Split parallel facts or return to prose when the ideas form an argument.
 
-**Option catalog.** Every flag and environment variable inlined in the body.
-Keep the 2-3 that matter (80/20), move the rest to a reference page.
+**Option catalog.** Every flag and environment variable interrupts the main
+path. Keep the options the task requires and move exhaustive lookup material
+to a reference section or page. A reference page may legitimately be complete.
 
 **Numbered-index prose.** "(1) clone (2) rename (3) 구현 순으로" inside a
 sentence. Fold into prose or use a real list.
@@ -68,9 +72,10 @@ needs to do its job.
 ## Sentence-level padding
 
 **Future/possibility padding.** "~할 수 있습니다 / will allow you to" chained
-onto plain facts. State facts in present tense; reserve modality for genuine
-possibility. Removing "may", "optional", "when", units, or version limits to
-shorten a sentence creates a false guarantee — that is a bug, not a fix.
+onto plain facts. State the fact directly in the tense and aspect the timeline,
+genre, and language require; reserve modality for genuine possibility.
+Removing "may", "optional", "when", units, or version limits to shorten a
+sentence creates a false guarantee — that is a bug, not a fix.
 
 **Scope-clarification noise.** "X는 Y가 아니다", "Z와는 별개다" answering
 questions no reader asked. Delete, or restate positively ("X가 다룬다"). Keep
@@ -78,19 +83,20 @@ test: would the intended reader plausibly ask this, or does an instruction or
 boundary depend on the answer? Then it is a real boundary, not noise —
 declared scope limits ("NOT for X, Y") are a convention, not negative listing.
 
-**Indirect definition.** "X는 A를 입력으로 받아 B하고 C를 측정하는 D다" — a
-40+ character definition sentence burying the point. Split into 목표/입력/출력
-or short declaratives. For "핵심은 X가 아니다" openers, drop the negation
-only when it carries no correction or scope boundary. Preserve a meaning-bearing
-redefinition; apply the C-8 keep test in `korean-tells.md`.
+**Indirect definition.** "X는 A를 입력으로 받아 B하고 C를 측정하는 D다" can
+hide the defining relation inside inputs, operations, and outputs. Split or
+reorder only when the reader cannot recover what X is and what distinguishes
+it. For "핵심은 X가 아니다" openers, drop the negation only when it carries no
+correction or scope boundary. Preserve a meaning-bearing redefinition; apply
+the C-8 keep test in `korean-tells.md`.
 
 **Governance-speak leakage.** "단일 source", "권위 문서", "본문 정의는 [doc]
 단일 source" — document-architecture vocabulary leaking into prose. Readers
 need "어디를 보면 되는가"만: "[doc] 참고."
 
 **Redundant emphasis labels.** "권위 출처:", "핵심:", "Note:", "Important:"
-prefixes stacked on statements that stand alone. Keep at most the one or two
-that mark genuine warnings.
+prefixes stacked on statements that stand alone. Keep labels that distinguish a
+real warning, status, or lookup category; remove labels that add only emphasis.
 
 **Slash stacking.** `A / B / C` chains and `X + Y` composite headings blur
 relationships. Prose uses commas and conjunctions; headings split per topic.

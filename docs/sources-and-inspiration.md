@@ -12,6 +12,20 @@ scope. It does not mean that source prose, examples, tables, or code were
 copied. `Rejected` records tempting ideas that should not return without new
 evidence.
 
+## Register map
+
+- Korean: `im-not-ai`, KatFishNet, and National Institute of Korean Language
+  translationese studies
+- English and common: anti-slop skills, documentation workflows, source and
+  argument guidance, plain-language guidance, voice and assisted-revision
+  research, Pilcrow, and local research notes
+- Italian: institutional plain-language guidance, grammar and information-flow
+  scholarship, and generated-text research
+- Chinese: `zh-CN`, `zh-TW`, and `zh-HK` standards and manuals, translation
+  corpora, multidimensional writing research, and detector limitations
+- Maintainer material: the supplied business-writing social post and the
+  explicit adoption and rejection record
+
 ## epoko77-ai/im-not-ai
 
 - **Title and URL:** [`im-not-ai`](https://github.com/epoko77-ai/im-not-ai)
@@ -124,8 +138,8 @@ evidence.
 - **License/status:** MIT, copyright 2025 Hardik Pandya. The inspected head had
   not changed for about four months.
 - **Adopted:** anti-slop review as a first-class pass, plus independently
-  worded checks for false agency, negative listing, and narration from a
-  distance.
+  worded checks for responsibility-hiding agency, delayed conclusions, and
+  narration from a distance.
 - **Rejected:** hard bans that ignore document type and phrase lists that
   encode one writer's taste as a universal rule.
 
@@ -328,6 +342,302 @@ evidence.
   "preserve voice" prompt eliminates drift. The preprint's English narrative
   scope does not establish the same rates or directions in Korean or other
   genres.
+
+## English technical and public-language guidance
+
+- **Titles and URLs:** Google Developer Documentation Style Guide on
+  [active voice](https://developers.google.com/style/voice),
+  [anthropomorphism](https://developers.google.com/style/anthropomorphism), and
+  [voice and tone](https://developers.google.com/style/tone);
+  [Digital.gov Plain Language Guide](https://digital.gov/guides/plain-language)
+  and [paraphrase testing](https://digital.gov/guides/plain-language/test/paraphrase-testing);
+  W3C [*Making Content Usable for People with Cognitive and Learning
+  Disabilities*](https://www.w3.org/TR/2021/NOTE-coga-usable-20210429/); and
+  [RFC 8174](https://www.rfc-editor.org/info/rfc8174/).
+- **Responsible:** Google developer-documentation maintainers; the US General
+  Services Administration; the W3C Cognitive and Learning Disabilities
+  Accessibility Task Force; and the Internet Engineering Task Force.
+- **Version:** Google pages updated 2024-10-15 and 2026-05-27; Digital.gov live
+  pages inspected 2026-08-02; W3C Working Group Note dated 2021-04-29; RFC 8174,
+  BCP 14, May 2017.
+- **Inspected:** 2026-08-02; official pages and normative-status labels.
+- **License/status:** Google documentation is CC BY 4.0 under its site notice;
+  Digital.gov is an official US government service with page-specific rights;
+  the W3C document is a non-normative Working Group Note; RFC 8174 is an IETF
+  Best Current Practice. All are independently
+  paraphrased rather than copied.
+- **Adopted:** active voice is useful when responsibility matters, while
+  passive voice remains valid when the actor is unknown, unimportant, or
+  intentionally backgrounded; prioritize the reader's task; test important
+  prose with representative readers; and preserve normative requirement words
+  and capitalization where the governing standard assigns them special force.
+- **Rejected:** banning inanimate grammatical subjects, forcing active voice or
+  present tense in every genre, treating an LLM cold read as equivalent to
+  user testing, and applying BCP 14 capitalization outside documents that
+  invoke it.
+
+## Official terminology anchors
+
+- **Titles and URLs:** Pact's [consumer and provider
+  model](https://docs.pact.io/getting_started/how_pact_works), SonarQube
+  [quality gates](https://docs.sonarsource.com/sonarqube-server/quality-standards-administration/managing-quality-gates/introduction-to-quality-gates),
+  Unity's [vertical slice](https://learn.unity.com/course/practical-game-accessibility/unit/welcome-to-the-course/tutorial/explore-out-of-circulation),
+  [RFC 7519 claims](https://www.rfc-editor.org/rfc/rfc7519.html#section-4),
+  GitHub Actions [workflow artifacts](https://docs.github.com/en/actions/concepts/workflows-and-actions/workflow-artifacts),
+  [OpenAPI 3.2.0](https://spec.openapis.org/oas/v3.2.0.html#openapi-description-structure),
+  Kubernetes [API surfaces](https://kubernetes.io/blog/2026/02/12/sig-architecture-api-spotlight/),
+  Microsoft Kiota [public API surface](https://learn.microsoft.com/en-us/openapi/kiota/support),
+  OpenTelemetry [instrumentation scope](https://opentelemetry.io/docs/specs/otel/common/instrumentation-scope/),
+  and NIST's engineering statistics [response surface
+  model](https://www.itl.nist.gov/div898/handbook/glossary.htm).
+- **Responsible:** the named standards bodies and official project or product
+  documentation maintainers.
+- **Version:** RFC 7519, May 2015; OpenAPI 3.2.0; Kubernetes article dated
+  2026-02-12; other live official pages inspected in their current form.
+- **Inspected:** 2026-08-02; defining sections, product scope, and the concrete
+  relation or mechanism each term names.
+- **License/status:** mixed official specifications and product documentation,
+  cited only. Live pages without immutable versions must be rechecked before a
+  consequential terminology decision.
+- **Adopted:** a technical-looking term is useful when its governing source and
+  target domain share the same actors, relation, mechanism, and consequence.
+  Contextual questions for `contract`, `gate`, `slice`, `claim`, `artifact`,
+  `surface`, and `scope` come from these distinctions.
+- **Rejected:** treating the examples as an allowlist, replacing one system's
+  official field with another system's vocabulary, and using a page hit as
+  proof that a term fits the sentence under review.
+
+## English marker and assisted-revision research
+
+- **Titles and URLs:** Kobak et al., [*Delving into LLM-assisted writing in
+  biomedical publications through excess vocabulary*](https://arxiv.org/abs/2406.07016),
+  published in *Science Advances* in 2025; Baumler et al., [*Can You Make It
+  Sound Like You? Post-Editing LLM-Generated Text for Personal
+  Style*](https://aclanthology.org/2026.acl-long.2030/); and Abdulhai et al.,
+  [*How LLMs Distort Our Written Language*](https://arxiv.org/abs/2603.18161).
+- **Responsible:** Dmitry Kobak and coauthors; Baumler and coauthors; and
+  Marwa Abdulhai and coauthors.
+- **Version:** Kobak arXiv `2406.07016v5`, 2025-07-03, paired with the
+  peer-reviewed 2025 publication; Baumler et al., ACL 2026 long paper, DOI
+  `10.18653/v1/2026.acl-long.2030`; Abdulhai et al., arXiv
+  `2603.18161v1`, submitted 2026-03-18.
+- **Inspected:** 2026-08-02; papers, metadata, methods, and stated limitations.
+- **License/status:** Kobak's journal article and Abdulhai's preprint are cited
+  research; Baumler et al. is an ACL 2026 paper. No corpora, tables, examples,
+  or paper prose are redistributed.
+- **Adopted:** English marker words can shift at corpus scale, so they are
+  density prompts rather than passage-level verdicts. In Baumler et al.'s
+  preregistered study of 81 English-proficient participants, post-editing moved
+  model drafts toward participants' measured style but did not restore the
+  distribution of independently written text. Correction-oriented assistance
+  can also change stance and meaning, so even narrow polish jobs pass semantic
+  verification.
+- **Rejected:** classifying one passage from an excess word, generalizing
+  biomedical abstracts or personal-writing tasks to every genre and language,
+  optimizing for a style detector, and claiming that post-editing restores
+  authorship identity.
+
+## Pilcrow and local research notes
+
+- **Title and URL:** [Pilcrow](https://github.com/SamGalanakis/pilcrow), plus
+  maintainer-local `brain/clips` and `brain/research` notes that index
+  `no-ai-slop`, Longreads, Slop Guard, `im-not-ai`, and a personal academic
+  English vocabulary observation.
+- **Responsible:** Sam Galanakis for Pilcrow; Eric Tramel for
+  [Slop Guard](https://eric-tramel.github.io/blog/2026-02-18-slop-guard/);
+  the local notes retain their own source metadata.
+- **Version:** Pilcrow `v0.17.2`, commit
+  `55f49409c7035c05d31545a0e3052ae04b825884` (2026-05-26); local notes inspected
+  at their recorded capture dates and again on 2026-08-02.
+- **Inspected:** 2026-08-02; current Pilcrow source and the complete relevant
+  local notes, then the original public sources where they supplied one.
+- **License/status:** Pilcrow is MIT. The local clips are private secondary
+  notes, not independent authorities and not redistributed. Slop Guard is a
+  blog and tool-design report rather than a peer-reviewed validation.
+- **Adopted:** note voice before editing, quote the offending span in review
+  mode, inspect the editor's own output, distinguish genre, and look for
+  concentrated patterns rather than treating one phrase as dispositive. A
+  personal academic-English note reinforced the already independent rule to
+  preserve claim strength and logical relations.
+- **Rejected:** prose scores, regex thresholds, a fixed skeptical-reader
+  persona, detector gaming, reinforcement-learning rewards from a slop score,
+  treating Longreads as a style authority, and using a local summary in place
+  of its cited paper or repository.
+
+## Italian official and institutional guidance
+
+- **Titles and URLs:** [UNI ISO 24495-1:2024](https://store.uni.com/uni-iso-24495-1-2024);
+  the European Commission's [*Scrivere
+  chiaro*](https://op.europa.eu/it/publication-detail/-/publication/725b7eb0-d92e-11e5-8fea-01aa75ed71a1/language-it);
+  Designers Italia on [language](https://designers.italia.it/design-system/fondamenti/linguaggio/)
+  and [content](https://designers.italia.it/design-system/fondamenti/contenuti/);
+  the 2002 [public-administration simplification
+  directive](https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticoloDefault/originario?atto.codiceRedazionale=02A07864&atto.dataPubblicazioneGazzetta=2002-06-18&atto.tipoProvvedimento=DIRETTIVA);
+  and the CNR and Accademia della Crusca [administrative drafting
+  guide](https://www.ittig.cnr.it/Ricerca/Testi/GuidaAttiAmministrativi.pdf).
+- **Responsible:** UNI and ISO; European Commission; Designers Italia; Italian
+  Department of Public Administration; CNR and Accademia della Crusca.
+- **Version:** UNI adoption effective 2024-02-01; Commission 2015 edition,
+  released on the website 2016-02-19, DOI `10.2782/478661`; Designers Italia
+  pages updated 2025-04-14 and 2025-09-05; directive dated 2002-05-08;
+  administrative guide, first edition, February 2011.
+- **Inspected:** 2026-08-02; official records, scopes, dates, and reuse notices.
+- **License/status:** the ISO standard is paid and not reproduced; Designers
+  Italia material is CC BY-SA 4.0; the 2011 guide is CC BY-ND 2.5 Italy. Other
+  items are cited institutional guidance. No worked examples or source
+  structure are copied.
+- **Adopted:** write for a defined reader, expose action and responsibility when
+  useful, explain necessary abbreviations, reduce empty support-verb and
+  administrative phrasing, and judge lists and headings by the public-service
+  task in their original scope.
+- **Rejected:** universal sentence-word limits, banning borrowings, applying
+  public-service web quotas to essays or developer docs, and using an
+  international plain-language standard as Italian grammar evidence.
+
+## Italian grammar, information flow, and generated-text research
+
+- **Titles and URLs:** Accademia della Crusca on
+  [punctuation](https://accademiadellacrusca.it/it/consulenza/la-punteggiatura/143),
+  [gerund attachment](https://accademiadellacrusca.it/it/consulenza/dubbi-sul-gerundio/26332),
+  [gerund subjects](https://accademiadellacrusca.it/it/consulenza/uso-del-gerundio-con-soggetto-diverso-da-quello-della-frase-reggente/268),
+  and [`piuttosto che`](https://accademiadellacrusca.it/it/consulenza/uso-di-piuttosto-che-con-valore-disgiuntivo/11);
+  Angela Ferrari on [syntactic simplicity and information
+  flow](https://accademiadellacrusca.it/it/contenuti/la-semplicit-sintattica-in-prospettiva-testuale-riflessioni-a-partire-dalla-guida-alla-redazione-deg/9234);
+  Brunato et al. on [Italian text
+  simplification](https://doi.org/10.3389/fpsyg.2022.707630);
+  [READ-IT](https://aclanthology.org/W11-2308/); Musacchio on
+  [information distribution in translated scientific
+  Italian](https://www.openstarts.units.it/bitstreams/e4471a57-bb5c-4e38-8d37-57c589a0719f/download);
+  Tavosanis on [evaluating generated Italian](https://doi.org/10.62408/ai-ling.v1i1.14);
+  Palermo on [AI-generated
+  texts](https://accademiadellacrusca.it/it/contenuti/titolo/46422); and
+  Sciandra et al. on [Italian essay
+  detection](https://doi.org/10.1038/s41598-026-51613-9).
+- **Responsible:** Accademia della Crusca authors; Angela Ferrari; Dominique
+  Brunato and coauthors; Dell'Orletta and coauthors; Maria Teresa Musacchio;
+  Mirko Tavosanis; Massimo Palermo; Sciandra and coauthors.
+| Source | Publication record and scope |
+|---|---|
+| Accademia della Crusca, punctuation | 2004-07-16; punctuation and syntactic attachment |
+| Accademia della Crusca, gerund attachment | 2023-05-12; gerund function and attachment |
+| Accademia della Crusca, separate gerund subject | 2010-04-09; explicit and understood subjects |
+| Accademia della Crusca, `piuttosto che` | *La Crusca per voi* 24, April 2002; preference and disjunction |
+| Ferrari | 2021-03-19; syntactic simplicity in textual and information-flow perspective |
+| Brunato et al. | 2022-03-08, *Frontiers in Psychology* 13; Italian text simplification |
+| READ-IT | SLPAT 2011, ACL Anthology `W11-2308`; Italian readability assessment |
+| Musacchio | 2004, *Rivista internazionale di tecnica della traduzione* 8, pp. 89-105; translated scientific Italian |
+| Tavosanis | 2024-08-08, *AI-Linguistica* 1(1); generated Italian evaluation |
+| Palermo | 2026-05-20; linguistic observations on AI-generated text |
+| Sciandra et al. | published 2026-05-02; version of record 2026-07-10; Italian essay detection |
+- **Inspected:** 2026-08-02; official language pages, papers, metadata, samples,
+  and limits.
+- **License/status:** mixed cited scholarship and official consultation pages.
+  No source examples or taxonomies are redistributed.
+- **Adopted:** commas can change relative-clause scope; a gerund's understood
+  subject and logical attachment must be recoverable; SVO and main-clause-first
+  order are options rather than universal defaults; `piuttosto che` should not
+  erase preference; and translated prose should be judged by Italian
+  information flow. Generated-text findings remain observation-only.
+- **Rejected:** banning gerunds, passive or impersonal constructions, scoring
+  readability from length, turning 2024 GPT-3.5 student essays into a durable
+  AI-tell list, and adding detector-confusing words or sentence joins.
+
+## Chinese regional standards and official manuals
+
+- **Titles and URLs:** PRC [GB/T 15834-2011 punctuation](https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=22EA6D162E4110E752259661E1A0D0A8&refer=outter),
+  [GB/T 9704-2012 official-document format](https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=F3CC9BEF482524C895FDA7A08BB4A70E),
+  [Regulations on Party and Government Official Document
+  Processing](https://www.mem.gov.cn/xw/ztzl/2018/cyzd/lxyz/201207/t20120708_228323.shtml),
+  [Ministry of Education Official Document Processing
+  Rules](https://www.moe.gov.cn/srcsite/A01/s7048/201309/t20130927_171853.html),
+  [General Standard Chinese Characters](https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/201306/t20130601_186002.html),
+  and [TermOnline](https://www.termonline.cn/about); Taiwan MOE
+  [Revised Handbook of Punctuation](https://language.moe.gov.tw/001/upload/files/site_content/m0001/hau/c2.htm),
+  [standard-character resources](https://language.moe.gov.tw/material/list?page=2&u=9fd3b76d-d663-4508-bad1-a61d34e68850),
+  [Lexicon](https://terms.naer.edu.tw/), and the Executive Yuan
+  [Document Processing Manual](https://www.ey.gov.tw/Page/F0CD366C64B5A15C/ecb75289-a85d-45be-9fb0-0fa64c302b54);
+  Hong Kong's [Official Chinese Writing Handbook, third
+  edition](https://www.csb.gov.hk/english/publications_stat/publication/files/general_principles_3ed.pdf),
+  [Common Chinese Character Forms](https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/chi-edu/resources/primary/lang/curriculum-materials/ziXingBiao_jianJie_TC.pdf),
+  and [government glossary](https://www.csb.gov.hk/hkgcsb/glossary/expnote.html);
+  W3C [Chinese Layout Requirements](https://www.w3.org/TR/2026/DNOTE-clreq-20260703/).
+- **Responsible:** PRC State Administration for Market Regulation, Ministry of
+  Education, General Office of the CPC Central Committee, and General Office of
+  the State Council; Taiwan Ministry of Education, National Academy for
+  Educational Research, and Executive Yuan; Hong Kong Civil Service Bureau and
+  Education Bureau; W3C Chinese Layout Task Force.
+
+| Source | Version or date inspected |
+|---|---|
+| GB/T 15834-2011 | published 2011-12-30, effective 2012-06-01, status `现行` |
+| GB/T 9704-2012 | published 2012-06-29, effective 2012-07-01, status `现行` |
+| Party and government processing regulations | `中办发〔2012〕14号`, dated 2012-04-16, effective 2012-07-01 |
+| Ministry of Education processing rules | `教办〔2013〕7号`, dated 2013-09-18, posted 2013-09-27 |
+| General Standard Chinese Characters | State Council publication 2013-08-19, 8,105 characters |
+| TermOnline | launched 2016-05; version 2.0 trial launched 2020-09; live database |
+| Taiwan punctuation handbook | formal edition 2008-12 after the 2008-08 trial edition |
+| Taiwan Executive Yuan manual | ROC 112-09 edition, September 2023 |
+| Taiwan common-character standard | announced 1982-09-01, 4,808 characters; resource site updated 2025-01-10 |
+| Taiwan Lexicon | live National Academy for Educational Research database |
+| Hong Kong writing handbook | third edition, May 2019 |
+| Hong Kong common character forms | original 1986; revisions through the 2012 annotated edition, 4,762 characters |
+| Hong Kong government glossary | live database, about 115,000 entries in 23 categories |
+| W3C CLReq | Group Note Draft, 2026-07-03 |
+
+- **Inspected:** 2026-08-02; official records, current-status fields, manuals,
+  live databases, and draft status.
+- **License/status:** standards and government manuals carry source-specific
+  rights and are cited only. Taiwan's punctuation handbook is CC BY-NC-ND 2.5
+  Taiwan. CLReq is a work-in-progress W3C Group Note Draft, not an endorsed or
+  binding national standard. Live terminology databases have no immutable
+  snapshot.
+- **Adopted:** choose `zh-CN`, `zh-TW`, or `zh-HK` before normalization; region
+  can matter more than Simplified versus Traditional script; protect official
+  names and product literals; use locale punctuation and terminology; and
+  route line-breaking and punctuation placement to the renderer when they are
+  layout problems.
+- **Rejected:** treating Traditional Chinese as Taiwan Chinese, Mainland rules
+  as all `zh-Hans`, automatic character conversion as complete localization,
+  and importing government page formats into general technical prose.
+
+## Chinese translation and generated-text research
+
+- **Titles and URLs:** Hu, Li, and Kübler on [syntactic features of translated
+  Chinese](https://aclanthology.org/W18-1603/); Gong, Wang, and Ren on
+  [prepositions in translated Chinese](https://journal.bisu.edu.cn/article/2019/1003-6539/1003-6539-41-1-56.shtml);
+  Zhang, Kotze, and Fang on [pronoun explicitation](https://doi.org/10.1080/0907676X.2019.1689276);
+  Zhu et al. on [AI-generated and human Chinese](https://aclanthology.org/2023.ccl-1.46/);
+  Wang et al., [LLM-Detector](https://arxiv.org/abs/2402.01158);
+  Li and Zhang on [AI and human Weibo comments](https://aclanthology.org/2025.ccl-1.64/);
+  Feng et al., [HoWToBench](https://aclanthology.org/2026.acl-long.317/); and
+  [MAGE](https://aclanthology.org/2024.acl-long.3/).
+- **Responsible:** the named paper authors and their ACL, CCL, journal, or
+  preprint venues.
+
+| Source | Publication record and scope |
+|---|---|
+| Hu, Li, and Kübler | Style-Var 2018, pp. 20-28, DOI `10.18653/v1/W18-1603`; translated-Chinese syntax distributions |
+| Gong, Wang, and Ren | 2019, 41(1):56-66, online 2019-02-15, DOI `10.12002/j.bisu.192`; translated-Chinese prepositions |
+| Zhang, Kotze, and Fang | early online 2019, issue 2020-09-02, DOI `10.1080/0907676X.2019.1689276`; English-to-Chinese children's literature |
+| Zhu et al. | CCL 2023, pp. 523-534; early ChatGPT open-domain answers |
+| Wang et al. | arXiv `2402.01158v1`, submitted 2024-02-02; detector preprint with mixed-text limits |
+| Li and Zhang | CCL 2025, pp. 842-851, CC BY 4.0; Weibo comment data |
+| Feng et al. | ACL 2026 long paper, DOI `10.18653/v1/2026.acl-long.317`; twelve Chinese writing genres |
+| MAGE | ACL 2024 long paper, DOI `10.18653/v1/2024.acl-long.3`; English benchmark used only for detector limitations |
+
+- **Inspected:** 2026-08-02; papers, dataset descriptions, domains, dates, and
+  stated detector limits.
+- **License/status:** mixed cited scholarship. Li and Zhang's CCL 2025 paper is
+  CC BY 4.0; no paper text, data, or examples are redistributed.
+- **Adopted:** group-level distributions of selected prepositions, explicit or
+  personal pronouns, and `NP+的` modifiers prompt contextual review. The edit
+  is independently triggered by ambiguity or redundancy in the target sentence,
+  not the corpus difference. Chinese writing quality is multidimensional across
+  genres, and detector performance degrades with mixed human and model text.
+- **Rejected:** deleting pronouns or prepositions from counts, treating low
+  typo rates or regular punctuation as AI evidence, importing an English
+  detector benchmark as Chinese style guidance, and applying corpus-level
+  classifier accuracy to one passage.
 
 ## Maintainer-supplied Threads excerpt
 

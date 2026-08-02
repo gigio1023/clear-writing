@@ -11,7 +11,7 @@ consequential terminology decision.
 - Handle search pollution
 - Scale corroboration and decide
 - Record evidence
-- Korean terminology
+- Language and locale
 - Stop rule
 
 ## 1. Define the Question
@@ -96,7 +96,7 @@ Use representative practitioner, editorial, or academic examples when:
 
 - official sources disagree or use different terms;
 - the question is natural phrasing rather than a defined name;
-- regional Korean/English usage matters;
+- regional or language-specific usage matters;
 - a proposed replacement may be jargon from another field.
 
 Prefer sources with identifiable authorship and domain expertise. Community
@@ -165,17 +165,19 @@ For researched candidates, capture only what the decision needs:
 Link the exact page or section. Distinguish source wording from your inference
 and avoid long quotations.
 
-## Korean Terminology
+## Language and Locale
 
-For Korean technical terms, compare:
+For a non-English or mixed-language term, compare the governing standard or
+official localized documentation, the source-language term when relevant,
+established target-locale usage, and the project's existing vocabulary. Check
+script and region as well as language: Simplified and Traditional Chinese, or
+Italian used in Italy and another jurisdiction, may follow different official
+names.
 
-- Korean standards or official localized documentation;
-- the governing English term;
-- established Korean technical publications and practitioner usage;
-- the project's existing Korean vocabulary.
-
-A loanword, translated term, or formal Sino-Korean noun is not wrong merely
-because a simpler paraphrase exists. Choose for precision and audience.
+A loanword, translated term, abbreviation, or formal register is not wrong
+merely because a simpler paraphrase exists. Choose for precision, audience,
+searchability, and consistency. Do not make English the default authority when
+the target language has its own governing source.
 
 ## Stop Rule
 

@@ -1,11 +1,19 @@
 # Voice Preservation
 
-Rewriting can homogenize voice. A 2026 preprint on 300 English personal
-narratives found directional normalization on selected markers. A
-voice-preserving prompt reduced mean effect magnitude by 32%; direction
-agreement was 85%, with two marker reversals. The study does not establish the
-same rates or directions in other languages or genres. Use it as a reason to
-audit drift conservatively, not as universal proof.
+Rewriting can homogenize voice and alter meaning even when the task sounds
+surface-level. Compare the result with the supplied draft and approved voice
+sample; do not assume that post-editing automatically restores ownership or
+personal style. English studies below motivate the caution but do not establish
+the same markers or effect sizes in Korean, Italian, Chinese, or other genres.
+
+## Contents
+
+- Sample outranks built-in defaults
+- Markers to preserve under revision
+- Registers with no personal voice
+- Anti-homogenization rules
+- Interaction with other references
+- English evidence and its limits
 
 ## Sample outranks built-in defaults
 
@@ -22,8 +30,8 @@ style of this skill.
 
 As a conservative editing policy across languages, do not "improve away":
 
-- Contractions and casual function words where the register allows them
-  (English: don't/it's; Korean: 구어형 연결, 해요체 in guides).
+- Language-specific register choices, including English contractions, Korean
+  speech level, Italian impersonal style, and Chinese regional usage.
 - First-person stance and embedded narration — do not distance the narrator
   ("I chose X because" must not become "X was selected to").
 - Explicit causal chains ("because A, so B") — do not compress into abstract
@@ -60,11 +68,13 @@ What to protect instead, because it is this register's voice:
   necessary context or reasoning only inside the evidence boundary in
   `source-grounding.md`.
 - **No vocabulary upgrades.** Do not swap plain words for rarer synonyms or
-  lengthen words to sound polished — that is the measured direction of
-  machine drift.
-- **Watch the drift direction while editing**: contractions ↓, first person ↓,
-  function words ↓, word length ↑, punctuation elaboration ↑ = you are
-  homogenizing. Stop and restore.
+  lengthen words merely to sound polished. The bounded English evidence below
+  observed that direction in one setting; meaning preservation is the common
+  reason for this rule.
+- **Watch for unauthorized drift while editing.** Compare stance, information
+  order, register, recurring phrases, sentence rhythm, and lexical range with
+  the source. Do not use one English study's marker direction as a multilingual
+  checklist.
 - **Batch rule.** When revising multiple documents (or one author's varied
   notes), do not converge them toward one safe middle voice; preserve
   per-document register differences.
@@ -73,9 +83,32 @@ What to protect instead, because it is this register's voice:
 
 ## Interaction with other references
 
-Slop patterns (`anti-slop-core.md`,
-`korean-tells.md`) say what to remove; this file bounds how
-far removal may go. When they conflict — a "tell" that is actually the
-author's voice — voice wins, and the finding is reported instead of applied.
+The common core and matching English, Korean, Italian, or Chinese layer say
+what to review; this file bounds how far removal may go. When they conflict
+with a deliberate author choice, voice wins and the finding is reported
+instead of applied.
 The editor-slop test in `gates.md` is the enforcement point: rewrites
 that stripped voice markers fail delivery.
+
+## English evidence and its limits
+
+Van Nuenen's 2026 preprint on 300 English personal narratives found directional
+normalization on selected markers. A voice-preserving prompt reduced the mean
+effect magnitude by 32%; direction agreement was 85%, with two marker
+reversals. In that sample, contractions, first person, and function words often
+decreased while lexical and punctuation complexity increased. Treat those
+directions as an English personal-narrative audit prompt only.
+
+Baumler and colleagues' preregistered ACL 2026 study asked 81 English-proficient
+participants to edit model-drafted personal writing. Editing moved text toward
+the participants' measured style, yet the edited text remained closer to model
+drafts than independently written text and became more homogeneous across
+participants. This supports minimal effective edits and keeping original
+human-drafted material when possible. It does not make a style metric an
+authorship detector or prove that every assisted draft loses voice.
+
+A 2026 preprint by Abdulhai and colleagues reports meaning and style changes
+even in correction-oriented model assistance. Its settings do not justify a
+universal effect size, but they reinforce the existing hard gate: after any
+grammar or polish pass, recheck facts, stance, conditions, and logical
+relations instead of trusting the narrow task label.

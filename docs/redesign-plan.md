@@ -8,6 +8,10 @@
 > 설치자가 별도로 갱신해야 한다. 현재 작동 규약은 `clear-writing/SKILL.md`와
 > `clear-writing/references/`를 따른다. 아래 본문은 2026-07-26 당시의
 > 계획과 미해결 상태를 설명하므로 고치지 않았다.
+> 2026-08 다국어 재설계에서는 아래의 `known-slop-terms.md`와
+> `replacement-patterns.md`를 중복된 과거 목표로 판정하고 현재의
+> `terminology-catalog.md`로 합쳤다. 영어, 이탈리아어, 중국어 계층도 이후
+> 추가됐다. 아래 트리는 현재 패키지 목록이 아니다.
 
 이 문서는 통합 스킬 `clear-writing` 저작(P2)의 입력이다. 배경·근거·전체 로드맵의
 정본은 워크스페이스의 `notes/humanize-consolidation/launch-brief.md`와 계획

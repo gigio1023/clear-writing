@@ -1,112 +1,82 @@
 # clear-writing
 
 [![skills.sh](https://skills.sh/b/gigio1023/clear-writing)](https://skills.sh/gigio1023/clear-writing)
-![prose](https://img.shields.io/badge/prose-EN%20%C2%B7%20KO-22684E)
-![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2017%20references-555)
+![prose](https://img.shields.io/badge/prose-EN%20%7C%20KO%20%7C%20IT%20%7C%20ZH-22684E)
+![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2019%20references-555)
 [![license](https://img.shields.io/badge/license-MIT-555)](LICENSE)
 
-Write, rewrite, and review prose documents with one skill: evidence-grounded
-authoring, humanizing revision, terminology checks, and surgical Korean
-polish, while preserving facts and visible uncertainty.
+Write, revise, and review documents that stand on their own, preserve the
+writer's meaning and voice, and make each material claim no stronger than its
+evidence. The skill supports English, Korean, Italian, and Chinese without
+pretending that English style advice is language-neutral.
 
-It is one skill because those jobs used to be several, and a single request
-("clean up this README") could match more than one of them at once. A router
-now reads the request, works out what the document actually needs, and loads
-only the rules for that job. Korean is first-class rather than translated
-English advice: Korean documents get their own sentence-level pattern layer,
-synced to an upstream taxonomy and tagged by what kind of evidence each rule
-rests on.
+`clear-writing` handles README, guides, specs, API references, ADRs, memos,
+wiki pages, and blog drafts. It can compose notes, repair stale or
+session-dependent documentation, review terminology, and reduce formulaic
+model-assisted prose. It does not infer whether AI wrote a passage. It names
+the reader-visible defect and fixes it only when meaning can be preserved.
 
-Humanize and surface cleanup are removal-first. Authoring, composition, and
-full revision may add context or connective reasoning only when user material,
-inspected repository evidence, or verified external sources support it. The
-skill never invents facts, examples, quotations, or citations, and it never
-claims a document was written by AI; it reports the wording problem instead.
-
-[What's inside](#whats-inside) · [Examples](#examples) ·
+[Architecture](#architecture) · [Languages](#language-layers) ·
 [Evidence](#evidence-and-lineage) · [Layout](#package-layout) ·
 [Install](#install) · [Development](#local-development)
 
-## What's inside
+## Architecture
 
-`SKILL.md` is a thin router. It establishes the deliverable, language,
-grounding, edit authority, style profile, and voice sample, then loads only
-the references its job needs.
+`SKILL.md` is a router. It establishes the reader job, language and locale,
+evidence boundary, edit authority, governing policy, and voice sample. It then
+loads a common integrity layer, one job workflow, and only the language layer
+that matches each span.
 
 | Job | Covers | Primary reference |
-| --- | --- | --- |
-| Authoring | README, guides, API references, ADRs, and specs grounded in an explicit evidence boundary | `references/authoring.md` |
-| Revision | humanizing, restructuring, composing notes into standalone docs | `references/revision.md` |
-| Passes | terminology review; Korean sentence-level polishing | `references/terminology.md`, `references/korean-tells.md` |
+|---|---|---|
+| Authoring | new or materially updated evidence-grounded documents | `references/authoring.md` |
+| Revision | humanizing, restructuring, and composing notes into a standalone document | `references/revision.md` |
+| Focused pass | terminology or language-specific prose review | `references/terminology.md` plus one language layer |
 
-Design points:
+The common layer enforces:
 
-- **Source grounding.** Material external claims are checked for source fit,
-  currentness, and evidentiary status. Search snippets and generated summaries
-  are leads, not proof.
-- **Korean evidence ledger.** Korean pattern rules distinguish external
-  measurements, unreproduced upstream self-study, Korean style evidence, and
-  observation-only diagnostics. Group-level differences never become proof
-  from one span, and rejected rules stay conditioned rather than becoming
-  detection signals.
-- **Voice preservation.** Surface cleanup is removal-first; authoring,
-  composition, and full revision remain evidence-bounded. The author's voice
-  markers are protected. A user-supplied sample outranks built-in profiles and
-  defaults, while explicit current requirements and repository policy still
-  bind the edit.
-- **Delivery gates.** Cold-reader completeness, claim-to-evidence fit, fact
-  preservation, a change-rate guard (warn at 30%, stop at 50%), and an
-  editor-slop self-check on the skill's own output.
-- **Form follows the reader job.** Prose carries reasoning; lists, tables,
-  charts, and diagrams are used only when their structure clarifies the
-  material better than short prose.
-- **Profiles.** House-style strictness (em-dash prohibition, workplace
-  vocabulary) is a selectable profile, not a fork.
-- **Always-on core.** The skill loads on demand, so it cannot govern ordinary
-  chat answers. `references/core-rules.md` holds a 15-rule Korean answer
-  baseline for that job: copy the marked block verbatim into an always-on
-  layer, and later updates replace it mechanically by version marker.
+- an explicit evidence boundary and current, claim-fitting sources;
+- facts, conditions, requirement levels, logical relations, and uncertainty;
+- enough context for a reader who did not see the Codex, Claude Code, issue,
+  or PR session;
+- relevance to the document's reader job;
+- the writer's established voice and minimal effective edits;
+- no invented facts, examples, quotations, citations, actors, or specificity.
 
-## Examples
+Search snippets, copied citation lists, generated summaries, and local research
+notes can locate evidence. They do not inherit the authority of the original
+source. A cold read checks self-containment; it does not prove factual accuracy
+or replace representative-reader testing.
 
-Sentence-level revision:
+## Language layers
 
-```text
-Before: The dashboard serves as a centralized hub for release status and
-        functions as the team's primary source of deployment updates.
-After:  The dashboard is the team's source for release status and deployment
-        updates.
-```
+| Layer | What it contributes | What it does not claim |
+|---|---|---|
+| English | register-aware active/passive choice, rhetorical patterns, `-ing` attachment, marker-density and voice checks | that one word, contraction, dash, or sentence shape proves authorship |
+| Korean | `im-not-ai` taxonomy mapped to Korean corpus and translationese evidence, with keep tests and evidence labels | that an aggregate group difference identifies one passage |
+| Italian | punctuation scope, `gerundio` attachment, information flow, administrative weight, and translation interference | a durable Italian AI-tell list |
+| Chinese | locale-first `zh-CN`, `zh-TW`, and `zh-HK` punctuation, terminology, script, and official-document overlays | that Simplified or Traditional script alone determines locale |
 
-Composing notes into a standalone document:
+For another language, the skill uses only the common integrity layer, the
+writer's sample, and governing locale or publication guidance. It does not
+translate an English surface checklist into an unsupported tell list.
 
-```text
-Before: - users saw the old dashboard and wrong metrics
-        - cause unconfirmed
-        - investigate auth cache
-        - fix before Friday
-After:  Users saw the old dashboard and incorrect metrics. The cause is not
-        confirmed. Investigate the authentication cache and fix the issue
-        before Friday.
-```
-
-Korean surgical polish (facts, commands, and register preserved):
-
-```text
-Before: 데이터를 정제하고, 모델을 학습시킨 다음, 결과를 검증합니다.
-After:  데이터를 정제하고 모델을 학습시킨 다음 결과를 검증합니다.
-```
+The optional block in `references/core-rules.md` is a Korean always-on answer
+layer. It is not the generation baseline for English, Italian, or Chinese.
 
 ## Evidence and lineage
 
 The [sources and inspiration register](docs/sources-and-inspiration.md) records
-the inspected version, license or status, adopted insight, and rejected ideas
-for the projects, research, official guidance, and maintainer material that
-informed the skill. [Design and lineage notes](docs/merge-notes.md) explain how
-the earlier skills were consolidated. The
-[redesign plan](docs/redesign-plan.md) preserves the historical design state,
-and [evaluation prompts](docs/eval-prompts.md) hold lightweight trigger and
-preservation checks.
+the inspected version, source status or license, adopted insight, scope limit,
+and rejected idea for every source family. It covers `im-not-ai`,
+`petergyang/no-ai-slop`, the local `brain/clips` and `brain/research` notes,
+official language and plain-language guidance, regional Chinese standards, and
+research on model-assisted revision and generated prose.
+
+[Design and lineage notes](docs/merge-notes.md) explain how the earlier skills
+were consolidated. The [redesign plan](docs/redesign-plan.md) is a historical
+record. [Evaluation prompts](docs/eval-prompts.md) contain lightweight trigger
+and preservation checks, not benchmark results.
 
 ## Package layout
 
@@ -114,16 +84,16 @@ preservation checks.
 clear-writing/
 ├── README.md
 ├── README.ko.md
-├── LICENSE                 # MIT
-├── docs/                   # design record, not installed
-└── clear-writing/          # the installable skill
+├── LICENSE
+├── docs/                   # provenance and design records; not installed
+└── clear-writing/          # the one installable skill
     ├── SKILL.md
-    └── references/         # 17 files, loaded per job
+    └── references/         # 19 files, loaded by job and language
 ```
 
 The package follows the [Agent Skills format](https://agentskills.io/) and is
-distributed with the [Skills CLI](https://github.com/vercel-labs/skills); the
-repository keeps no per-agent install adapters.
+distributed with the [Skills CLI](https://github.com/vercel-labs/skills). It
+contains no Codex-only or Claude Code-only workflow in the portable core.
 
 ## Install
 
@@ -137,13 +107,10 @@ npx --yes skills add 'gigio1023/clear-writing#main' \
   --yes
 ```
 
-Swap the agent IDs as needed (`cursor`, `gemini-cli`, and `antigravity` are
-also supported); omit `--global` for a project-local install. Verify with
-`npx --yes skills list --global`, and update later with
+Change the agent IDs as needed. The CLI also supports `cursor`, `gemini-cli`,
+and `antigravity`. Omit `--global` for a project install. Verify with
+`npx --yes skills list --global`; update with
 `npx --yes skills update clear-writing --global --yes`.
-
-The quoted `#main` source records the provenance updates rely on; the CLI
-manages each agent's install destination.
 
 ## Local development
 
@@ -151,6 +118,6 @@ manages each agent's install destination.
 npx --yes skills add . --list --full-depth
 ```
 
-Before publishing a change: the listing reports exactly `clear-writing`, the
-`SKILL.md` name matches its folder, every referenced path exists, and this
-README stays aligned with `README.ko.md`.
+Before publishing, confirm that the command finds exactly one skill named
+`clear-writing`, frontmatter matches the folder, every linked reference exists,
+and both READMEs describe the same package.

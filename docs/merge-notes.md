@@ -1,10 +1,37 @@
 # Design and Lineage Notes
 
-This repository's skill has two merge generations. The 2026-03 generation
+This repository's skill has three design generations. The 2026-03 generation
 built `humanize-doc` from an external anti-slop line and an internal
 document-composition line. The 2026-07 generation built `clear-writing` by
-consolidating six writing skills into one. These notes record both; they are
-not an installation path.
+consolidating six writing skills into one. The 2026-08 generation separated a
+common integrity core from English, Korean, Italian, and Chinese language
+layers. These notes record the lineage; they are not an installation path.
+
+## Generation 3 (2026-08): multilingual integrity layers
+
+The earlier package called its anti-slop file language-neutral while it still
+contained English rhetoric and treated Korean always-on rules as the generation
+baseline for every document. Generation 3 corrected that boundary:
+
+- the common core now covers evidence, relevance, claim force, reader context,
+  repetition, and voice protection that can be diagnosed without English
+  grammar or punctuation;
+- English keeps English-specific rhetoric, syntax, register, and decaying
+  surface markers;
+- Korean remains evidence-synced to `im-not-ai`, KatFishNet, and Korean
+  translationese scholarship;
+- Italian uses Italian institutional guidance and grammar scholarship without
+  claiming an AI-tell taxonomy;
+- Chinese routes by `zh-CN`, `zh-TW`, or `zh-HK` before script and keeps
+  regional punctuation, terminology, and official-document overlays bounded;
+- unsupported languages receive the common layer and governing locale or
+  publication guidance, never a translated English blacklist.
+
+Two overlapping terminology lists were replaced by one contextual catalog.
+It asks what relation a term names instead of mapping suspect words to approved
+synonyms. The 30% and 50% change-rate thresholds remain a conservative house
+policy rather than empirical quality cutoffs. An isolated model cold read is
+now described as a self-containment proxy, not actual-reader testing.
 
 ## Generation 2 (2026-07): clear-writing
 
@@ -90,3 +117,6 @@ concerns to six skills.
   empirical-validation notes against `korean-tells.md`; carry over ID-level
   changes only. Rules are removed when evidence turns against them — a rule
   that is merely popular is not protected.
+- Recheck Italian and Chinese official sources by locale and date before
+  changing a language rule. Do not infer a regional convention from script
+  alone or extend one generated-text corpus beyond its model and genre.

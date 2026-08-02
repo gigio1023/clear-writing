@@ -13,9 +13,12 @@ Apply this precedence:
 1. Explicit current target style or format, when the user is actually asking
    about the document's presentation rather than research rigor or task care.
 2. Governing repository policy: AGENTS.md, CLAUDE.md, or style-guide files.
-3. A user-supplied writing sample when the request does not set a different
+3. Governing language and locale conventions for the selected publication.
+   For Chinese, `zh-CN`, `zh-TW`, and `zh-HK` guidance in
+   `chinese-writing.md` outranks built-in punctuation preferences.
+4. A user-supplied writing sample when the request does not set a different
    target voice (`voice-preservation.md`).
-4. The selected built-in profile, then the base defaults.
+5. The selected built-in profile, then the base defaults.
 
 If the first two conflict, surface the conflict instead of allowing a lower
 tier to decide. Otherwise select **default**. Select **strict** only for a
@@ -36,7 +39,7 @@ it. Never select by the author's affiliation.
 For technical documents that may be shared externally, onboard new readers, or
 enter formal review. Adds, on top of default:
 
-**Punctuation (zero-tolerance set)**
+**Punctuation (zero-tolerance set where the target locale permits it)**
 
 - Em-dash (—), en-dash used as clause break, middle-dot (·), and decorative
   bullet characters (•) in body text: 0 occurrences. Replacement priority:
@@ -44,6 +47,10 @@ enter formal review. Adds, on top of default:
   period; if none fits, rewrite as two sentences.
 - Decorative quotation marks for emphasis: remove; keep genuine quotations and
   term definitions.
+
+Never apply this set inside protected literals, proper names, quotations, code,
+or locale-standard punctuation. In particular, do not remove a Chinese middle
+dot or another mark that belongs to a verified name or publication convention.
 
 **Workplace vocabulary (Korean)**
 
