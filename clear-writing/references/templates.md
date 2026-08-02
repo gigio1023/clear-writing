@@ -1,5 +1,11 @@
 # 문서 타입별 템플릿
 
+These templates are optional shapes, not completion checklists. Keep only the
+sections required by the reader's job. Every value, command, example, response,
+error, and recovery step must come from supplied material, inspected repository
+evidence, or verified external sources; otherwise use a visibly fake
+placeholder or omit it.
+
 ## Contents
 
 - README.md

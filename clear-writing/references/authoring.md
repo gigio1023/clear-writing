@@ -6,6 +6,17 @@ ADRs, specifications, reports, and decision memos. Improving prose that
 already exists without new facts belongs to `revision.md`; the two combine
 when a rewrite also needs fresh repository or external evidence.
 
+## Contents
+
+- Ground rules
+- Document jobs
+- Document spine
+- Five zoom levels
+- Form selection
+- Coverage and currentness
+- Scope
+- Delivery
+
 ## Ground rules
 
 - Select the evidence boundary from `SKILL.md`. Ground technical claims in

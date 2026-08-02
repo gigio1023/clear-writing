@@ -44,14 +44,16 @@ Design points:
 - **Source grounding.** Material external claims are checked for source fit,
   currentness, and evidentiary status. Search snippets and generated summaries
   are leads, not proof.
-- **Korean evidence ledger.** Korean pattern rules distinguish measured
-  AI-vs-human signals, Korean style evidence, and observation-only diagnostics.
-  Rules rejected by corpus studies are conditioned rather than presented as
+- **Korean evidence ledger.** Korean pattern rules distinguish external
+  measurements, unreproduced upstream self-study, Korean style evidence, and
+  observation-only diagnostics. Group-level differences never become proof
+  from one span, and rejected rules stay conditioned rather than becoming
   detection signals.
 - **Voice preservation.** Surface cleanup is removal-first; authoring,
   composition, and full revision remain evidence-bounded. The author's voice
-  markers are protected, and a user-supplied writing sample outranks every
-  style rule.
+  markers are protected. A user-supplied sample outranks built-in profiles and
+  defaults, while explicit current requirements and repository policy still
+  bind the edit.
 - **Delivery gates.** Cold-reader completeness, claim-to-evidence fit, fact
   preservation, a change-rate guard (warn at 30%, stop at 50%), and an
   editor-slop self-check on the skill's own output.

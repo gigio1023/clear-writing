@@ -20,10 +20,12 @@ only: never insert a replacement cliché, invented fact, or fake citation to
 ## Durable signals (fix first)
 
 **Genericness.** The sentence could appear in any document about any subject.
-Fix by adding one concrete, checkable detail: a name, a number, a case, a
-mechanism. "created a robust framework" → what exists now, who uses it, how?
-This is the deepest tell; surface fixes without substance make low-quality
-text harder to spot, not better.
+When the evidence boundary already supplies a name, number, case, or mechanism,
+use it. Otherwise delete or bound the empty claim, or report the missing fact;
+never invent specificity during humanize or surface cleanup. "created a robust
+framework" raises the questions: what exists now, who uses it, and how? This is
+the deepest tell; surface fixes without substance make low-quality text harder
+to spot, not better.
 
 **Abstraction inflation.** Labels stand in for actions ("협업 기반을 구축했다",
 "enabled synergies"). Rewrite with the actual mechanism or observable result.
@@ -51,8 +53,8 @@ the setup and let the claim stand on its own. (no-ai-slop lineage.)
 
 **Undue significance.** "stands as a testament", "plays a crucial/pivotal
 role", "underscores the importance", "시사하는 바가 크다" — importance
-inflation applicable to any subject. Delete or replace with the concrete
-consequence.
+inflation applicable to any subject. Delete it, or use a concrete consequence
+already established inside the evidence boundary.
 
 **Negative listing.** "It's not just X. Not Y either. It's Z." — rhetorical
 striptease withholding the point. State Z. (stop-slop lineage.)
@@ -85,16 +87,19 @@ paragraph is the conclusion. Same family: the fake-profound kicker — a
 closing aphorism, metaphor, or mic-drop line. Delete it; do not rewrite it
 into a better metaphor. End on the last concrete sentence the draft already
 has, adding a plain takeaway or next action only when closure is genuinely
-missing. (no-ai-slop lineage.)
+missing and authoring, compose, or full-revision evidence already supports it.
+Humanize and surface cleanup stop at the last supported sentence.
+(no-ai-slop lineage.)
 
 **Present-participle pseudo-analysis.** "...ing" clauses tacked on for fake
 depth: "...highlighting the tradition", "...ensuring continuity". Cut or turn
 into a real causal sentence.
 
 **Symmetric contrast formulas.** "not X but Y", "A인가, B인가", chiasmus and
-tricolon cadence repeated across paragraphs. State the conclusion once,
-plainly. (Korean measurement: 9.2× AI-vs-human — see
-`korean-tells.md` C-8.)
+tricolon cadence repeated across paragraphs. If deleting the negative side
+does not erase a meaning-bearing correction, state the conclusion once.
+Otherwise preserve the redefinition. (The 9.2× Korean figure comes from an
+unreproduced upstream self-study; see `korean-tells.md` C-8.)
 
 **Synonym cycling.** One referent rotated through synonyms for style — "the
 agent reviews... the assistant scores... the tool suggests". If the clear
@@ -102,8 +107,8 @@ word is right, repeat it; route genuine naming doubts to `terminology.md`.
 (no-ai-slop lineage.)
 
 **Empty modifiers.** robust, seamless, significant, innovative, strategic,
-effectively — cut unless carrying real scope, or replace with the fact that
-earned the adjective.
+effectively — cut unless carrying real scope, or replace only with a fact that
+the evidence boundary already establishes.
 
 **Hedging overload.** Stacked "typically/might/may/could" avoiding any
 commitment. Commit where the source supports it; keep genuine uncertainty

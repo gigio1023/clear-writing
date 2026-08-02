@@ -1,26 +1,26 @@
 # Voice Preservation
 
-Rewriting is itself a homogenizing force. Measured on 300 personal narratives
-(van Nuenen 2026): LLM revision strips contractions, first-person pronouns,
-and function words, inflates vocabulary diversity and word length, and shifts
-stance from embedded to distanced narration — in the same direction regardless
-of prompt. An explicit "preserve voice" instruction reduced the effect by only
-32%; it never reversed it. So preservation must be enforced by rules and the
-delivery gate, not by intention.
+Rewriting can homogenize voice. A 2026 preprint on 300 English personal
+narratives found directional normalization on selected markers. A
+voice-preserving prompt reduced mean effect magnitude by 32%; direction
+agreement was 85%, with two marker reversals. The study does not establish the
+same rates or directions in other languages or genres. Use it as a reason to
+audit drift conservatively, not as universal proof.
 
-## Sample outranks rules
+## Sample outranks built-in defaults
 
-When the user supplies (or the repo contains) the author's own prior writing,
-that sample defines the target voice and **outranks every style rule in this
-skill**, including profile rules. Derive from the sample: sentence-length
-range, formality/어미 register, contraction habits, first- vs third-person
-stance, characteristic connectors, and vocabulary register. Without a sample,
-aim for the register the document type demands — not a house style of this
-skill.
+When the request asks to preserve voice, or sets no different target voice, the
+user's or repository author's prior writing defines the target and outranks the
+skill's profiles and defaults. An explicit current target and governing
+repository requirements still bind the rewrite. Derive from the sample:
+sentence-length range, formality/어미 register, contraction habits, first- vs
+third-person stance, characteristic connectors, and vocabulary register.
+Without a sample, aim for the register the document type demands, not a house
+style of this skill.
 
 ## Markers to preserve under revision
 
-Do not "improve away", in any language:
+As a conservative editing policy across languages, do not "improve away":
 
 - Contractions and casual function words where the register allows them
   (English: don't/it's; Korean: 구어형 연결, 해요체 in guides).

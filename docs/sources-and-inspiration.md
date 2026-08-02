@@ -21,14 +21,17 @@ evidence.
   inspected `main` at `53e24e8f92cf344efcb812103f7c2b203e7efffc`
   (2026-07-22). The post-release changes affected social assets and a build
   script, not the writing taxonomy used here.
-- **Inspected:** 2026-07-31; local clone, tag history, rules, evidence notes,
+- **Inspected:** 2026-08-02; local clone, tag history, rules, evidence notes,
   and license.
 - **License/status:** MIT, copyright 2026 epoko77-ai. Active upstream.
 - **Adopted:** stable Korean pattern IDs, evidence labels, surgical edits,
   diff-based reporting, and periodic upstream delta checks.
 - **Rejected:** vendoring the source, treating its small self-study as a
-  universal detector, making company house style universal, and reviving rules
-  that its own evidence downgraded.
+  universal detector, treating its synthesized Korean background report as a
+  primary source, making company house style universal, and reviving rules
+  that its own evidence downgraded. The public repository provides neither the
+  self-study corpus nor reproduction scripts, so its measurements are labeled
+  unreproduced.
 
 ## KatFishNet
 
@@ -52,15 +55,38 @@ evidence.
   feature-set AUC as the score of one comma rule, deliberate error insertion,
   and generalizing across genres or future models without retesting.
 
+## National Institute of Korean Language: translationese studies
+
+- **Title and URL:** Kim Jeong-woo, [*현대 국어 번역문의
+  실태*](https://www.korean.go.kr/nkview/nklife/2012_1/22_0104.pdf), and
+  Kim Sun-young, [*영한 번역에 나타난 번역투
+  문장*](https://www.korean.go.kr/nkview/nklife/2012_1/22_0105.pdf).
+- **Responsible:** Kim Jeong-woo and Kim Sun-young; published by the National
+  Institute of Korean Language.
+- **Version:** *Sae Gugeo Saenghwal* 22(1), spring 2012.
+- **Commit:** not applicable to these journal PDFs.
+- **Inspected:** 2026-08-02; article PDFs and the
+  [issue page](https://www.korean.go.kr/nkview/nklife/2012_1.html).
+- **License/status:** reuse terms were not established from the inspected
+  pages. The articles are cited only; no article prose or worked examples are
+  redistributed.
+- **Adopted:** contextual review cues for passive constructions, pronouns,
+  `가지다`, and preposition-shaped phrases such as `~에 의해` and
+  `~에 관하여` in English-Korean translation.
+- **Rejected:** universal bans, applying a translation-corpus observation to
+  native Korean without context, or treating translationese as AI authorship
+  evidence. Both articles discuss scope limits and context-sensitive choices.
+
 ## petergyang/no-ai-slop
 
 - **Title and URL:** [`no-ai-slop`](https://github.com/petergyang/no-ai-slop)
 - **Responsible:** Peter Yang.
-- **Version:** `v1.0.4`.
-- **Commit:** `e81170dcaefa76b4cb2672532e13042f4e132b32`
-  (2026-07-26).
-- **Inspected:** 2026-07-31; tagged repository, skill instructions, pattern descriptions,
-  and license.
+- **Version:** `v1.0.6`.
+- **Commit:** `f2b25e603800dfc01ba93f1092056724eb93059e`
+  (2026-08-01).
+- **Inspected:** 2026-08-02; tagged repository, skill instructions, pattern
+  descriptions, and license. Changes after v1.0.4 affected plugin metadata,
+  imagery, and README promotion, not the patterns adopted here.
 - **License/status:** MIT, copyright 2026 Peter Yang. Active at inspection.
 - **Adopted:** a one-time, independently worded port of useful rhetorical
   patterns and the requirement that review findings quote the triggering text.
@@ -147,9 +173,10 @@ evidence.
 
 - **Title and URL:** [*Artificial Intelligence Risk Management Framework:
   Generative Artificial Intelligence Profile*](https://doi.org/10.6028/NIST.AI.600-1)
-- **Responsible:** Chloe Autio, Reva Schwartz, Jesse Dunietz, Shameeka Jain,
-  M. Alex Stanley, Elham Tabassi, Patrick Hall, and Kamie Roberts; National
-  Institute of Standards and Technology.
+- **Responsible:** National Institute of Standards and Technology. The
+  publication acknowledgments name Chloe Autio, Jesse Dunietz, Patrick Hall,
+  Shomik Jain, Kamie Roberts, Reva Schwartz, Martin Stanley, and Elham
+  Tabassi.
 - **Version:** NIST AI 600-1, published 2024-07-26. The
   [publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence)
   was updated 2026-04-08.
@@ -185,9 +212,12 @@ evidence.
 
 - **Title and URL:** [*Organizing Your Argument*](https://owl.purdue.edu/owl/resources/teaching_resources/documents/new-organizing-your-argument_-09042025.pdf)
 - **Responsible:** Purdue Online Writing Lab, Purdue University.
-- **Version:** teaching resource dated 2025-09-04 in its canonical filename.
+- **Version:** the canonical filename contains `09042025`, but the PDF has no
+  printed publication date. Its metadata records author Garrett Ivan Colon and
+  creation/modification on 2025-09-19.
 - **Commit:** not applicable; no public source commit is exposed.
-- **Inspected:** 2026-07-31; the official teaching resource and Purdue copyright notice.
+- **Inspected:** 2026-08-02; the official teaching resource, PDF metadata, and
+  Purdue copyright notice.
 - **License/status:** copyright Purdue University, all rights reserved. Used as
   a cited reference only; no slide text or examples were copied.
 - **Adopted:** connect a claim to reasons, credible evidence, and an explicit
@@ -262,10 +292,12 @@ evidence.
 - **Title and URL:** [Diataxis](https://diataxis.fr/) and its
   [documentation repository](https://github.com/evildmp/diataxis-documentation-framework).
 - **Responsible:** Daniele Procida.
-- **Version:** live framework and repository state inspected 2026-07-31.
-- **Commit:** `ea4fc4d85c8747107dc297e894e89d1c7d0d0179`
-  (2026-07-17).
-- **Inspected:** 2026-07-31; current framework overview, repository history, and license.
+- **Version:** live framework and repository state inspected 2026-08-02.
+- **Commit:** `0c9022ecbd82f8cd42069886faae40cd91eb8995`
+  (2026-08-01).
+- **Inspected:** 2026-08-02; current framework overview, repository history,
+  and license. Changes after the prior inspection affected translations and
+  spelling lists, not the framework adopted here.
 - **License/status:** CC BY-SA 4.0.
 - **Adopted:** identify whether a document teaches, guides a task, specifies
   facts, or explains a concept. Judge structure and completeness against that
@@ -287,12 +319,15 @@ evidence.
   was not presented here as peer-reviewed.
 - **Adopted:** rewriting can normalize personal narrative by reducing function
   words, contractions, and first-person markers while increasing lexical and
-  punctuation complexity. Preserve the author's sample and causal chain, and
-  audit the direction of drift after revision.
+  punctuation complexity. In the reported English narrative sample, the
+  voice-preserving condition reduced mean effect magnitude by 32%, direction
+  agreement was 85%, and two markers reversed. Preserve the author's sample
+  and causal chain, and audit drift after revision.
 - **Rejected:** extending findings from 300 personal narratives to every
   register, treating any one marker as authorship proof, or claiming that a
-  "preserve voice" prompt eliminates drift. The reported average reduction
-  was partial and descriptive.
+  "preserve voice" prompt eliminates drift. The preprint's English narrative
+  scope does not establish the same rates or directions in Korean or other
+  genres.
 
 ## Maintainer-supplied Threads excerpt
 

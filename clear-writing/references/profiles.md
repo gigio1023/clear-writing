@@ -8,15 +8,20 @@ what lets profile rules change without touching evidence-backed rules.
 
 ## Selecting a profile
 
-1. Explicit user request wins ("엄격하게", "회사 문서 스타일로", "strict").
-2. Repository policy next: AGENTS.md / CLAUDE.md / style-guide files that
-   state formatting rules adopt those rules verbatim (they outrank both
-   profiles).
-3. Otherwise **default**. Never select by who the author works for; profiles
-   are chosen per document context, not per affiliation.
+Apply this precedence:
 
-A user-supplied writing sample still outranks profile style rules
-(`voice-preservation.md`).
+1. Explicit current target style or format, when the user is actually asking
+   about the document's presentation rather than research rigor or task care.
+2. Governing repository policy: AGENTS.md, CLAUDE.md, or style-guide files.
+3. A user-supplied writing sample when the request does not set a different
+   target voice (`voice-preservation.md`).
+4. The selected built-in profile, then the base defaults.
+
+If the first two conflict, surface the conflict instead of allowing a lower
+tier to decide. Otherwise select **default**. Select **strict** only for a
+document-style request such as "회사 문서 스타일로" or an equivalent
+repository policy; a generic request to be rigorous or careful does not select
+it. Never select by the author's affiliation.
 
 ## default
 

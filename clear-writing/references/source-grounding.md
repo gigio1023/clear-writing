@@ -34,6 +34,10 @@ may suggest what to investigate. They do not establish a fact. Never make an
 AI-written summary look stronger by citing another page that copied the same
 unsupported statement.
 
+A direct observation or reproducible calculation from inspected evidence may
+support a derived claim. Record the inputs and method, distinguish the result
+from source wording, and keep assumptions or interpretation visible.
+
 The boundary identifies the allowed evidence pool; it does not make every item
 inside that pool true. A supplied draft may be quoted or revised faithfully
 while its stale, disputed, or unsupported claims remain labeled and
@@ -46,7 +50,7 @@ argument-bearing documents:
 
 | Claim | Reason or evidence | Warrant: why it supports the claim | Status and limit |
 | --- | --- | --- | --- |
-| What the reader is asked to accept | Source or observation | The relevant mechanism or relation | Direct evidence, inference, assumption, or unverified |
+| What the reader is asked to accept | Source or observation | The relevant mechanism or relation | Direct evidence, reproducible derivation, inference, assumption, or unverified |
 
 Apply both directions:
 

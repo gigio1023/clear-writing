@@ -4,6 +4,16 @@ Run before delivering any authored or revised document. Apply to the changed
 scope, not mechanically to every page. The bar is these gates plus fact
 preservation, not "it reads natural to me."
 
+## Contents
+
+- Cold reader, purpose, and relevance
+- Source, claim, and fact integrity
+- Language quality
+- Change-rate guard
+- Editor-slop test
+- Verification actions
+- Report format
+
 ## Gate 1 — Cold reader, purpose, and relevance
 
 - The intended reader and the page's primary job are clear from the top.
@@ -53,7 +63,8 @@ preservation, not "it reads natural to me."
   (`anti-slop-core.md`).
 - Structure inflation cleared without deleting WHY anchors or guide-section
   tone (`structure-anti-patterns.md`).
-- Korean documents: strongest-signal patterns checked
+- Korean documents: measured-priority patterns checked with their evidence
+  limits and keep tests
   (`korean-tells.md`); English documents: durable signals
   checked. Terminology stayed stable once chosen.
 

@@ -4,6 +4,15 @@ For improving existing text: humanizing, restructuring, or turning fragments
 into a standalone document. Creation of repository-grounded docs from scratch
 belongs to `authoring.md`.
 
+## Contents
+
+- Core diagnosis
+- Rewrite priorities
+- Standalone-document shape
+- Medium calibration
+- Editing discipline
+- Output
+
 ## Core diagnosis
 
 Most bad AI-flavored writing fails on two axes at once:

@@ -1,5 +1,10 @@
 # 문서 작성 패턴
 
+The examples below illustrate document structure with fictional names, values,
+commands, and results. Never copy them as facts or present them as verified.
+Replace each detail with inspected evidence, mark a visibly fake placeholder,
+or omit the section when it does not serve the reader's job.
+
 ## Contents
 
 - Anti-patterns
@@ -16,8 +21,8 @@
 
 **Good**:
 > **현재 기술 스택**:
-> - Python 3.11
-> - FastAPI 0.100
+> - Python `<verified-version>`
+> - FastAPI `<verified-version>`
 > 
 > 변경 이력: 프로젝트의 `CHANGELOG.md` 참조
 
@@ -98,7 +103,7 @@ user = create_user(
 ```markdown
 # README.md
 ## 환경 설정
-[CONTRIBUTING.md](CONTRIBUTING.md#환경-설정) 참조
+[CONTRIBUTING.md](<path-to-contributing#환경-설정>) 참조
 
 # CONTRIBUTING.md
 ## 환경 설정
@@ -121,7 +126,7 @@ $ pytest tests/
 $ pytest tests/
 
 # Expected output:
-# ===== 85 passed in 20.00s =====
+# ===== <verified-count> passed in <measured-duration> =====
 ```
 
 ---
@@ -210,9 +215,9 @@ $ docker-compose up
 
 **이유**:
 - A 방식의 문제: 성능 저하
-- B 방식의 장점: 30% 성능 향상
+- B 방식의 장점: `<measured-change>` 성능 향상
 
-**배경**: [ADR-001](docs/adr/001-migration.md)
+**배경**: [ADR-001](<path-to-adr>)
 ```
 
 ---
@@ -227,7 +232,7 @@ uv sync
 uv run uvicorn app.main:app
 ```
 
-상세: [Getting Started](docs/getting-started.md)
+상세: [Getting Started](<path-to-getting-started>)
 ````
 
 **Tier 2 (docs/getting-started.md)**:
@@ -428,7 +433,7 @@ alembic current
 ```markdown
 # README.md
 ## Quick Start
-환경 설정: [CONTRIBUTING.md](CONTRIBUTING.md#환경-설정)
+환경 설정: [CONTRIBUTING.md](<path-to-contributing#환경-설정>)
 
 # CONTRIBUTING.md
 ## 환경 설정

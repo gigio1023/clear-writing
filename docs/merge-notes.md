@@ -27,17 +27,18 @@ Key decisions, in order of how hard they would be to reverse:
   `redesign-plan.md`: split authoring/revision only if over-triggering is
   observed in practice.
 - **Two-tier system.** The skill is the on-demand deep tier. The always-on core
-  has 15 Korean answer rules. Its canonical block and current install targets
-  are recorded in `clear-writing/references/core-rules.md`; the block is
-  installed as `clear-writing:core v1` in the shared agent instructions.
+  has 15 Korean answer rules. Its canonical block and portable installation
+  procedure live in `clear-writing/references/core-rules.md`. Maintainer
+  deployments may copy the current block as `clear-writing:core v2` into a
+  harness-supported always-on instruction surface.
 - **Evidence ledger over flat rules.** Every Korean rule carries its
-  justification type: measured AI discriminator, Korean style evidence,
-  observation-only, or house style. Upstream's 2026-07 corpus study rejected
-  two popular rules (A-2 "~를 통해", I-1 "것이다" — humans use both more than
-  AI); they are kept only as conditioned style rules. This revises Generation
-  1's "one language-neutral core" decision: Korean earned a dedicated
-  reference layer inside the same skill, synced to upstream pattern IDs with a
-  quarterly delta check.
+  justification type: external group-level measurement, unreproduced upstream
+  self-study, Korean style evidence, observation-only, or house style. The
+  upstream self-study rejected two popular rules (A-2 "~를 통해", I-1
+  "것이다"; humans used both more in its sample), so they remain conditioned
+  style rules. This revises Generation 1's "one language-neutral core"
+  decision: Korean earned a dedicated reference layer inside the same skill,
+  synced to upstream pattern IDs with a quarterly delta check.
 - **House style became a profile.** The company line's em-dash prohibition and
   workplace-slang rules are a selectable strict profile, not a separate
   company build and not an AI-detection claim.

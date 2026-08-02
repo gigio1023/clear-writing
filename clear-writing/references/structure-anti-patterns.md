@@ -80,8 +80,9 @@ declared scope limits ("NOT for X, Y") are a convention, not negative listing.
 
 **Indirect definition.** "X는 A를 입력으로 받아 B하고 C를 측정하는 D다" — a
 40+ character definition sentence burying the point. Split into 목표/입력/출력
-or short declaratives. "핵심은 X가 아니다" openers: drop the negation, state
-the conclusion.
+or short declaratives. For "핵심은 X가 아니다" openers, drop the negation
+only when it carries no correction or scope boundary. Preserve a meaning-bearing
+redefinition; apply the C-8 keep test in `korean-tells.md`.
 
 **Governance-speak leakage.** "단일 source", "권위 문서", "본문 정의는 [doc]
 단일 source" — document-architecture vocabulary leaking into prose. Readers

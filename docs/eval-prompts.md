@@ -17,8 +17,8 @@ Expected:
 - formulaic wrap-ups and undue-significance phrasing deleted, not reworded
 - comma-after-connective cleanup (korean-tells C-11); conditioned rules
   (single "~를 통해", uniform 어미 in short formal text) left alone
-- dates, numbers, and uncertainty hedges preserved verbatim; no new
-  connectives inserted (removal only)
+- dates, numbers, and uncertainty hedges preserved verbatim; no unsupported
+  connectives inserted (removal-first)
 
 ## Prompt 2: compose notes into a standalone doc
 
