@@ -1,6 +1,6 @@
 # slop-aware-writing
 
-[![skills.sh](https://skills.sh/b/gigio1023/clear-writing)](https://skills.sh/gigio1023/clear-writing)
+[![skills.sh](https://skills.sh/b/gigio1023/slop-aware-writing)](https://skills.sh/gigio1023/slop-aware-writing)
 ![writing](https://img.shields.io/badge/writing-EN%20%7C%20KO%20%7C%20IT%20%7C%20ZH-22684E)
 ![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2019%20references-555)
 [![license](https://img.shields.io/badge/license-MIT-555)](LICENSE)
@@ -78,7 +78,7 @@ AI slop을 예방하거나 걷어내면서 문서를 작성하고 개고합니�
 ## 패키지 구조
 
 ```text
-clear-writing/
+slop-aware-writing/
 ├── README.md
 ├── README.ko.md
 ├── LICENSE
@@ -97,7 +97,7 @@ clear-writing/
 Node.js 22.20.0 이상이 필요합니다.
 
 ```bash
-npx --yes skills add 'gigio1023/clear-writing#main' \
+npx --yes skills add 'gigio1023/slop-aware-writing#main' \
   --skill slop-aware-writing \
   --agent codex claude-code \
   --global \
@@ -119,8 +119,8 @@ handle을 제거합니다.
 npx --yes skills remove --global clear-writing --yes
 ```
 
-프로젝트 설치에서는 `--global`을 뺍니다. GitHub 저장소 주소는
-`gigio1023/clear-writing`을 유지하고 설치되는 스킬 이름만 바뀝니다.
+프로젝트 설치에서는 `--global`을 뺍니다. 공개 소스는
+`gigio1023/slop-aware-writing`입니다.
 
 ## 로컬 개발
 

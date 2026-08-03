@@ -14,9 +14,9 @@ installation path.
 The maintainer selected `slop-aware-writing` after the contract review showed
 that source grounding is a conditional guardrail rather than the primary
 trigger. The new handle names the domain and the diagnostic lens without
-reducing the skill to proofreading or authorship detection. The repository
-slug remains `gigio1023/clear-writing`; the installable folder, frontmatter,
-current documentation, and CLI handle use `slop-aware-writing`.
+reducing the skill to proofreading or authorship detection. The repository,
+installable folder, frontmatter, current documentation, and CLI handle use
+`slop-aware-writing`.
 
 The optional Korean always-on block retains the legacy
 `clear-writing:core v2` wrapper. That marker is an update interface copied into

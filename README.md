@@ -1,6 +1,6 @@
 # slop-aware-writing
 
-[![skills.sh](https://skills.sh/b/gigio1023/clear-writing)](https://skills.sh/gigio1023/clear-writing)
+[![skills.sh](https://skills.sh/b/gigio1023/slop-aware-writing)](https://skills.sh/gigio1023/slop-aware-writing)
 ![writing](https://img.shields.io/badge/writing-EN%20%7C%20KO%20%7C%20IT%20%7C%20ZH-22684E)
 ![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2019%20references-555)
 [![license](https://img.shields.io/badge/license-MIT-555)](LICENSE)
@@ -86,7 +86,7 @@ and preservation checks, not benchmark results.
 ## Package layout
 
 ```text
-clear-writing/
+slop-aware-writing/
 ├── README.md
 ├── README.ko.md
 ├── LICENSE
@@ -105,7 +105,7 @@ contains no Codex-only or Claude Code-only workflow in the portable core.
 Requires Node.js 22.20.0 or newer.
 
 ```bash
-npx --yes skills add 'gigio1023/clear-writing#main' \
+npx --yes skills add 'gigio1023/slop-aware-writing#main' \
   --skill slop-aware-writing \
   --agent codex claude-code \
   --global \
@@ -127,8 +127,8 @@ global handle:
 npx --yes skills remove --global clear-writing --yes
 ```
 
-For a project-scoped installation, omit `--global`. The GitHub repository slug
-remains `gigio1023/clear-writing`; only the installable skill handle changed.
+For a project-scoped installation, omit `--global`. The published source is
+`gigio1023/slop-aware-writing`.
 
 ## Local development
 

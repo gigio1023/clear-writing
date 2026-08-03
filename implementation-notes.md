@@ -16,6 +16,12 @@ Use this file for deviations that affect later review.
   marker because copies may already exist outside this repository.
 - Revisit: after PR #4 merges, update the external `agent-skills` catalog and
   decide separately whether the GitHub repository slug should change.
+- Follow-up authority: the maintainer explicitly requested the GitHub repository
+  rename. After PR #4 merges, rename the remote to
+  `gigio1023/slop-aware-writing`, update the external catalog, and retire the
+  topic branch. This supersedes the earlier decision to retain the repository
+  slug; the legacy Korean-core marker still remains for deployed-copy
+  compatibility.
 - Verification: the skill validator passed at 7,897 bytes and 148 lines; both
   Skills CLI listing modes found exactly one installable skill named
   `slop-aware-writing`; all 19 direct references and current relative Markdown
