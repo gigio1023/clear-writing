@@ -1,5 +1,20 @@
 # clear-writing 재설계 계획 (P1 산출물, 2026-07-26)
 
+> 상태: 이 문서는 초기 설계를 보존한 historical 기록이며 현재 실행
+> 계획으로는 superseded 상태다. 하단의 보류 표기를 현재 결정으로 읽지
+> 않는다. D4는 후속 구현에서 해결했다. 한국어 답변 수칙 15개를
+> `slop-aware-writing/references/core-rules.md`의 당시
+> `clear-writing:core v1` 블록으로
+> 당시 상시 계층을 구성했다. 현재 정본은 v2며 상시 계층 반영은
+> 설치자가 별도로 갱신해야 한다. 현재 작동 규약은
+> `slop-aware-writing/SKILL.md`와 `slop-aware-writing/references/`를 따른다.
+> 설치 마커는 배포 호환성을 위해 기존 이름을 유지한다. 아래 본문은 2026-07-26 당시의
+> 계획과 미해결 상태를 설명하므로 고치지 않았다.
+> 2026-08 다국어 재설계에서는 아래의 `known-slop-terms.md`와
+> `replacement-patterns.md`를 중복된 과거 목표로 판정하고 현재의
+> `terminology-catalog.md`로 합쳤다. 영어, 이탈리아어, 중국어 계층도 이후
+> 추가됐다. 아래 트리는 현재 패키지 목록이 아니다.
+
 이 문서는 통합 스킬 `clear-writing` 저작(P2)의 입력이다. 배경·근거·전체 로드맵의
 정본은 워크스페이스의 `notes/humanize-consolidation/launch-brief.md`와 계획
 아티팩트에 있다. 여기에는 P2가 그대로 따라 할 수 있는 것만 담는다:
@@ -90,9 +105,9 @@ voice-preservation, profiles, 그리고 병합이 필요한 파일들뿐이다.
 
 | 원 위치 | 내용 | 처분 | 목적지 |
 | --- | --- | --- | --- |
-| quick-rules A(번역투 19종), B(영어 인용), D(관용구), F(수식), G(hedging), H(접속사), I(형식명사) | 문장 단위 패턴 | merge — upstream v2.3 기준 재동기화. 패턴 ID 유지, 근거를 이중 장부로 표기(AI-tell 실측 / 한국어 문체) | korean-tells.md |
+| quick-rules A(번역투 19종), B(영어 인용), D(관용구), F(수식), G(hedging), H(접속사), I(형식명사) | 문장 단위 패턴 | merge — upstream v2.3 기준 재동기화. 패턴 ID 유지, 근거를 외부 실측 / 비재현 자체 연구 / 한국어 문체로 구분 | korean-tells.md |
 | A-2 "~를 통해", I-1 "것이다" | upstream 2026-07 실증에서 AI-tell 기각 | keep(강등) — AI-tell 아님·번역투 문체 근거만 남김(국립국어원). S1 금지 | korean-tells.md |
-| C(구조), E(리듬) 중 C-11 연결어미 뒤 쉼표, C-8 대구, E-1/2 리듬 | 실측 최강 신호들 | keep — 코어 수칙과 상호 참조 | korean-tells.md |
+| C(구조), E(리듬) 중 C-11 연결어미 뒤 쉼표, C-8 대구, E-1/2 리듬 | 외부 연구와 비재현 상류 자체 연구를 구분한 검토 우선순위 | keep — 코어 수칙과 상호 참조 | korean-tells.md |
 | E-6 (POS 다양성 metric) | 계량 지표 | drop — LLM 눈대중 윤문에 부적합(원 스킬도 보조로만 둠) | — |
 | verbosity V-1~V-16 | 구조 단위 장황함 | merge — 언어 중립 개념은 영/한 예시로 일반화, style-anti-patterns와 병합. V-13(가이드 톤 허용), V-15(WHY 한 문장 보존) 같은 보존 규칙 필수 유지 | structure-anti-patterns.md |
 | rewrite-recipes.md | before/after 사례 | merge — korean-tells 사례 절로 압축 | korean-tells.md |

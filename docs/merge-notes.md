@@ -1,14 +1,79 @@
 # Design and Lineage Notes
 
-This repository's skill has two merge generations. The 2026-03 generation
+This repository's skill has five design generations. The 2026-03 generation
 built `humanize-doc` from an external anti-slop line and an internal
 document-composition line. The 2026-07 generation built `clear-writing` by
-consolidating six writing skills into one. These notes record both; they are
-not an installation path.
+consolidating six writing skills into one. The 2026-08 generation separated a
+common integrity core from English, Korean, Italian, and Chinese language
+layers, recentered them on model-native slop diagnosis, then adopted the
+`slop-aware-writing` handle. These notes record the lineage; they are not an
+installation path.
+
+## Generation 5 (2026-08): slop-aware-writing
+
+The maintainer selected `slop-aware-writing` after the contract review showed
+that source grounding is a conditional guardrail rather than the primary
+trigger. The new handle names the domain and the diagnostic lens without
+reducing the skill to proofreading or authorship detection. The repository,
+installable folder, frontmatter, current documentation, and CLI handle use
+`slop-aware-writing`.
+
+The optional Korean always-on block retains the legacy
+`clear-writing:core v2` wrapper. That marker is an update interface copied into
+external instruction files, so changing it during a package rename would leave
+existing deployments undiscoverable by a mechanical replacement.
+
+## Generation 4 (2026-08): model-native anti-slop
+
+The multilingual package still risked becoming a compact grammar encyclopedia.
+That duplicated frontier models' ordinary fluency and made every language file
+look mandatory. Generation 4 tightened the contract:
+
+- AI slop is a functional failure, not a writing-origin label: generic
+  completion, performed reasoning, reader displacement, or voice flattening;
+- the model reads the whole relevant scope and uses semantic transfer, support,
+  reader, deletion, and voice tests instead of walking every rule;
+- basic grammar, spelling, idiom, and syntax rely on model fluency. An obvious
+  local error may be fixed during an authorized rewrite, but grammar-only
+  proofreading does not trigger the skill;
+- English, Korean, Italian, and Chinese files became optional diagnostic
+  overlays. They load for a language-specific candidate or locale risk rather
+  than for every span;
+- current model guidance informed the subtraction, but model names, effort,
+  tools, and harness controls stay outside the portable domain skill.
+
+This change preserves the evidence ledger and locale safety material. It
+removes their role as exhaustive checklists.
+
+## Generation 3 (2026-08): multilingual integrity layers
+
+The earlier package called its anti-slop file language-neutral while it still
+contained English rhetoric and treated Korean always-on rules as the generation
+baseline for every document. Generation 3 corrected that boundary:
+
+- the common core now covers evidence, relevance, claim force, reader context,
+  repetition, and voice protection that can be diagnosed without English
+  grammar or punctuation;
+- English keeps English-specific rhetoric, syntax, register, and decaying
+  surface markers;
+- Korean remains evidence-synced to `im-not-ai`, KatFishNet, and Korean
+  translationese scholarship;
+- Italian uses Italian institutional guidance and grammar scholarship without
+  claiming an AI-tell taxonomy;
+- Chinese routes by `zh-CN`, `zh-TW`, or `zh-HK` before script and keeps
+  regional punctuation, terminology, and official-document overlays bounded;
+- unsupported languages receive the common layer and governing locale or
+  publication guidance, never a translated English blacklist.
+
+Two overlapping terminology lists were replaced by one contextual catalog.
+It asks what relation a term names instead of mapping suspect words to approved
+synonyms. The 30% and 50% change-rate thresholds remain a conservative house
+policy rather than empirical quality cutoffs. An isolated model cold read is
+now described as a self-containment proxy, not actual-reader testing.
 
 ## Generation 2 (2026-07): clear-writing
 
-`clear-writing` absorbs six sources:
+`clear-writing` combines the source families below:
 
 | Source | What it contributed |
 | --- | --- |
@@ -26,18 +91,19 @@ Key decisions, in order of how hard they would be to reverse:
   surface: one request should have one firing candidate. Fallback recorded in
   `redesign-plan.md`: split authoring/revision only if over-triggering is
   observed in practice.
-- **Two-tier system.** The skill is the on-demand deep tier. An always-on core
-  (14 Korean answer rules) lives as a draft in
-  `clear-writing/references/core-rules.md`; installing it into always-on agent
-  layers is a deferred decision tracked in that file.
+- **Two-tier system.** The skill is the on-demand deep tier. The always-on core
+  has 15 Korean answer rules. Its canonical block and portable installation
+  procedure live in `slop-aware-writing/references/core-rules.md`. Maintainer
+  deployments may copy the current block as `clear-writing:core v2` into a
+  harness-supported always-on instruction surface.
 - **Evidence ledger over flat rules.** Every Korean rule carries its
-  justification type: measured AI discriminator, Korean style evidence,
-  observation-only, or house style. Upstream's 2026-07 corpus study rejected
-  two popular rules (A-2 "~를 통해", I-1 "것이다" — humans use both more than
-  AI); they are kept only as conditioned style rules. This revises Generation
-  1's "one language-neutral core" decision: Korean earned a dedicated
-  reference layer inside the same skill, synced to upstream pattern IDs with a
-  quarterly delta check.
+  justification type: external group-level measurement, unreproduced upstream
+  self-study, Korean style evidence, observation-only, or house style. The
+  upstream self-study rejected two popular rules (A-2 "~를 통해", I-1
+  "것이다"; humans used both more in its sample), so they remain conditioned
+  style rules. This revises Generation 1's "one language-neutral core"
+  decision: Korean earned a dedicated reference layer inside the same skill,
+  synced to upstream pattern IDs with a quarterly delta check.
 - **House style became a profile.** The company line's em-dash prohibition and
   workplace-slang rules are a selectable strict profile, not a separate
   company build and not an AI-detection claim.
@@ -77,6 +143,8 @@ concerns to six skills.
 
 ## Standing maintenance decisions
 
+- Source provenance, inspection dates, adopted ideas, rejected ideas, and
+  reuse status live in `sources-and-inspiration.md`.
 - Publish and update through `npx skills` from this repository's `main`
   branch. No manual per-agent copies, symlinks, or install adapters.
 - No banned-phrase lint script: whether wording is synthetic depends on
@@ -87,3 +155,6 @@ concerns to six skills.
   empirical-validation notes against `korean-tells.md`; carry over ID-level
   changes only. Rules are removed when evidence turns against them — a rule
   that is merely popular is not protected.
+- Recheck Italian and Chinese official sources by locale and date before
+  changing a language rule. Do not infer a regional convention from script
+  alone or extend one generated-text corpus beyond its model and genre.

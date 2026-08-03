@@ -1,9 +1,11 @@
 # Contributing
 
 This repository publishes one installable skill. Changes are small and
-frequent, and the commit log is the only place that records why a rule exists,
-what evidence it rests on, and what was checked before it shipped. The rules
-below exist so that log stays readable a year later.
+frequent. The commit log is the durable decision record for why a change was
+made, what it rejected, and what was checked before it shipped. Source
+provenance, inspection dates, and reuse status live in the
+[source register](docs/sources-and-inspiration.md). The rules below keep the
+decision history readable a year later.
 
 ## Commit Boundaries
 
@@ -77,7 +79,7 @@ Run the checks that the change actually touches, and report their results in
 the body:
 
 ```bash
-npx --yes skills add . --list --full-depth   # must report exactly: clear-writing
+npx --yes skills add . --list --full-depth   # must report exactly: slop-aware-writing
 ```
 
 Also confirm that every referenced path exists, that `SKILL.md`'s frontmatter

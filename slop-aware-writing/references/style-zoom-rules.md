@@ -1,7 +1,8 @@
 # Style Zoom Repair Patterns
 
 Use the smallest section that matches the observed documentation problem. The
-patterns are examples, not mandatory syntax.
+patterns are examples, not mandatory syntax. Angle-bracket link targets are
+placeholders; replace them with inspected repository paths.
 
 ## Sentence
 
@@ -14,7 +15,7 @@ as described in the transport guide.
 
 <!-- Clear -->
 When retry mode is enabled, the client retries writes after transient failures.
-See [retry behavior](transport.md#retries).
+See [retry behavior](<path-to-transport-doc#retries>).
 ```
 
 Do not split a sentence merely because it has two clauses. Split when readers
@@ -71,7 +72,7 @@ Consolidate facts that are volatile, duplicated in full, and already drifting.
 
 ```markdown
 Run `uv run pytest` for the default suite. See
-[test options](docs/testing.md) for markers and integration setup.
+[test options](<path-to-testing-doc>) for markers and integration setup.
 ```
 
 A summary plus a link is useful duplication. Keep required local context in
@@ -79,7 +80,8 @@ safety procedures, setup prerequisites, and offline reference material.
 
 ## Links and Renderer Surfaces
 
-Prefer descriptive link text such as `[retry behavior](transport.md#retries)`.
+Prefer descriptive link text such as
+`[retry behavior](<path-to-transport-doc#retries>)`.
 Raw URLs and paths are fine when they are data. Introduce notes, tabs, diagrams,
 or collapsible blocks only when the renderer supports them and hidden content
 remains discoverable and safe.

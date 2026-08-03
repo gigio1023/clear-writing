@@ -35,15 +35,17 @@ ornamental in others.
 
 Before accepting or coining a name for a new concept, find what practitioners
 already call the same thing in a running system (CI/CD, build systems,
-Kubernetes, code review) and adopt that name — check the tool's own docs or
-config schema, not prose about it. "wave" → `stage`; `depends_on` → `needs`
-(GitHub Actions); "evidence" → `output`/`results`/`log`. When no running
-system names the concept, say it in plain words instead of inventing a term.
+Kubernetes, code review) and check the tool's own docs or config schema, not
+prose about it. GitHub Actions job dependencies use the official `needs` field;
+preserve another system's official dependency field instead of normalizing it
+to GitHub's name. Distinguish evidence from an output, result, or log unless the
+actual system defines them as the same object. When no running system names the
+concept, say it in plain words instead of inventing a term.
 
 ## Evidence, proportional to the decision
 
-Scan with `known-slop-terms.md` when a broad pass is
-useful, then read every hit in sentence and domain context. Investigate only
+Use `terminology-catalog.md` when a broad pass is useful, then read every hit
+in sentence and domain context. Investigate only
 consequential or genuinely uncertain terms, following
 `verification-procedure.md`:
 
@@ -59,10 +61,10 @@ regulated term may need primary evidence.
 
 ## Replacement
 
-Use `replacement-patterns.md` as a candidate menu,
-not a mapping. Preserve technical meaning, requirement level, uncertainty, and
-register; rewrite the full sentence when word-swapping produces awkward Korean
-or English. Never alter identifiers, schema fields, commands, quoted text,
+Use the decision questions in `terminology-catalog.md`, not a replacement map.
+Preserve technical meaning, requirement level, uncertainty, and register;
+rewrite the full sentence when word-swapping produces awkward prose in the
+target language. Never alter identifiers, schema fields, commands, quoted text,
 trademarks, or external API names without explicit request. Local frequency is
 house-style evidence, not proof of correctness; a rare term can be right for a
 specialist audience.
