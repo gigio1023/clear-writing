@@ -2,6 +2,27 @@
 
 Use this file for deviations that affect later review.
 
+## 2026-08-03
+
+- Plan: keep the published handle unchanged until the maintainer selected a
+  replacement.
+- Reality: the maintainer selected `slop-aware-writing`. The earlier
+  `grounded-*` candidates overrepresented source verification, which is a
+  guardrail rather than the skill's primary trigger.
+- Conservative choice: rename the installable folder, frontmatter, current
+  documentation, and CLI examples. Keep the GitHub repository slug
+  `gigio1023/clear-writing` because renaming the remote is a separate external
+  action. Keep the deployed `clear-writing:core v2` wrapper as a legacy update
+  marker because copies may already exist outside this repository.
+- Revisit: after PR #4 merges, update the external `agent-skills` catalog and
+  decide separately whether the GitHub repository slug should change.
+- Verification: the skill validator passed at 7,897 bytes and 148 lines; both
+  Skills CLI listing modes found exactly one installable skill named
+  `slop-aware-writing`; all 19 direct references and current relative Markdown
+  links resolve; the portable body contains no harness-specific paths or
+  invocation syntax. No Codex or Claude Code behavior run was performed for
+  this package-only rename.
+
 ## 2026-08-02
 
 - Plan: rename the skill while making the multilingual change.

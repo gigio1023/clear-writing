@@ -3,10 +3,12 @@
 > 상태: 이 문서는 초기 설계를 보존한 historical 기록이며 현재 실행
 > 계획으로는 superseded 상태다. 하단의 보류 표기를 현재 결정으로 읽지
 > 않는다. D4는 후속 구현에서 해결했다. 한국어 답변 수칙 15개를
-> `clear-writing/references/core-rules.md`의 `clear-writing:core v1` 블록으로
+> `slop-aware-writing/references/core-rules.md`의 당시
+> `clear-writing:core v1` 블록으로
 > 당시 상시 계층을 구성했다. 현재 정본은 v2며 상시 계층 반영은
-> 설치자가 별도로 갱신해야 한다. 현재 작동 규약은 `clear-writing/SKILL.md`와
-> `clear-writing/references/`를 따른다. 아래 본문은 2026-07-26 당시의
+> 설치자가 별도로 갱신해야 한다. 현재 작동 규약은
+> `slop-aware-writing/SKILL.md`와 `slop-aware-writing/references/`를 따른다.
+> 설치 마커는 배포 호환성을 위해 기존 이름을 유지한다. 아래 본문은 2026-07-26 당시의
 > 계획과 미해결 상태를 설명하므로 고치지 않았다.
 > 2026-08 다국어 재설계에서는 아래의 `known-slop-terms.md`와
 > `replacement-patterns.md`를 중복된 과거 목표로 판정하고 현재의

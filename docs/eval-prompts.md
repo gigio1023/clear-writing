@@ -80,12 +80,12 @@ Expected:
 Expected:
 
 - neither request loads this skill: grammar-only checks and translation are
-  out of scope (NOT-for list in `../clear-writing/SKILL.md`)
+  out of scope (NOT-for list in `../slop-aware-writing/SKILL.md`)
 
 ## Package checks
 
 From the repository root, both commands should discover exactly one skill
-named `clear-writing`:
+named `slop-aware-writing`:
 
 ```bash
 npx --yes skills add . --list

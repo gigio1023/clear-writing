@@ -1,18 +1,19 @@
-# clear-writing
+# slop-aware-writing
 
 [![skills.sh](https://skills.sh/b/gigio1023/clear-writing)](https://skills.sh/gigio1023/clear-writing)
-![prose](https://img.shields.io/badge/prose-EN%20%7C%20KO%20%7C%20IT%20%7C%20ZH-22684E)
+![writing](https://img.shields.io/badge/writing-EN%20%7C%20KO%20%7C%20IT%20%7C%20ZH-22684E)
 ![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2019%20references-555)
 [![license](https://img.shields.io/badge/license-MIT-555)](LICENSE)
 
-문서에서 AI slop을 걷어내면서 원문의 의미와 저자 목소리를 보존합니다. 이
-스킬에서 slop은 작성 주체를 가리키는 표지가 아닙니다. 그럴듯하게 완성하려는
-압력이 선택, 근거, 독자 맥락, 관점을 밀어낸 기능적 글쓰기 결함입니다.
+AI slop을 예방하거나 걷어내면서 문서를 작성하고 개고합니다. 원문의 의미와
+저자 목소리는 보존합니다. 이 스킬에서 slop은 작성 주체를 가리키는 표지가
+아닙니다. 그럴듯하게 완성하려는 압력이 선택, 근거, 독자 맥락, 관점을 밀어낸
+기능적 글쓰기 결함입니다.
 
-`clear-writing`은 휴머나이즈와 deslop 작업을 중심으로 README, 가이드, 스펙,
-ADR, 메모, 위키, 블로그 초안을 다룹니다. 일반 문법과 관용 표현은 LLM의 기본
-언어 능력에 맡깁니다. 스킬에는 AI slop 진단, 근거 경계, 목소리 보호, 최소 수정
-판정처럼 기본 유창성만으로 지키기 어려운 규칙을 남깁니다.
+`slop-aware-writing`은 휴머나이즈와 deslop 작업을 중심으로 README, 가이드,
+스펙, ADR, 메모, 위키, 블로그 초안을 다룹니다. 일반 문법과 관용 표현은 LLM의
+기본 언어 능력에 맡깁니다. 스킬에는 AI slop 진단, 근거 경계, 목소리 보호,
+최소 수정 판정처럼 기본 유창성만으로 지키기 어려운 규칙을 남깁니다.
 
 [구조](#구조) · [언어 오버레이](#언어-오버레이) · [근거](#근거와-계보) ·
 [패키지](#패키지-구조) · [설치](#설치) · [개발](#로컬-개발)
@@ -82,7 +83,7 @@ clear-writing/
 ├── README.ko.md
 ├── LICENSE
 ├── docs/                   # 출처와 설계 기록, 설치 대상 아님
-└── clear-writing/          # 설치되는 스킬 하나
+└── slop-aware-writing/     # 설치되는 스킬 하나
     ├── SKILL.md
     └── references/         # 19개, 작업과 언어에 따라 로드
 ```
@@ -97,7 +98,7 @@ Node.js 22.20.0 이상이 필요합니다.
 
 ```bash
 npx --yes skills add 'gigio1023/clear-writing#main' \
-  --skill clear-writing \
+  --skill slop-aware-writing \
   --agent codex claude-code \
   --global \
   --yes
@@ -106,7 +107,20 @@ npx --yes skills add 'gigio1023/clear-writing#main' \
 에이전트 ID는 필요에 따라 바꿉니다. `cursor`, `gemini-cli`, `antigravity`도
 지원합니다. 프로젝트에만 설치하려면 `--global`을 뺍니다. 설치 확인은
 `npx --yes skills list --global`, 갱신은
-`npx --yes skills update clear-writing --global --yes`를 씁니다.
+`npx --yes skills update slop-aware-writing --global --yes`를 씁니다.
+
+### 이름 변경 마이그레이션
+
+기존 `clear-writing` 설치는 자동으로 이름이 바뀌지 않습니다.
+`slop-aware-writing`을 설치하고 새 handle이 보이는지 확인한 다음 기존 전역
+handle을 제거합니다.
+
+```bash
+npx --yes skills remove --global clear-writing --yes
+```
+
+프로젝트 설치에서는 `--global`을 뺍니다. GitHub 저장소 주소는
+`gigio1023/clear-writing`을 유지하고 설치되는 스킬 이름만 바뀝니다.
 
 ## 로컬 개발
 
@@ -114,6 +128,6 @@ npx --yes skills add 'gigio1023/clear-writing#main' \
 npx --yes skills add . --list --full-depth
 ```
 
-공개하기 전에 명령이 `clear-writing` 하나만 찾는지, frontmatter와 폴더 이름이
-같은지, 모든 reference 링크가 존재하는지, 두 README가 같은 패키지를 설명하는지
-확인합니다.
+공개하기 전에 명령이 `slop-aware-writing` 하나만 찾는지, frontmatter와 폴더
+이름이 같은지, 모든 reference 링크가 존재하는지, 두 README가 같은 패키지를
+설명하는지 확인합니다.

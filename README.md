@@ -1,20 +1,21 @@
-# clear-writing
+# slop-aware-writing
 
 [![skills.sh](https://skills.sh/b/gigio1023/clear-writing)](https://skills.sh/gigio1023/clear-writing)
-![prose](https://img.shields.io/badge/prose-EN%20%7C%20KO%20%7C%20IT%20%7C%20ZH-22684E)
+![writing](https://img.shields.io/badge/writing-EN%20%7C%20KO%20%7C%20IT%20%7C%20ZH-22684E)
 ![package](https://img.shields.io/badge/SKILL.md-router%20%2B%2019%20references-555)
 [![license](https://img.shields.io/badge/license-MIT-555)](LICENSE)
 
-Remove AI slop from documents without flattening the writer's meaning or voice.
-The skill treats slop as a functional writing failure: plausible completion has
-replaced selection, evidence, reader context, or a real point of view. It does
-not treat grammar mistakes or surface markers as proof of authorship.
+Write and revise documents while preventing or removing AI slop without
+flattening the writer's meaning or voice. The skill treats slop as a functional
+writing failure: plausible completion has replaced selection, evidence, reader
+context, or a real point of view. It does not treat grammar mistakes or surface
+markers as proof of authorship.
 
-`clear-writing` handles humanizing and deslop passes, plus slop-aware work on
-README, guides, specs, API references, ADRs, memos, wiki pages, and blog drafts.
-It trusts the LLM's base fluency for ordinary grammar and idiom. The skill adds
-the diagnosis, evidence boundary, voice protection, and minimal-edit tests that
-general language competence does not supply reliably.
+`slop-aware-writing` handles humanizing and deslop passes, plus slop-aware work
+on README, guides, specs, API references, ADRs, memos, wiki pages, and blog
+drafts. It trusts the LLM's base fluency for ordinary grammar and idiom. The
+skill adds the diagnosis, evidence boundary, voice protection, and minimal-edit
+tests that general language competence does not supply reliably.
 
 [Architecture](#architecture) · [Languages](#language-overlays) ·
 [Evidence](#evidence-and-lineage) · [Layout](#package-layout) ·
@@ -90,7 +91,7 @@ clear-writing/
 ├── README.ko.md
 ├── LICENSE
 ├── docs/                   # provenance and design records; not installed
-└── clear-writing/          # the one installable skill
+└── slop-aware-writing/     # the one installable skill
     ├── SKILL.md
     └── references/         # 19 files, loaded by job and language
 ```
@@ -105,7 +106,7 @@ Requires Node.js 22.20.0 or newer.
 
 ```bash
 npx --yes skills add 'gigio1023/clear-writing#main' \
-  --skill clear-writing \
+  --skill slop-aware-writing \
   --agent codex claude-code \
   --global \
   --yes
@@ -114,7 +115,20 @@ npx --yes skills add 'gigio1023/clear-writing#main' \
 Change the agent IDs as needed. The CLI also supports `cursor`, `gemini-cli`,
 and `antigravity`. Omit `--global` for a project install. Verify with
 `npx --yes skills list --global`; update with
-`npx --yes skills update clear-writing --global --yes`.
+`npx --yes skills update slop-aware-writing --global --yes`.
+
+### Rename migration
+
+An existing `clear-writing` install is not renamed in place. Install
+`slop-aware-writing`, verify that the new handle appears, then remove the old
+global handle:
+
+```bash
+npx --yes skills remove --global clear-writing --yes
+```
+
+For a project-scoped installation, omit `--global`. The GitHub repository slug
+remains `gigio1023/clear-writing`; only the installable skill handle changed.
 
 ## Local development
 
@@ -123,5 +137,5 @@ npx --yes skills add . --list --full-depth
 ```
 
 Before publishing, confirm that the command finds exactly one skill named
-`clear-writing`, frontmatter matches the folder, every linked reference exists,
-and both READMEs describe the same package.
+`slop-aware-writing`, frontmatter matches the folder, every linked reference
+exists, and both READMEs describe the same package.

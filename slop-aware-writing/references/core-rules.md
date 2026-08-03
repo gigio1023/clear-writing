@@ -1,15 +1,17 @@
 # Core Rules — Always-On Korean Answer Guidelines
 
 > STATUS: CANONICAL (v2, 2026-08-02). This file is the canonical source for
-> the optional always-on Korean tier of the clear-writing system. Inside the
+> the optional always-on Korean tier of the slop-aware-writing system. Inside the
 > active skill it applies only to Korean spans; it is not a multilingual
 > generation baseline.
 >
 > Install format: copy the ruleset between the markers below into the
 > always-on layer verbatim, keeping the
 > `<!-- clear-writing:core v2 --> ... <!-- /clear-writing:core -->` wrapper so
-> later updates replace the block mechanically. Bump the opening version marker
-> and status line whenever the ruleset changes, then re-copy.
+> later updates replace the block mechanically. The wrapper intentionally keeps
+> the previous skill name because deployed copies use it as an update marker.
+> Bump the opening version marker and status line whenever the ruleset changes,
+> then re-copy.
 >
 > Installation target: use the harness's supported always-on instruction
 > surface. Repository maintenance notes may record a maintainer deployment,

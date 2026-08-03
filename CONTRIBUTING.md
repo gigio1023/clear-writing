@@ -79,7 +79,7 @@ Run the checks that the change actually touches, and report their results in
 the body:
 
 ```bash
-npx --yes skills add . --list --full-depth   # must report exactly: clear-writing
+npx --yes skills add . --list --full-depth   # must report exactly: slop-aware-writing
 ```
 
 Also confirm that every referenced path exists, that `SKILL.md`'s frontmatter

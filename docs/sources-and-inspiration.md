@@ -1,6 +1,6 @@
 # Sources and Inspiration
 
-This register records what informed `clear-writing`, what the repository
+This register records what informed `slop-aware-writing`, what the repository
 actually adopted, and what it rejected. It is a provenance record, not a claim
 that every source is equally authoritative. Research findings, official
 guidance, open-source skills, and a maintainer-supplied social post carry

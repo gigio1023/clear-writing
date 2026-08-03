@@ -1,24 +1,25 @@
 ---
-name: clear-writing
+name: slop-aware-writing
 description: >
-  Use for removing AI-slop patterns and restoring natural, source-grounded
-  prose in English, Korean, Italian, or Chinese. Covers humanizing or deslop
-  requests ("AI 티 빼줘"), formulaic or generic model-assisted drafts,
-  session-dependent documents, voice-preserving revision, terminology review,
-  and slop-aware authoring of README, guides, specs, ADRs, memos, and posts.
-  Also handles intra-Chinese locale or script normalization. NOT for
-  grammar- or spelling-only proofreading, translation between languages,
-  Python docstrings, prompt coaching, diagrams, PR/commit/issue copy, or
-  implementation changes.
+  Use for writing or revising documents in English, Korean, Italian, or Chinese
+  when the work must prevent or remove AI slop while preserving meaning,
+  evidence boundaries, reader context, and the writer's voice. Covers
+  humanizing or deslop requests ("AI 티 빼줘"), formulaic or generic
+  model-assisted drafts, session-dependent documents, terminology review, and
+  slop-aware authoring of README, guides, specs, ADRs, memos, and posts. Also
+  handles intra-Chinese locale or script normalization. NOT for grammar- or
+  spelling-only proofreading, translation between languages, Python docstrings,
+  prompt coaching, diagrams, PR/commit/issue copy, or implementation changes.
 ---
 
-# Clear Writing
+# Slop-Aware Writing
 
-Remove reader-visible AI slop while preserving meaning, evidence, and the
-writer's voice. Here, **AI slop** means prose whose plausible completeness
-displaces the reader's job: generic claims, performed reasoning, template
-completion, irrelevant exhaustiveness, hidden session context, or a flattened
-voice. It is a functional diagnosis, not an authorship verdict.
+Write and revise documents with active awareness of reader-visible AI slop.
+Preserve meaning, evidence, and the writer's voice. Here, **AI slop** means
+prose whose plausible completeness displaces the reader's job: generic claims,
+performed reasoning, template completion, irrelevant exhaustiveness, hidden
+session context, or a flattened voice. It is a functional diagnosis, not an
+authorship verdict.
 
 Trust the model's base fluency for ordinary grammar, spelling, idiom, and
 syntax. This skill supplies the part base fluency does not: a slop definition,

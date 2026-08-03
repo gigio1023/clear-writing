@@ -1,12 +1,27 @@
 # Design and Lineage Notes
 
-This repository's skill has four design generations. The 2026-03 generation
+This repository's skill has five design generations. The 2026-03 generation
 built `humanize-doc` from an external anti-slop line and an internal
 document-composition line. The 2026-07 generation built `clear-writing` by
 consolidating six writing skills into one. The 2026-08 generation separated a
 common integrity core from English, Korean, Italian, and Chinese language
-layers, then recentered them on model-native slop diagnosis. These notes record
-the lineage; they are not an installation path.
+layers, recentered them on model-native slop diagnosis, then adopted the
+`slop-aware-writing` handle. These notes record the lineage; they are not an
+installation path.
+
+## Generation 5 (2026-08): slop-aware-writing
+
+The maintainer selected `slop-aware-writing` after the contract review showed
+that source grounding is a conditional guardrail rather than the primary
+trigger. The new handle names the domain and the diagnostic lens without
+reducing the skill to proofreading or authorship detection. The repository
+slug remains `gigio1023/clear-writing`; the installable folder, frontmatter,
+current documentation, and CLI handle use `slop-aware-writing`.
+
+The optional Korean always-on block retains the legacy
+`clear-writing:core v2` wrapper. That marker is an update interface copied into
+external instruction files, so changing it during a package rename would leave
+existing deployments undiscoverable by a mechanical replacement.
 
 ## Generation 4 (2026-08): model-native anti-slop
 
@@ -78,7 +93,7 @@ Key decisions, in order of how hard they would be to reverse:
   observed in practice.
 - **Two-tier system.** The skill is the on-demand deep tier. The always-on core
   has 15 Korean answer rules. Its canonical block and portable installation
-  procedure live in `clear-writing/references/core-rules.md`. Maintainer
+  procedure live in `slop-aware-writing/references/core-rules.md`. Maintainer
   deployments may copy the current block as `clear-writing:core v2` into a
   harness-supported always-on instruction surface.
 - **Evidence ledger over flat rules.** Every Korean rule carries its
